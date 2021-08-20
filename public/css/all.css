@@ -1,0 +1,101 @@
+.color--lets{
+    color: #68c3ed;
+}
+.btn-lets{
+    background-color: #68c3ed;
+    border-color: #68c3ed;
+    color: #fff;
+}
+.card-header-lets{
+    background-color: #fff;
+}
+.background-lets{
+    background-color: #68c3ed;
+}
+/* NAV */
+.margin-right-nav{
+    margin-right: 50px;
+}
+.nav-white{
+    color: #fff!important;
+}
+/* QUIENES SOMOS */
+.we-article{
+    border: #68c3ed solid 2px;
+    border-radius: 5px;
+    margin-top: 100px;
+}
+.we-title{
+    border-bottom: #68c3ed solid 2px;
+}
+/* HOME ADMIN */
+.home--title{
+    margin: 100px 0;
+}
+/* LISTAR SERVICIOS EN UNIDADES */
+.grid-c5{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px 20px;
+}
+/* CREAR CORRIDA */
+.new--corrida--precio{
+    margin-top: 30px;
+}
+/* MODIFICAR */
+.crud--new{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+.d-flex-justify-around{
+    justify-content: space-around;
+}
+/* INGRESAR PASAJEROS */
+.grid-c2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 40px 40px;
+}
+input[type="checkbox"]:disabled:active,input[type="checkbox"]:disabled{
+    background-color: red;
+    border-color: red;
+    color: red;
+}
+.size-input-check{
+    height: 20px;
+    width: 20px;
+}
+.width-500{
+    width: 500px;
+}
+@media screen and (max-width: 1094px){
+    .article-pasajeros-responsive{
+        flex-direction: column;
+    }
+    .article-pasajeros-responsive>.section--corrida{
+        margin: auto!important;
+        width: 50%!important;
+    }
+    .article-pasajeros-responsive>.section--pasajeros{
+        margin: auto!important;
+    }
+    .grid-c3-responsive{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media screen and (max-width: 637px){
+    .around--btn{
+        flex-direction: column;
+    }
+    .around--btn>a:first-of-type{
+        margin-bottom: 5px;
+    }
+    .article-pasajeros-responsive>.section--corrida,.width-75-responsive{
+        width: 75%!important;
+    }
+    .grid-c2{
+        grid-template-columns: 1fr;
+        gap: 40px 0;
+    }
+}
