@@ -16,7 +16,7 @@
                     <h4>Salida</h4>
                 </div>
                 <div class="card-body">
-                    <h5>Origen: {{$corrida->origen}}</h5>
+                    <h5>Origen: {{$corrida->origen_tabla->destino}}</h5>
                     <h5>Día: {{$corrida->dia_salida->format('d-m-y')}}</h5>
                     <h5>Hora: {{$corrida->hora_salida}}</h5>
                 </div>
@@ -26,7 +26,7 @@
                     <h4>Llegada</h4>
                 </div>
                 <div class="card-body">
-                    <h5>Destino: {{$corrida->destino}}</h5>
+                    <h5>Destino: {{$corrida->destino_tabla->destino}}</h5>
                     <h5>Día: {{$corrida->dia_llegada->format('d-m-y')}}</h5>
                     <h5>Hora: {{$corrida->hora_llegada}}</h5>
                 </div>

@@ -25,7 +25,7 @@
             </div>
             <div style="margin-top:2rem">
                 <h5>Viaje</h5>
-                <h6>Recorrido: {{$corrida->origen}} - {{$corrida->destino}}</h6>
+                <h6>Recorrido: {{$corrida->origen_tabla->destino}} - {{$corrida->destino_tabla->destino}}</h6>
                 <h6>Salida: {{$corrida->dia_salida->format('d-m-y')}} - {{$corrida->hora_salida}}</h6>
                 <h6>Llegada: {{$corrida->dia_llegada->format('d-m-y')}} - {{$corrida->hora_llegada}}</h6>
             </div>

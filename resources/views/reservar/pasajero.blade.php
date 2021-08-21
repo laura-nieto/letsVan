@@ -3,7 +3,7 @@
 @section('main')
     <article class="m-5">
         <h1 class="text-center">
-            {{$corrida->origen . ' - ' . $corrida->destino}}
+            {{$corrida->origen_tabla->destino . ' - ' . $corrida->destino_tabla->destino}}
         </h1>
     </article>
     <div class="container">

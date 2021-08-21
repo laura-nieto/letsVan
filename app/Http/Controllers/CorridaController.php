@@ -6,6 +6,7 @@ use App\Models\Corrida;
 use Illuminate\Http\Request;
 use App\Models\Unidad;
 use App\Models\Chofer;
+use App\Models\Destino;
 
 class CorridaController extends Controller
 {
@@ -95,7 +96,8 @@ class CorridaController extends Controller
     {
         $unidades = Unidad::all();
         $choferes = Chofer::all();
-        return view('CRUD.crear',['unidades'=>$unidades,'choferes'=>$choferes]);
+        $destinos = Destino::all();
+        return view('CRUD.crear',['unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos]);
     }
 
     /**
@@ -168,7 +170,8 @@ class CorridaController extends Controller
     {
         $unidades = Unidad::all();
         $choferes = Chofer::all();
-        return view('CRUD.edit',['unidad'=>$corrida,'unidades'=>$unidades,'choferes'=>$choferes]);
+        $destinos = Destino::all();
+        return view('CRUD.edit',['unidad'=>$corrida,'unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos]);
     }
 
     /**

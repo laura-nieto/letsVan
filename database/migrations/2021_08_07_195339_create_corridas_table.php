@@ -16,8 +16,8 @@ class CreateCorridasTable extends Migration
         Schema::create('corridas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('origen');
-            $table->string('destino');
+            $table->foreignId('origen')->constrained('destinos')->onDelete('cascade');
+            $table->foreignId('destino')->constrained('destinos')->onDelete('cascade');
             $table->boolean('redondo')->default('0');
             
             $table->date('dia_salida');

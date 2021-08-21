@@ -23,4 +23,13 @@ class Corrida extends Model
     {
         return $this->belongsTo(Unidad::class);
     }
+
+    public function destino_tabla()
+    {
+        return $this->belongsTo(Destino::class,'destino');
+    }
+    public function origen_tabla()
+    {
+        return $this->belongsTo(Destino::class,'origen');
+    }
 }

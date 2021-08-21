@@ -12,7 +12,7 @@
 
         // Crea un ítem en la preferencia
         $item = new MercadoPago\Item();
-        $item->title = 'Pasaje a ' . $corrida->destino;
+        $item->title = 'Pasaje a ' . $corrida->destino_tabla->destino;
         $item->quantity = 1;
         $item->unit_price = $total;
 
@@ -51,12 +51,12 @@
                 </div>
                 <div class="card-body d-flex flex-column flex-md-row justify-content-around">
                     <div class="p-3">
-                        <h5>Origen: {{$corrida->origen}}</h5>
+                        <h5>Origen: {{$corrida->origen_tabla->destino}}</h5>
                         <h5>Salida: {{$corrida->dia_salida->format('d-m-y')}}</h5>
                         <h5>Hora de Salida: {{$corrida->hora_salida}}</h5>
                     </div>
                     <div class="p-3">
-                        <h5>Destino: {{$corrida->destino}}</h5>
+                        <h5>Destino: {{$corrida->destino_tabla->destino}}</h5>
                         <h5>Llegada: {{$corrida->dia_llegada->format('d-m-y')}}</h5>
                         <h5>Hora de Llegada: {{$corrida->hora_llegada}}</h5>
                     </div>

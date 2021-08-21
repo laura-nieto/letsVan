@@ -24,6 +24,10 @@
                             <a href="{{route('corrida.index')}}" class="btn btn-lets">Modificar</a>
                         </div>
                         <div class="card-body d-flex justify-content-between align-items-center border-bottom">
+                            <h5>Destinos</h5>
+                            <a href="{{route('destino.index')}}" class="btn btn-lets">Modificar</a>
+                        </div>
+                        <div class="card-body d-flex justify-content-between align-items-center border-bottom">
                             <h5>Servicios</h5>
                             <a href="{{route('servicio.index')}}" class="btn btn-lets">Modificar</a>
                         </div>
@@ -59,14 +63,24 @@
                         <div class="row">
                             <div class="col">
                                 <label class="form-label">Origen</label>
-                                <input type="text" class="form-control @error('origen')  border-danger  @enderror" placeholder="Origen" name="origen">
+                                <select class="form-select" name="origen">
+                                    <option selected disabled hidden>Seleccionar Origen</option>
+                                    @foreach ($destinos as $destino)
+                                        <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                    @endforeach
+                                </select>
                                 @error('origen')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
                             <div class="col">
                                 <label class="form-label">Destino</label>
-                                <input type="text" class="form-control @error('destino')  border-danger  @enderror" placeholder="Destino" name="destino">
+                                <select class="form-select" name="destino">
+                                    <option selected disabled hidden>Seleccionar destino</option>
+                                    @foreach ($destinos as $destino)
+                                        <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                    @endforeach
+                                </select>
                                 @error('destino')
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror

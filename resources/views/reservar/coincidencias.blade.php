@@ -23,9 +23,9 @@
             <article>
                 <div class="card d-flex flex-md-row align-items-md-center p-2">
                     <div class="card-body w-50 width-75-responsive">
-                        <h5>Origen: <strong>{{$corrida->origen}}</strong></h5>
+                        <h5>Origen: <strong>{{$corrida->origen_tabla->destino}}</strong></h5>
                         <h5>Salida: {{$corrida->dia_salida->format('d-m-y')}} - {{$corrida->hora_salida}}</h5>
-                        <h5>Destino: <strong>{{$corrida->destino}}</strong></h5>
+                        <h5>Destino: <strong>{{$corrida->destino_tabla->destino}}</strong></h5>
                         <h5>Llegada: {{$corrida->dia_llegada->format('d-m-y')}} - {{$corrida->hora_llegada}}</h5>
                         <h5>Servicios:
                             @foreach ($corrida->unidad->servicios as $servicio)

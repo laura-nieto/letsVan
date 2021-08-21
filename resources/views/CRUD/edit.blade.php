@@ -12,6 +12,8 @@
         @break
         @case('corrida')
         Editar Corrida
+        @case('destino')
+        Editar Destino
         @endswitch
     </h1>
 </article>
@@ -121,14 +123,30 @@
                 <section>
                     <div class="mb-3">
                         <label for="" class="form-label">Origen</label>
-                        <input type="text" class="form-control @error('origen') is-invalid @enderror" name="origen" value="{{$unidad->origen}}">
+                        <select class="form-select" name="origen">
+                            <option selected disabled hidden>Seleccionar Origen</option>
+                            @foreach ($destinos as $destino)
+                                @if ($unidad->origen === $destino->id)
+                                    <option selected value="{{$destino->id}}">{{$destino->destino}}</option>
+                                @endif
+                                <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                            @endforeach
+                        </select>
                         @error('origen')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Destino</label>
-                        <input type="text" class="form-control @error('destino') is-invalid @enderror" name="destino" value="{{$unidad->destino}}">
+                        <select class="form-select" name="destino">
+                            <option selected disabled hidden>Seleccionar Destino</option>
+                            @foreach ($destinos as $destino)
+                                @if ($unidad->destino === $destino->id)
+                                    <option selected value="{{$destino->id}}">{{$destino->destino}}</option>
+                                @endif
+                                <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                            @endforeach
+                        </select>
                         @error('destino')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
@@ -218,6 +236,16 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Nombre del servicio</label>
                     <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{$unidad->nombre}}">
+                    @error('nombre')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                @break
+            @case('destino')
+                <div class="mb-3">
+                    <label for="" class="form-label">Nombre del Destino</label>
+                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{$unidad->destino}}">
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror

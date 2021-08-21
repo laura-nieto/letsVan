@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnidadController;
 use App\Http\Controllers\ChoferController;
 use App\Http\Controllers\CorridaController;
 use App\Http\Controllers\PasajeroController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebhoocksController;
 
@@ -21,9 +23,7 @@ use App\Http\Controllers\WebhoocksController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth')->name('index');
+Route::get('/',[HomeController::class,'index'])->middleware('auth')->name('index');
 
 Auth::routes();
 
@@ -57,6 +57,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('chofer',ChoferController::class);
     Route::resource('corrida',CorridaController::class);
     Route::resource('servicio',ServicioController::class);
+    Route::resource('destino',DestinoController::class);
     Route::get('pasajeros',[PasajeroController::class,'verCorridas'])->name('pasajeros.verCorridas');
     Route::get('pasajeros/{id}',[PasajeroController::class,'show'])->name('pasajeros.ver');
 });
