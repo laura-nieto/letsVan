@@ -6,7 +6,7 @@
     @if (Auth::user()->is_admin)
         <div class="container">
             <article class="home--title">
-                <h1 class="text-center">Title</h1>
+                <h1 class="text-center">Panel de Control</h1>
             </article>
             <article>
                 <section>
@@ -44,10 +44,8 @@
             </article>
         </div>
     @else
-        <div class="container">
-            <article class="home--title">
-                <h1 class="text-center">Buscar</h1>
-            </article>
+        <div class="background-image" style="background-image: url({{asset('img/background-user.jpg')}})"></div>
+        <div class="container mt-5">
             @if (session('success'))
                 <div class="alert alert-success mx-2" role="alert">
                     {{session('success')}}
@@ -63,7 +61,7 @@
                         <div class="row">
                             <div class="col">
                                 <label class="form-label">Origen</label>
-                                <select class="form-select" name="origen">
+                                <select class="form-control w-100" aria-label="Seleccione el origen" name="origen">
                                     <option selected disabled hidden>Seleccionar Origen</option>
                                     @foreach ($destinos as $destino)
                                         <option value="{{$destino->id}}">{{$destino->destino}}</option>
@@ -75,8 +73,8 @@
                             </div>
                             <div class="col">
                                 <label class="form-label">Destino</label>
-                                <select class="form-select" name="destino">
-                                    <option selected disabled hidden>Seleccionar destino</option>
+                                <select class="form-control w-100 " aria-label="Seleccione el destino" name="destino">
+                                    <option selected disabled hidden>Seleccionar Destino</option>
                                     @foreach ($destinos as $destino)
                                         <option value="{{$destino->id}}">{{$destino->destino}}</option>
                                     @endforeach
