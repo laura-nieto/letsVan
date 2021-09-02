@@ -32,4 +32,9 @@ class Corrida extends Model
     {
         return $this->belongsTo(Destino::class,'origen');
     }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
 }

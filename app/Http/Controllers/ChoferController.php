@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Chofer;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ChoferController extends Controller
 {
@@ -54,6 +56,15 @@ class ChoferController extends Controller
         $chofer->domicilio = $request->domicilio;
         $chofer->celular = $request->celular;
         $chofer->save();
+
+        $newUser = new User;
+        $newUser->name = $request->nombre;
+        $newUser->lastname = $request->apellido;
+        $newUser->email = $request->email;
+        $newUser->phone = $request->celular;
+        $newUser->role = 2;
+        $newUser->password = Hash::make($request->nombre);
+        $newUser->save();
 
         return redirect()->route('chofer.index')->with('mensaje.success','El chofer ha sido creado.');
     }

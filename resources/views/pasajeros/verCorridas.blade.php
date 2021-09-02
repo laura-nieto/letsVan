@@ -6,7 +6,7 @@
             Ver Pasajeros
         </h1>
     </article>
-    <section class="px-5">
+    <section class="px-sm-5">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -20,7 +20,7 @@
                 @foreach ($corridas as $corrida)
                     <tr>
                         <th scope="row">{{$corrida->id}}</th>
-                        <td>{{$corrida->dia_salida}}</td>
+                        <td>{{$corrida->dia_salida->format('d-m-y')}}</td>
                         <td>{{$corrida->hora_salida}}</td>
                         <td>
                             <a href="{{route('pasajeros.ver',$corrida->id)}}" class="btn btn-lets">Ver</a>

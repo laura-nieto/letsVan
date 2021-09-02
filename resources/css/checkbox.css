@@ -1,0 +1,56 @@
+.td-check-asiento{
+    display: inline-block;
+}
+  
+.propio-check {
+    display: none;
+}
+  
+.label-propio-check{
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+  
+.label-propio-check:before {
+    align-self: center;
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 1.5;
+    transition-duration: 0.4s;
+    transform: scale(0);
+}
+  
+.label-propio-check>img{
+    height: 50px;
+    width: 50px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+}
+  
+:checked + .label-propio-check:before {
+    content: "✓";
+    background-color: rgba(0, 128, 0, 0.801);
+    border: 1px solid rgba(0, 128, 0, 0.801);
+    transform: scale(1);
+}
+  
+:checked + .label-propio-check>img{
+    transform: scale(0.9);
+    /* box-shadow: 0 0 5px #333; */
+    z-index: -1;
+}
+:disabled + .label-propio-check:before{
+    content: "X";
+    background-color: red;
+    border: 1px solid red;
+    transform: scale(1);
+}

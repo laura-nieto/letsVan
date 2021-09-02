@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Destino;
+use App\Models\PaymentsImage;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $destinos = Destino::all();
-        return view('welcome',['destinos'=>$destinos]);
+        $payments = PaymentsImage::where('visto',0)->exists();
+        return view('welcome',['destinos'=>$destinos,'exists'=>$payments]);
     }
 }

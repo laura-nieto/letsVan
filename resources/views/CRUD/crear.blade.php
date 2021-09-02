@@ -80,36 +80,43 @@
             @case('chofer')
                 <div class="mb-3">
                     <label for="" class="form-label">Nombre</label>
-                    <input type="text" class="form-control @error('servicios') is-invalid @enderror" name="nombre" value="{{old('nombre')}}">
+                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{old('nombre')}}">
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Apellido</label>
-                    <input type="text" class="form-control @error('servicios') is-invalid @enderror" name="apellido" value="{{old('apellido')}}">
+                    <input type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{old('apellido')}}">
                     @error('apellido')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">Edad</label>
-                    <input type="number" class="form-control @error('servicios') is-invalid @enderror" name="edad" value="{{old('edad')}}">
+                    <input type="number" class="form-control @error('edad') is-invalid @enderror" name="edad" value="{{old('edad')}}">
                     @error('edad')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">Domicilio</label>
-                    <input type="text" class="form-control @error('servicios') is-invalid @enderror" name="domicilio" value="{{old('domicilio')}}">
+                    <input type="text" class="form-control @error('domicilio') is-invalid @enderror" name="domicilio" value="{{old('domicilio')}}">
                     @error('domicilio')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="">Celular</label>
-                    <input type="text" class="form-control @error('servicios') is-invalid @enderror" name="celular" value="{{old('celular')}}">
+                    <input type="text" class="form-control @error('celular') is-invalid @enderror" name="celular" value="{{old('celular')}}">
                     @error('celular')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="">E-mail</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
+                    @error('email')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -176,7 +183,7 @@
                         <select class="form-select" aria-label="Default select example" name="unidad_id">
                             <option selected hidden value="">Elija una unidad</option>
                             @foreach ($unidades as $unidad)
-                                <option value="{{$unidad->id}}">{{$unidad->placa}}</option>
+                                <option value="{{$unidad->id}}">{{$unidad->marca}} - {{$unidad->placa}}</option>
                             @endforeach
                         </select>
                         @error('unidad_id')

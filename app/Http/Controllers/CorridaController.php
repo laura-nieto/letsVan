@@ -8,8 +8,15 @@ use App\Models\Unidad;
 use App\Models\Chofer;
 use App\Models\Destino;
 
+use Carbon\Carbon;
+
 class CorridaController extends Controller
 {
+    public function informacion_transferencia($idCorrida)
+    {
+        $corrida = Corrida::findOrFail($idCorrida);
+        return view('reservar.informacionTransferencia',['corrida'=>$corrida]);
+    }
     public function informacion_viaje($idCorrida)
     {
         $corrida = Corrida::findOrFail($idCorrida);
@@ -22,7 +29,16 @@ class CorridaController extends Controller
         $total = session('total');
         $corrida = Corrida::findOrFail($idCorrida);
         
-        return view('reservar.pagar',['total'=>$total,'pasajes'=>$pasajes,'corrida'=>$corrida]);
+        //DAYS
+        $today = Carbon::today();
+        $diferencia = $today->diffInDays($corrida->dia_salida);
+        if ($diferencia > 1) {
+            $transferencia = true;
+        } else {
+            $transferencia = false;
+        }
+
+        return view('reservar.pagar',['total'=>$total,'pasajes'=>$pasajes,'corrida'=>$corrida,'transeferencia'=>$transferencia]);
     }
 
     public function validate_asiento(Request $request,$idCorrida)
@@ -52,7 +68,7 @@ class CorridaController extends Controller
             'destino'=>'required',
         ];
         $message=[
-            'required' => 'El campo es obligatorio',
+            'required' => 'Seleccione un :attribute',
         ];
         $request->validate($rules,$message);
       

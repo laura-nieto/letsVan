@@ -10,6 +10,9 @@ use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\DestinoController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebhoocksController;
+use App\Http\Controllers\PaymentsImageController;
+
+use App\Http\Controllers\PrecioController;
 
 
 /*
@@ -27,10 +30,8 @@ Route::get('/',[HomeController::class,'index'])->middleware('auth')->name('index
 
 Auth::routes();
 
-Route::get('/nosotros',function(){
-    return view('nosotros');
-});
-
+Route::get('/pagar/transferencia/subir/{id}',[PaymentController::class,'vista_subir']);
+Route::post('/pagar/transferencia/subir/{id}',[PaymentController::class,'upload_transferencia']);
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/buscar',[CorridaController::class,'buscar'])->name('corrida.buscar');
@@ -44,12 +45,16 @@ Route::middleware(['auth'])->group(function(){
     
     Route::get('/pagar/{id}',[CorridaController::class,'vista_pagar'])->name('vista_pagar');
     Route::post('/descuento/cupon/{id}',[PaymentController::class,'descontar'])->name('descuento_cupon');
+    Route::post('/pagar/transferencia/{id}',[PaymentController::class,'pagar_transferencia'])->name('pagar_transferencia');
+    Route::get('/reserva/success/{id}',[CorridaController::class,'informacion_viaje'])->name('reserva_informacion');
 
+    //MERCADO PAGO
     Route::get('/payment/success/{id}/payment',[PaymentController::class,'vista_success'])->name('payment.success');
     Route::get('/payment/fail',[PaymentController::class,'vista_fail'])->name('payment.fail');
     Route::get('/payment/pending',[PaymentController::class,'vista_pending'])->name('payment.pending');
 
-    Route::get('/reserva/success/{id}',[CorridaController::class,'informacion_viaje'])->name('reserva_informacion');
+    //TRANSFERENCIA
+    Route::get('/reserva/transferencia/{id}',[CorridaController::class,'informacion_transferencia'])->name('reserva_transferencia');
 
     Route::post('/webhooks',WebhoocksController::class);
 
@@ -60,4 +65,9 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('destino',DestinoController::class);
     Route::get('pasajeros',[PasajeroController::class,'verCorridas'])->name('pasajeros.verCorridas');
     Route::get('pasajeros/{id}',[PasajeroController::class,'show'])->name('pasajeros.ver');
+    
+    //TRANSFERENCIAS
+    Route::get('transferencias',[PaymentsImageController::class,'index'])->name('ver_transferencias');
+    Route::get('transferencia/{id}',[PaymentsImageController::class,'show'])->name('ver_transferencia');
+    Route::post('transferencia/{id}',[PaymentsImageController::class,'edit']);
 });

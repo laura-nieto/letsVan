@@ -89,10 +89,23 @@
                     @if($pasajes['adultos'])
                         <h5>Adultos: {{$pasajes['adultos']}} x  ${{$corrida->precio->adulto}}</h5>
                     @endif
+                    @if (session('cupon'))
+                        <h5>Descuento: $60</h5>
+                    @endif
                     <h4>Total a pagar: ${{$total}}</h4>
                 </div>
-                <div class="cho-container m-3">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="cho-container m-3">
 
+                    </div>
+                    @if ($transeferencia)
+                        <div>
+                            <form action="{{route('pagar_transferencia',$corrida->id)}}" method="post">
+                                @csrf
+                                <input type="submit" value="Transferencia" class="btn btn-lets">
+                            </form>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>
@@ -117,7 +130,7 @@
               },
               render: {
                     container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                    label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+                    label: 'Mercado Pago', // Cambia el texto del botón de pago (opcional)
               }
         });
         </script>
