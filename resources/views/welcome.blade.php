@@ -52,6 +52,10 @@
                     <h5>Pasajeros</h5>
                     <a href="{{route('pasajeros.verCorridas')}}" class="btn btn-lets">Ver</a>
                 </div>
+                <div class="card-body d-flex justify-content-between align-items-center border-bottom">
+                    <h5>Nuevo Pasaje</h5>
+                    <a href="{{route('corrida.admin_buscar')}}" class="btn btn-lets">Ver</a>
+                </div>
             </div>
         </section>
     </article>

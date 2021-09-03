@@ -8,6 +8,11 @@ use App\Models\PaymentsImage;
 
 class HomeController extends Controller
 {
+    public function buscador()
+    {
+        $destinos = Destino::all();
+        return view('buscador',['destinos'=>$destinos]);
+    }
     /**
      * Create a new controller instance.
      *

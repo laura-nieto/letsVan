@@ -28,6 +28,8 @@ use App\Http\Controllers\PrecioController;
 
 Route::get('/',[HomeController::class,'index'])->middleware('auth')->name('index');
 
+Route::post('/webhooks',WebhoocksController::class);
+
 Auth::routes();
 
 Route::get('/pagar/transferencia/subir/{id}',[PaymentController::class,'vista_subir']);
@@ -56,7 +58,8 @@ Route::middleware(['auth'])->group(function(){
     //TRANSFERENCIA
     Route::get('/reserva/transferencia/{id}',[CorridaController::class,'informacion_transferencia'])->name('reserva_transferencia');
 
-    Route::post('/webhooks',WebhoocksController::class);
+    // PASAJE ADMIN
+    Route::get('/buscar/admin',[HomeController::class,'buscador'])->name('corrida.admin_buscar');
 
     Route::resource('unidad',UnidadController::class);
     Route::resource('chofer',ChoferController::class);
