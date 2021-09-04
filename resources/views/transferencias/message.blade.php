@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Subir Transferencia - Let's Van</title>
+    <title>Información Transferencia - Let's Van</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -32,26 +32,25 @@
         </nav>
     </header>
     <main>
-        <article class="home--title">
-            <h2 class="text-center">
-                Subir transferencia
-            </h2>
-        </article>
-        <article class="container">
-            @error('transferencia')
-            <div class="alert alert-danger mt-1">{{ $message }}</div>
-            @enderror
-            <section class="card p-5">
-                <form action="" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group">
-                        <label for="exampleFormControlFile1" class="fsize-1">Seleccione la imágen de la transferencia. La extensión debe ser jpeg, png o jpg</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="transferencia">
+        <div class="container">
+            <div class="card mt-5">
+                @if (!$error) 
+                    <div class="card-header bg-danger text-white">
+                        <h4>Error</h4>
                     </div>
-                    <button type="submit" class="btn btn-lets mt-5">Subir</button>
-                </form>
-            </section>
-        </article>
+                    <div class="card-body fsize-1">
+                        <p class="card-text">El tiempo para realizar la transferencia ha pasado y se ha liberado la reservación.</p>
+                    </div>
+                @elseif($error)
+                    <div class="card-header bg-success text-white">
+                        <h4>Recibido</h4>
+                    </div>
+                    <div class="card-body fsize-1">
+                        <p class="card-text">Dentro de las siguientes 24 horas, si la transferencia fue correcta le llegará un correo con el ticket para poder realizar el viaje.</p>
+                    </div>
+                @endif
+            </div>
+        </div>
     </main>
     <footer class="bg-dark text-white mt-5 p-3 footer-index d-flex">
         <div>

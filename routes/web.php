@@ -27,6 +27,8 @@ use App\Http\Controllers\PrecioController;
 */
 
 Route::get('/',[HomeController::class,'index'])->middleware('auth')->name('index');
+Route::get('/terminos-y-condiciones',[HomeController::class,'terminos']);
+Route::get('/avisos-de-privacidad',[HomeController::class,'privacidad']);
 
 Route::post('/webhooks',WebhoocksController::class);
 

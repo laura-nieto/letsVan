@@ -2,7 +2,7 @@
 @section('title',"Editar - Let's Van")
 @section('main')
 <article class="home--title">
-    <h1 class="text-center">
+    <h2 class="text-center">
         @switch(Request::segment(1))
         @case('unidad')
         Editar Unidad
@@ -15,7 +15,7 @@
         @case('destino')
         Editar Destino
         @endswitch
-    </h1>
+    </h2>
 </article>
 <article class="w-75 m-auto border">
     <form action="{{ route(Request::segment(1) . '.update',[$unidad->id])}}" method="post" class="p-5 form--new">

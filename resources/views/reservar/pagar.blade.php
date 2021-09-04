@@ -1,5 +1,5 @@
 @extends('layouts.home')
-@section('title',"Ver Pasajeros - Let's Van")
+@section('title',"Métodos de Pago - Let's Van")
 @section('main')
     @php
         // SDK de Mercado Pago
@@ -29,9 +29,9 @@
         $preference->save();
     @endphp
     <article class="home--title">
-        <h1 class="text-center">
+        <h2 class="text-center">
             Realizar Pago
-        </h1>
+        </h2>
     </article>
     @if (session('success'))
         <div class="alert alert-success mx-2" role="alert">

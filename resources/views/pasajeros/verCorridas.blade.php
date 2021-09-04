@@ -2,9 +2,9 @@
 @section('title',"Ver Pasajeros - Let's Van")
 @section('main')
     <article class="home--title">
-        <h1 class="text-center">
+        <h2 class="text-center">
             Ver Pasajeros
-        </h1>
+        </h2>
     </article>
     <section class="px-sm-5">
         <table class="table table-hover">

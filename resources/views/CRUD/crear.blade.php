@@ -2,7 +2,7 @@
 @section('title',"Crear nuevo - Let's Van")
 @section('main')
 <article class="home--title">
-    <h1 class="text-center">
+    <h2 class="text-center">
         @switch(Request::segment(1))
         @case('unidad')
         Crear nueva Unidad
@@ -15,7 +15,7 @@
         @break
         @default
         @endswitch
-    </h1>
+    </h2>
 </article>
 <article class="w-75 m-auto border">
     <form action="{{ route(Request::segment(1) . '.store')}}" method="post" class="p-5 form--new">

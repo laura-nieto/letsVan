@@ -2,9 +2,9 @@
 @section('title',"Información - Let's Van")
 @section('main')
     <article class="home--title">
-        <h1 class="text-center">
+        <h2 class="text-center">
             Transferencias
-        </h1>
+        </h2>
     </article>
     <article class="crud">
         @if (session('success'))

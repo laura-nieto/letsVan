@@ -5,7 +5,7 @@
 
 
 <article class="home--title">
-    <h1 class="text-center">Crear Pasaje</h1>
+    <h2 class="text-center">Crear Pasaje</h2>
 </article>
 <section class="m-auto shadow-sm p-3 bg-white rounded">
     @if (session('success'))

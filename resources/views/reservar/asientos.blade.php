@@ -1,10 +1,10 @@
 @extends('layouts.home')
-@section('title',"Ver Pasajeros - Let's Van")
+@section('title',"Elegir Asiento - Let's Van")
 @section('main')
     <article class="home--title">
-        <h1 class="text-center">
+        <h2 class="text-center">
             Reservar Asientos
-        </h1>
+        </h2>
     </article>
     @if (session('error'))
         <div class="alert alert-danger px-5" role="alert">

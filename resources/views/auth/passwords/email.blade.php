@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header card-header-lets">{{ __('Cambiar Contraseña') }}</div>
+                <div class="card-header background-lets"><h5>{{ __('Cambiar Contraseña') }}</h5></div>
 
                 <div class="card-body">
                     @if (session('status'))

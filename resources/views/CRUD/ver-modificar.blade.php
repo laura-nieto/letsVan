@@ -2,7 +2,7 @@
 @section('title',"Ver - Let's Van")
 @section('main')
 <article class="home--title">
-    <h1 class="text-center">
+    <h2 class="text-center">
         @switch(Request::segment(1))
         @case('unidad')
         Unidades
@@ -20,7 +20,7 @@
         Destinos
         @break
         @endswitch
-    </h1>
+    </h2>
 </article>
 <article class="crud">
     <section class="w-50 crud--new">

@@ -2,9 +2,9 @@
 @section('title',"Ver Pasajeros - Let's Van")
 @section('main')
     <article class="home--title">
-        <h1 class="text-center">
+        <h2 class="text-center">
             Ver Pasajeros
-        </h1>
+        </h2>
     </article>
     <article class="px-5 d-flex justify-content-between article-pasajeros-responsive">
         <section class=" w-25 mr-4 section--corrida">

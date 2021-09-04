@@ -54,3 +54,10 @@
     border: 1px solid red;
     transform: scale(1);
 }
+
+@media (max-width: 576px) { 
+    .label-propio-check>img{
+        width: 40px;
+        height: 40px;
+    }
+}

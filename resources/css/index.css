@@ -1,9 +1,16 @@
+@font-face {
+    font-family: Smilecomix;
+    src: url('/fonts/Smilecomix.ttf');
+}
 html, body{ 
     min-height: 100vh;
     overflow: auto;
 }
 main{
-    min-height: 95vh;
+    min-height: 85vh;
+}
+h1{
+    font-family: Smilecomix;
 }
 .color--lets{
     color: #68c3ed;
@@ -39,6 +46,13 @@ main{
 .home--title{
     margin: 100px 0;
 }
+.notification{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 2;
+    text-align: center;
+}
 /* HOME USER */
 .height-40{
     min-height: 40vh;
@@ -64,19 +78,26 @@ main{
 .row-span-2{
     grid-row: span 2;
 }
-.img-home{
+.img-home,.img-home-catedral{
     width: 50%;
-    height: 65.79%;
-    max-width: 1491px;
+    max-width: 500px;
+    transform: scaleX(-1);
 }
 .img-icon{
     width: 3em;
 }
-.fsize-1{
+.fsize-1,.form-control,.privacidad p,.privacidad li{
     font-size: 1rem;
 }
-.caracteristicas p, .description-as>p, .footer-index p{
+.footer-index p{
     font-size: 1.1rem;
+}
+.caracteristicas p, .description-as>p{
+    font-size: 1.3rem;
+}
+.caracteristicas h5{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .caracteristicas>div{
     width: 50%;
@@ -95,17 +116,18 @@ main{
     width: 75%;
 }
 .order-list-me li{
+    background-color: #1d1f20;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
     box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
     counter-increment: gradient-counter;
-    margin-top: 1rem;
+    margin-top: 2rem;
     min-height: 3rem;
     padding: 1rem 1rem 1rem 3rem;
     position: relative;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 .order-list-me li:before {
-    background: linear-gradient(135deg, #68c3ed 0%, #83e4e2 100%);
+    background: linear-gradient(135deg, #1d1f20 0%,#68c3ed 100%);
     border-radius: 1rem 1rem 0 1rem;
     content: '';
     height: 3rem;
@@ -117,12 +139,23 @@ main{
     align-items: flex-end;
     box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
     content: counter(gradient-counter);
-    color: #1d1f20;
+    color: #fff;
     display: flex;
     font: 900 1.5em/1 'Montserrat';
     justify-content: flex-end;
     padding: 0.125em 0.25em;
     z-index: 1;
+}
+/* PRIVACIDAD */
+.privacidad{
+    counter-reset: myCounter;
+}
+.counter::before{
+    content: counter(myCounter,upper-roman)". ";
+}
+.counter{
+    counter-increment: myCounter;
+    font-weight: 700;
 }
 .d-grid{
     display: grid;
@@ -169,11 +202,6 @@ main{
     grid-template-columns: repeat(2,1fr);
     gap: 40px 40px;
 }
-input[type="checkbox"]:disabled:active,input[type="checkbox"]:disabled{
-    background-color: red;
-    border-color: red;
-    color: red;
-}
 .size-input-check{
     height: 20px;
     width: 20px;
@@ -210,7 +238,7 @@ input[type="checkbox"]:disabled:active,input[type="checkbox"]:disabled{
         height: 30vh;
     }
     .height-40>h2{
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 }
 @media screen and (max-width: 768px) { 
@@ -222,6 +250,12 @@ input[type="checkbox"]:disabled:active,input[type="checkbox"]:disabled{
     }
     .border-dashed-left{
         border-left: none;
+    }
+    .img-home-catedral{
+        width: 85%;
+    }
+    .fa-arrow-responsive{
+        font-size: 10px;
     }
 }
 @media screen and (max-width: 637px){
@@ -243,9 +277,6 @@ input[type="checkbox"]:disabled:active,input[type="checkbox"]:disabled{
     }
     .height-40>img{
         height: 25vh;
-    }
-    .height-40>h2{
-        font-size: 1.3rem;
     }
 }
 @media (max-width: 576px) { 

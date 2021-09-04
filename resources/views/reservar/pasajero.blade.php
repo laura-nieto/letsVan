@@ -2,9 +2,9 @@
 @section('title',"Reservar Pasajeros - Let's Van")
 @section('main')
     <article class="m-5">
-        <h1 class="text-center">
+        <h2 class="text-center">
             {{$corrida->origen_tabla->destino . ' - ' . $corrida->destino_tabla->destino}}
-        </h1>
+        </h2>
     </article>
     <div class="container">
         <form action="{{route('reservar_asientos',$corrida->id)}}" method="post">

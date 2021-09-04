@@ -45,10 +45,13 @@ class PaymentController extends Controller
             $newImg->save();
         }
    
-        return redirect()->route('index')->with('success','Dentro de las siguientes 24 horas, si la transferencia fue correcta le llegará un correo con el ticket para poder realizar el viaje.');
+        return view('transferencias.message',['error'=>true]);
     }
-    public function vista_subir()
+    public function vista_subir($idOrder)
     {
+        if (Payment::where('number_order',$idOrder)->doesntExist()) {
+            return view('transferencias.message',['error'=>false]);
+        }
         return view('transferencias.subirTransferencia');
     }
 
