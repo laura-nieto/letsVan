@@ -78,9 +78,13 @@ h1{
 .row-span-2{
     grid-row: span 2;
 }
-.img-home,.img-home-catedral{
+.img-home{
     width: 50%;
     max-width: 500px;
+    transform: scaleX(-1);
+}
+.img-home-catedral,.img-home-columna{
+    width: 100%;
     transform: scaleX(-1);
 }
 .img-icon{
@@ -98,6 +102,9 @@ h1{
 .caracteristicas h5{
     font-size: 1.5rem;
     font-weight: 600;
+}
+.font-3{
+    font-size: 3rem;
 }
 .caracteristicas>div{
     width: 50%;
@@ -229,6 +236,9 @@ h1{
     .order-list-me{
         width: 95%;
     }
+    .fa-arrow-responsive{
+        font-size: 8px;
+    }
 }
 @media screen and (max-width:840px) {
     .height-40{
@@ -238,7 +248,7 @@ h1{
         height: 30vh;
     }
     .height-40>h2{
-        font-size: 1.8rem;
+        font-size: 2.3rem;
     }
 }
 @media screen and (max-width: 768px) { 
@@ -255,7 +265,19 @@ h1{
         width: 85%;
     }
     .fa-arrow-responsive{
-        font-size: 10px;
+        font-size: 8px;
+    }
+    .height-40>h2{
+        font-size: 1.9rem;
+    }
+    .letter-responsive .h1{
+        font-size: 2rem;
+    }
+    .letter-responsive .font-3{
+        font-size: 2.5rem;
+    }
+    .letter-responsive h3{
+        font-size: 1.5rem;
     }
 }
 @media screen and (max-width: 637px){
@@ -285,5 +307,8 @@ h1{
     }
     .order-list-me{
         width: 100%;
+    }
+    .height-40>h2{
+        font-size: 1.5rem;
     }
 }

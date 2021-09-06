@@ -10,4 +10,9 @@ class Chofer extends Model
     use HasFactory;
 
     protected $table = 'choferes';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

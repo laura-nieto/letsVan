@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pasajero;
 use Illuminate\Http\Request;
 use App\Models\Corrida;
+use Illuminate\Support\Facades\Auth;
 
 class PasajeroController extends Controller
 {
@@ -70,7 +71,11 @@ class PasajeroController extends Controller
 
     public function verCorridas()
     {
-        $corrida = Corrida::orderByDesc('created_at')->get();
+        if (Auth::user()->role == 2){
+            $corrida = Corrida::where('chofer_id',Auth::user()->chofer->id)->orderByDesc('created_at')->get();
+        }else{
+            $corrida = Corrida::orderByDesc('created_at')->get();
+        }
         return view('pasajeros.verCorridas',['corridas'=>$corrida]);
     }
     /**

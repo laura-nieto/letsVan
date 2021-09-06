@@ -20,6 +20,9 @@ class CreateChofersTable extends Migration
             $table->string('edad');
             $table->string('domicilio');
             $table->string('celular');
+            
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

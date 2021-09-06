@@ -75,7 +75,7 @@
 @elseif(Auth::user()->role === 0)
 {{-- <div class="background-image" style="background-image: url({{asset('img/background-user.jpg')}})"></div> --}}
 <section class="background-lets d-flex justify-content-between height-40">
-    <h2 class="text-white align-self-center h1">
+    <h2 class="align-self-center h1 font-weight-bold font-3">
         Tu mejor opción para viajar cómodo, seguro y a bajo costo.
     </h2>
     <img src="{{asset('img/background-user.png')}}" alt=""
@@ -135,29 +135,32 @@
             </div>
         </article>
         <article class="d-flex justify-content-between">
-            {{-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="viaje_redondo">
-                                <label class="form-check-label">
-                                    Viaje Redondo
-                                </label>
-                            </div> --}}
             <button type="submit" class="btn btn-lets">Buscar</button>
         </article>
     </form>
 </section>
-<section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center">
-    <div class="w-50">
+<section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center justify-content-between">
+    <div class="w-25">
         <img src="{{asset('img/CATEDRAL-MORELIA-BLUE2.png')}}" alt="" class="img-home-catedral">
     </div>
-    <div class="align-self-center">
-        <div class="d-flex align-items-center mb-4 fa-arrow-responsive">
-            <i class="fas fa-arrow-circle-down fa-5x"></i>
-            <h2 class="h1 m-0 ml-2">Morelia</h2>
+    <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive">
+        <div>
+            <div class="d-flex align-items-center mb-4 fa-arrow-responsive">
+                <i class="fas fa-arrow-circle-down fa-5x"></i>
+                <h2 class="h1 m-0 ml-2">Morelia</h2>
+            </div>
+            <div class="d-flex align-items-center fa-arrow-responsive">
+                <i class="fas fa-arrow-circle-up fa-5x"></i>
+                <h2 class="h1 m-0 ml-2">CDMX</h2>
+            </div>
         </div>
-        <div class="d-flex align-items-center fa-arrow-responsive">
-            <i class="fas fa-arrow-circle-up fa-5x"></i>
-            <h2 class="h1 m-0 ml-2">CDMX</h2>
+        <div class="ml-xl-5 mt-4 mt-xl-0 align-self-center">
+            <h3 class="h2 text-center">Viaje sencillo desde</h3>
+            <h2 class="text-success text-center font-weight-bold font-3">$360</h2>
         </div>
+    </div>
+    <div class="w-25">
+        <img src="{{asset('/img/columna.png')}}" alt="" class="img-home-columna">
     </div>
 </section>
 

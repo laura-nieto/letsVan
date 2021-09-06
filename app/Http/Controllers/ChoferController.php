@@ -49,14 +49,6 @@ class ChoferController extends Controller
         ];
         $request->validate($rules,$message);
 
-        $chofer = new Chofer;
-        $chofer->nombre = $request->nombre;
-        $chofer->apellido = $request->apellido;
-        $chofer->edad = $request->edad;
-        $chofer->domicilio = $request->domicilio;
-        $chofer->celular = $request->celular;
-        $chofer->save();
-
         $newUser = new User;
         $newUser->name = $request->nombre;
         $newUser->lastname = $request->apellido;
@@ -65,6 +57,15 @@ class ChoferController extends Controller
         $newUser->role = 2;
         $newUser->password = Hash::make($request->nombre);
         $newUser->save();
+
+        $chofer = new Chofer;
+        $chofer->nombre = $request->nombre;
+        $chofer->apellido = $request->apellido;
+        $chofer->edad = $request->edad;
+        $chofer->domicilio = $request->domicilio;
+        $chofer->celular = $request->celular;
+        $chofer->user_id = $newUser->id;
+        $chofer->save();
 
         return redirect()->route('chofer.index')->with('mensaje.success','El chofer ha sido creado.');
     }
