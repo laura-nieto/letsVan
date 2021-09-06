@@ -75,7 +75,7 @@
 @elseif(Auth::user()->role === 0)
 {{-- <div class="background-image" style="background-image: url({{asset('img/background-user.jpg')}})"></div> --}}
 <section class="background-lets d-flex justify-content-between height-40">
-    <h2 class="align-self-center h1 font-weight-bold font-3">
+    <h2 class="align-self-center h1 font-weight-bold font-3 text-transparent">
         Tu mejor opción para viajar cómodo, seguro y a bajo costo.
     </h2>
     <img src="{{asset('img/background-user.png')}}" alt=""
@@ -101,36 +101,40 @@
                     <option value="1">Redondo</option>
                 </select>
             </div>
-            <div class="d-flex justify-content-between">
-                <div class="w-25 mr-3">
-                    <select class="form-control @error('origen') border-danger @enderror" aria-label="Origen"
+            <div class="d-flex flex-column flex-sm-row justify-content-sm-around">
+                <div class="d-flex w-100">
+                    <div class="mr-3 w-100-sm">
+                        <select class="form-control @error('origen') border-danger @enderror" aria-label="Origen"
                         name="origen">
-                        <option selected disabled hidden>Origen</option>
-                        @foreach ($destinos as $destino)
-                        <option value="{{$destino->id}}">{{$destino->destino}}</option>
-                        @endforeach
-                    </select>
-                    @error('origen')
-                    <small class="text-danger">{{$message}}</small>
-                    @enderror
-                </div>
-                <div class="w-25 mr-3">
-                    <select class="form-control @error('destino') border-danger @enderror" aria-label="Destino"
+                            <option selected disabled hidden>Origen</option>
+                            @foreach ($destinos as $destino)
+                            <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                            @endforeach
+                        </select>
+                        @error('origen')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                    <div class="mr-sm-3 w-100-sm">
+                        <select class="form-control @error('destino') border-danger @enderror" aria-label="Destino"
                         name="destino">
-                        <option selected disabled hidden>Destino</option>
-                        @foreach ($destinos as $destino)
-                        <option value="{{$destino->id}}">{{$destino->destino}}</option>
-                        @endforeach
-                    </select>
-                    @error('destino')
-                    <small class="text-danger">{{$message}}</small>
-                    @enderror
+                            <option selected disabled hidden>Destino</option>
+                            @foreach ($destinos as $destino)
+                            <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                            @endforeach
+                        </select>
+                        @error('destino')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
                 </div>
-                <div class="w-25 mr-3">
-                    <input type="date" class="form-control" placeholder="Fecha de Ida" name="dia_salida">
-                </div>
-                <div class="w-25" style="display:none;" id="input-hidden">
-                    <input type="date" class="form-control" placeholder="Fecha de Vuelta" name="dia_llegada">
+                <div class="d-flex mt-3 mt-sm-0 w-100">
+                    <div class="mr-3 w-100-sm">
+                        <input type="date" class="form-control" placeholder="Fecha de Ida" name="dia_salida">
+                    </div>
+                    <div class="w-100-sm" style="display:none;" id="input-hidden">
+                        <input type="date" class="form-control" placeholder="Fecha de Vuelta" name="dia_llegada">
+                    </div>
                 </div>
             </div>
         </article>

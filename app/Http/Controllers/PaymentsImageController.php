@@ -102,21 +102,12 @@ class PaymentsImageController extends Controller
             default:
                 $paymentsImage = PaymentsImage::findOrFail($paymentsImageID);
                 $paymentsImage->visto = 1;
-                //$paymentsImage->save();
-
-                //DELETE ASIENTOS
-                $pago = $paymentsImage->payment;
-                $asientosReserv = json_decode($pago->asientos);
-                foreach ($asientosReserv as $asientoReserv) {
-                    $asiento = Asiento::where('corrida_id',$pago->corrida->id)->where('asiento',$asientoReserv)->first()->delete();
-                }
-
-                $pago->delete();
-                $comprador = $paymentsImage->payment->comprador;
-                $paymentsImage->delete();
+                $paymentsImage->save();
 
                 //MAIL
-                $correo = new RejectMailable;
+                $comprador = $paymentsImage->payment->comprador;
+                $link = $request->gethost() . '/pagar/transferencia/subir/' . $paymentsImage->payment->number_order;
+                $correo = new RejectMailable($link);
                 Mail::to($comprador->email)->send($correo);
 
                 return redirect()->route('ver_transferencias')->with('success','El pago ha sido rechazado');

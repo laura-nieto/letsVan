@@ -254,12 +254,17 @@ a[x-apple-data-detectors='true'] {
 <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">  
+        <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+          <p style="font-size: 14px; line-height: 140%;">Su pago ha sido rechazado, suba nuevamente la imágen para poder terminar el proceso.</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;">Su pago ha sido rechazado, para reservar nuevamente ingrese a la página web.</p>
-  </div>
-
+        <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+          <p style="font-size: 14px; line-height: 140%;"><a href="http://{{$link}}">Haga click aquí</a> para subir nuevamente la imágen del comprobante.</p>
+        </div>
       </td>
     </tr>
   </tbody>

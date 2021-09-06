@@ -18,11 +18,13 @@
                     <li class="list-group-item">{{$payment->payment->comprador->email}}</li>
                 </ul>
             </div>
-            <form action="" method="post">
-                @csrf
-                <input type="submit" name="submitButton" value="Aprobar" class="btn btn-primary mt-5">
-                <input type="submit" name="submitButton" value="No aprobar" class="btn btn-danger mt-5">
-            </form>
+            @if (!$payment->visto) 
+                <form action="" method="post">
+                    @csrf
+                    <input type="submit" name="submitButton" value="Aprobar" class="btn btn-primary mt-5">
+                    <input type="submit" name="submitButton" value="No aprobar" class="btn btn-danger mt-5">
+                </form>
+            @endif
         </section>
     </div>
 @endsection

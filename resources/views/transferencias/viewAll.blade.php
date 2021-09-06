@@ -18,7 +18,7 @@
                     <tr>
                         <th scope="col">N° de Transferencia</th>
                         <th scope="col">Comprador</th>
-                        <th scope="col">Aprobada</th>
+                        <th scope="col">Revisado</th>
                         <th scope="col" class="text-center">#</th>
                     </tr>
                 </thead>

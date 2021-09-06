@@ -26,6 +26,9 @@ h1{
 .background-lets{
     background-color: #68c3ed;
 }
+.text-transparent{
+    color: rgba(0,0,0,0.7);
+}
 /* NAV */
 .margin-right-nav{
     margin-right: 50px;
@@ -68,6 +71,9 @@ h1{
     max-width: 95%;
     position: relative;
     top: -55px;
+}
+.w-100-sm{
+    width: 100%;
 }
 .w-15{
     width: 15%;
@@ -256,7 +262,7 @@ h1{
         width: 100%;
     }
     .w-15{
-        width: 25%;
+        width: 35%;
     }
     .border-dashed-left{
         border-left: none;
