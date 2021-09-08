@@ -18,10 +18,17 @@
     </h2>
 </article>
 <article class="w-75 m-auto border">
-    <form action="{{ route(Request::segment(1) . '.store')}}" method="post" class="p-5 form--new">
+    <form action="{{ route(Request::segment(1) . '.store')}}" method="post" class="p-5 form--new" enctype="multipart/form-data">
         @csrf
         @switch(Request::segment(1))
             @case('unidad')
+                <div class="mb-5">
+                    @error('imagen')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                    <label for="exampleFormControlFile1" class="fsize-1">Imágen de la unidad.</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen">
+                </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Marca</label>
                     <input type="text" class="form-control @error('servicios') is-invalid @enderror" name="marca" value="{{old('marca')}}">
@@ -183,7 +190,7 @@
                         <select class="form-select" aria-label="Default select example" name="unidad_id">
                             <option selected hidden value="">Elija una unidad</option>
                             @foreach ($unidades as $unidad)
-                                <option value="{{$unidad->id}}">{{$unidad->marca}} - {{$unidad->placa}}</option>
+                                <option value="{{$unidad->id}}">{{$unidad->marca}} - {{$unidad->modelo}}</option>
                             @endforeach
                         </select>
                         @error('unidad_id')

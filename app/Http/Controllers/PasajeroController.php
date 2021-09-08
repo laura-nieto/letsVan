@@ -7,8 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\Corrida;
 use Illuminate\Support\Facades\Auth;
 
+use PDF;
+
 class PasajeroController extends Controller
 {
+    public function download_pasajeros($idCorrida)
+    {
+        $corrida = Corrida::findOrFail($idCorrida);
+        $asientos = $corrida->asientos;
+
+        $pdf = PDF::loadView('pdf.pasajeros',compact('asientos','corrida'));
+        return $pdf->download('pasajeros.pdf');
+    }
+
     public function validate_pasajeros(Request $request,$idCorrida)
     {
         //VALIDACION
@@ -53,6 +64,9 @@ class PasajeroController extends Controller
 
         if (!$request->niños && !$request->adultos) {
             return redirect()->back()->with('error','Debe ingresar la cantidad de pasajeros.');
+        }
+        if ($request->niños && !$request->adultos) {
+            return redirect()->back()->with('error','El niño debe ir acompañado por un adulto.');
         }
         $corrida = Corrida::findOrFail($request->corrida);
         $cantidad = $request->niños + $request->adultos;

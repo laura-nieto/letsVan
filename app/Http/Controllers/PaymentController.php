@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Payment;
 use App\Models\Asiento;
@@ -20,6 +21,24 @@ use PDF;
 
 class PaymentController extends Controller
 {
+    public function see_pagos(Request $request)
+    {
+        $rules=[
+            '*'=>'required',
+        ];
+        $message=[
+            'required' => 'Debe ingresar una fecha',
+        ];
+        $request->validate($rules,$message);
+
+        $coincidencias = Payment::whereBetween('created_at',[$request->desde,$request->hasta])->get();
+        return view('pagos.ver',['payments'=>$coincidencias,'fechas'=>[$request->desde,$request->hasta]]);
+    }
+    public function view_look()
+    {
+        return view('pagos.buscador');
+    }
+
     public function upload_transferencia(Request $request,$idOrder)
     {
         //VALIDACION
@@ -86,6 +105,12 @@ class PaymentController extends Controller
 
     public function pagar_transferencia(Request $request,$idCorrida)
     {
+        if (Auth::check()) {
+            $idUser = auth()->user()->id;
+        }else{
+            $idUser = 2;
+        }
+
         // PASAJEROS
         $indexAsiento=0;
         $asientos=session()->get('asientos');
@@ -99,7 +124,7 @@ class PaymentController extends Controller
             $newAsiento->pasajero_id = $newPasajero->id;
             $newAsiento->corrida_id = $idCorrida;
             $newAsiento->asiento = $asientos[$indexAsiento];
-            $newAsiento->user_id = auth()->user()->id;
+            $newAsiento->user_id = $idUser;
             $newAsiento->save();
 
             $guardarAsientos[]=$asientos[$indexAsiento];
@@ -136,7 +161,7 @@ class PaymentController extends Controller
         $payment = new Payment;
         $payment->corrida_id = $idCorrida;
         $payment->comprador_id = $newComprador->id;
-        $payment->usuario_id = auth()->user()->id;
+        $payment->usuario_id = $idUser;
         $payment->number_order = uniqid();
         $payment->descripcion = json_encode($descripcion);
         $payment->asientos = json_encode($guardarAsientos);
@@ -157,6 +182,11 @@ class PaymentController extends Controller
 
     public function vista_success(Request $request,$idCorrida)
     {    
+        if (Auth::check()) {
+            $idUser = auth()->user()->id;
+        }else{
+            $idUser = 2;
+        }
         // PASAJEROS
         $indexAsiento=0;
         $asientos=session()->get('asientos');
@@ -170,7 +200,7 @@ class PaymentController extends Controller
             $newAsiento->pasajero_id = $newPasajero->id;
             $newAsiento->corrida_id = $idCorrida;
             $newAsiento->asiento = $asientos[$indexAsiento];
-            $newAsiento->user_id = auth()->user()->id;
+            $newAsiento->user_id = $idUser;
             $newAsiento->save();
 
             $guardarAsientos[]=$asientos[$indexAsiento];
@@ -207,7 +237,7 @@ class PaymentController extends Controller
         $payment=new Payment;
         $payment->corrida_id = $idCorrida;
         $payment->comprador_id = $newComprador->id;
-        $payment->usuario_id = auth()->user()->id;
+        $payment->usuario_id = $idUser;
         $payment->number_order = $request->payment_id;
         $payment->descripcion = json_encode($descripcion);
         $payment->asientos = json_encode($guardarAsientos);

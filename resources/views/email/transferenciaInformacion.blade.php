@@ -112,10 +112,10 @@ a[x-apple-data-detectors='true'] {
     <tr>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="center">
         
-        {{-- <img src="{{$message->embed(public_path() .'/img/logo/LOGO-LV.png')}}" alt="Logo de la empresa" width='120'> --}}
-        <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;color:#68c3ed;">
+        <img src="{{$message->embed(public_path() .'/img/logo/LOGO-LV.png')}}" alt="Logo de la empresa" width='120'>
+        {{-- <h1 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: arial,helvetica,sans-serif; font-size: 22px;color:#68c3ed;">
             Let's Van
-        </h1>
+        </h1> --}}
 
       </td>
     </tr>
@@ -254,24 +254,31 @@ a[x-apple-data-detectors='true'] {
 <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
   <tbody>
     <tr>
+      <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px;font-family:arial,helvetica,sans-serif;" align="left" colspan="2">
+        <p style="font-size: 14px; line-height: 140%;margin-bottom:5px;">Los datos para realizar la transferencia son:</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="20" style="vertical-align:middle;padding-left:10px">
+        <img src="{{$message->embed(public_path() .'/img/bbva.png')}}" alt="Logo del banco" width='50'>
+      </td>
       <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px;font-family:arial,helvetica,sans-serif;" align="left">
         
-  <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 140%;margin-bottom:5px;">Los datos para realizar la transferencia son:</p>
-    <p style="font-size: 14px; line-height: 140%;"><strong>Titular:</strong> Guillermo Andrés Pérez Torres</p>
-    <p style="font-size: 14px; line-height: 140%;"><strong>Número de Cuenta:</strong> 293 768 7923</p>
-    <p style="font-size: 14px; line-height: 140%;"><strong>Cuenta CLABE:</strong> 012 180 02937687923 6</p>
-  </div>
+        <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+          <p style="font-size: 14px; line-height: 140%;"><strong>Titular:</strong> Guillermo Andrés Pérez Torres</p>
+          <p style="font-size: 14px; line-height: 140%;"><strong>Número de Cuenta:</strong> 293 768 7923</p>
+          <p style="font-size: 14px; line-height: 140%;"><strong>Cuenta CLABE:</strong> 012 180 02937687923 6</p>
+        </div>
 
       </td>
     </tr>
     <tr>
-        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px;font-family:arial,helvetica,sans-serif;" align="left">
+        <td style="overflow-wrap:break-word;word-break:break-word;padding:4px 10px;font-family:arial,helvetica,sans-serif;" align="left" colspan="2">
           
-    <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-      <p style="font-size: 14px; line-height: 140%;margin-bottom:15px;">Recuerde que solo tiene 8hs. para realizar la tranferencia. Una vez pasado ese tiempo si no se realizó el pago, se liberará la reserva.</p>
-      <p style="font-size: 14px; line-height: 140%;">Una vez realizada la transferencia debe subir una imágen del comprobante, para ello <a href="http://{{$link}}">haga click aquí</a>.</p>
-    </div>
+          <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+            <p style="font-size: 14px; line-height: 140%;margin-bottom:15px;">Recuerde que solo tiene 8hs. para realizar la tranferencia. Una vez pasado ese tiempo si no se realizó el pago, se liberará la reserva.</p>
+            <p style="font-size: 14px; line-height: 140%;">Una vez realizada la transferencia debe subir una imágen del comprobante, para ello <a href="http://{{$link}}">haga click aquí</a>.</p>
+          </div>
   
         </td>
       </tr>

@@ -27,4 +27,8 @@ class Payment extends Model
     {
         return $this->belongsTo(Corrida::class,'corrida_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class,'usuario_id');
+    }
 }

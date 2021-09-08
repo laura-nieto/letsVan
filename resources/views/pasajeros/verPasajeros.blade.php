@@ -8,7 +8,7 @@
     </article>
     <article class="px-5 d-flex justify-content-between article-pasajeros-responsive">
         <section class=" w-25 mr-4 section--corrida">
-            <div class="card text-dark bg-light mb-5">
+            <div class="card text-dark bg-light">
                 <div class="card-header background-lets">
                     <h5>Corrida</h5>
                 </div>
@@ -20,7 +20,11 @@
                         <li class="list-group-item"><strong>Hora Salida: </strong>{{$corrida->hora_llegada}}</li>
                     </ul>
                 </div>
-        </section>
+            </div>
+            <div class="mt-3 mb-5 d-flex justify-content-center">
+                <a href="{{route('pasajeros.descargar',$corrida->id)}}" class="btn btn-lets">Descargar PDF</a>
+            </div>
+            </section>
         <section class="w-75 section--pasajeros">
             <table class="table table-hover m-auto">
                 <thead>

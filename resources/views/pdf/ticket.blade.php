@@ -3,7 +3,6 @@
 
 <head>
     <title>Ticket - Lets Van</title>
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <style>
         * {
             margin: 0;

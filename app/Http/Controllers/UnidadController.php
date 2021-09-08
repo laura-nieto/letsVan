@@ -43,13 +43,23 @@ class UnidadController extends Controller
         $rules=[
             '*'=>'required',
             'costo_renta'=>'integer',
-            'asientos'=>'integer'
+            'asientos'=>'integer',
+            'imagen'=>'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
         $message=[
             'required' => 'El campo es obligatorio',
-            'integer'=> 'Los datos deben ser numéricos'
+            'integer'=> 'Los datos deben ser numéricos',
+            'image' => 'El archivo debe ser una imágen',
+            'mimes' => 'La imágen debe ser jpeg,png o jpg',
+            'max' => 'El archivo debe como máximo :max kb'
         ];
         $request->validate($rules,$message);
+
+        //IMAGEN 
+        if($request->hasfile('imagen')){
+            $nameImg= uniqid() . '.'. $request->file('imagen')->getClientOriginalExtension();
+            $request->file('imagen')->move(public_path('img/unidades'), $nameImg);
+        }
 
         // GUARDAR
         $unity = new Unidad;
@@ -59,6 +69,7 @@ class UnidadController extends Controller
         $unity->propietario = $request->propietario;
         $unity->asientos = $request->asientos;
         $unity->costo_renta = $request->costo_renta;
+        $unity->image = $nameImg;
         $unity->save();
 
         //SERVICIOS

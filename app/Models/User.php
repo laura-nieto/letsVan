@@ -21,7 +21,8 @@ class User extends Authenticatable
         'email',
         'password',
         'lastname',
-        'phone'
+        'phone',
+        'role'
     ];
 
     /**
@@ -46,5 +47,9 @@ class User extends Authenticatable
     public function chofer()
     {
         return $this->hasOne(Chofer::class);
+    }
+    public function payments()
+    {
+        return $this->hasMany(Payment::class,'usuario_id');
     }
 }

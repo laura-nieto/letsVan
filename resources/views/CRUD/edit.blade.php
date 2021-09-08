@@ -184,9 +184,9 @@
                         <select class="form-select" aria-label="Default select example" name="unidad_id">
                             @foreach ($unidades as $auto)
                                 @if ($unidad->unidad_id === $auto->id)
-                                    <option selected value="{{$auto->id}}">{{$auto->placa}}</option>
+                                    <option selected value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option>
                                 @endif
-                                <option value="{{$auto->id}}">{{$auto->placa}}</option>
+                                <option value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option>
                             @endforeach
                         </select>
                         @error('unidad_id')

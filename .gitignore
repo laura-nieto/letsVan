@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/img/transferencias
+/public/img/unidades
 /storage/*.key
 /vendor
 .env

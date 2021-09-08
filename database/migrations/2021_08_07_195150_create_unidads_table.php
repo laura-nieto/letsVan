@@ -21,6 +21,7 @@ class CreateUnidadsTable extends Migration
             $table->string('propietario');
             $table->string('asientos');
             $table->string('costo_renta');
+            $table->string('image');
             $table->timestamps();
         });
     }
