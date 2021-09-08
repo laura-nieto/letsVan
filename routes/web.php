@@ -15,15 +15,6 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\PrecioController;
 
-/* AGREGADO DE COLUMNA 'IMAGEN' EN TABLA DE UNIDADES */
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-Route::get('/actualizar',function(){
-    Schema::table('unidades', function (Blueprint $table) {
-        $table->string('image')->default(null);
-    });
-});
 
 /*
 |--------------------------------------------------------------------------
