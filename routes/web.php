@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Schema;
 
 Route::get('/actualizar',function(){
     Schema::table('unidades', function (Blueprint $table) {
-        $table->string('image');
+        $table->string('image')->default(null);
     });
 });
 
