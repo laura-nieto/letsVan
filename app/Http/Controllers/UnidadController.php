@@ -73,8 +73,10 @@ class UnidadController extends Controller
         $unity->save();
 
         //SERVICIOS
-        foreach ($request->servicios as $servicio) {
-            $unity->servicios()->attach($servicio);
+        if ($request->servicios) {
+            foreach ($request->servicios as $servicio) {
+                $unity->servicios()->attach($servicio);
+            }
         }
 
         return redirect()->route('unidad.index')->with('mensaje.success','La unidad ha sido creada.');

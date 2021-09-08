@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->string('descripcion');
             $table->integer('total');
             $table->string('asientos');
+            $table->string('tipo_pago');
             $table->foreignId('corrida_id')->constrained('corridas')->onDelete('cascade');
             $table->foreignId('comprador_id')->constrained('compradores')->onDelete('cascade');
             $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');

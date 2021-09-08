@@ -7,6 +7,9 @@
         </h2>
     </article>
     <article class="crud">
+        <section class="w-50 crud--new">
+            <a href="{{route('index')}}" class="btn btn-lets fsize-1">Inicio</a>
+        </section>
         @if (session('success'))
             <div class="alert alert-success mx-2" role="alert">
                 {{session('success')}}

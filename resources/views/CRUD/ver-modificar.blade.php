@@ -24,7 +24,8 @@
 </article>
 <article class="crud">
     <section class="w-50 crud--new">
-        <a href="{{Request::segment(1) . '/create'}}" class="btn btn-lets">Crear Nuevo</a>
+        <a href="{{route('index')}}" class="btn btn-lets mr-3 fsize-1">Inicio</a>
+        <a href="{{Request::segment(1) . '/create'}}" class="btn btn-lets fsize-1">Crear Nuevo</a>
     </section>
     @if (session('mensaje.success'))
     <div class="alert alert-success mx-2" role="alert">
@@ -41,7 +42,7 @@
                     <th scope="col">Placa</th>
                     <th scope="col">Propietario</th>
                     <th scope="col">Costo de Renta</th>
-                    <th scope="col" class="text-center">Modificar</th>
+                    <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -72,7 +73,7 @@
                     <th scope="col">Edad</th>
                     <th scope="col">Domicilio</th>
                     <th scope="col">Celular</th>
-                    <th scope="col" class="text-center">Modificar</th>
+                    <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -103,7 +104,7 @@
                     <th scope="col">Hora</th>
                     <th scope="col">Llegada</th>
                     <th scope="col">Hora</th>
-                    <th scope="col" class="text-center">Modificar</th>
+                    <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -131,7 +132,7 @@
                 <tr>
                     <th scope="col">N°</th>
                     <th scope="col">Servicio</th>
-                    <th scope="col" class="text-center">Modificar</th>
+                    <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>

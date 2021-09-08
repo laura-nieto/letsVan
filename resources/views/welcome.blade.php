@@ -4,7 +4,7 @@
 {{-- {{session()->flush();}} --}}
 @guest
     <section class="background-lets d-flex justify-content-between height-40">
-        <h2 class="align-self-center h1 font-weight-bold font-3 asd">
+        <h2 class="align-self-center h1 font-weight-bold font-3 asd mb-4">
             Tu mejor opción para viajar cómodo, seguro y a bajo costo.
         </h2>
         <img src="{{asset('img/background-user.png')}}" alt=""
@@ -12,7 +12,7 @@
 
     </section>
 
-    <section class="search-form m-auto shadow-sm p-3 bg-white rounded">
+    <section class="search-form m-auto shadow-sm p-3 bg-white rounded w-75-lg">
         @if (session('success'))
         <div class="alert alert-success mx-2" role="alert">
             {{session('success')}}
@@ -30,7 +30,7 @@
                         <option value="1">Redondo</option>
                     </select>
                 </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-sm-around">
+                <div class="d-flex flex-column flex-md-row justify-content-sm-around">
                     <div class="d-flex w-100">
                         <div class="mr-3 w-100-sm">
                             <select class="form-control bg-lets-light @error('origen') border-danger @enderror"
@@ -44,7 +44,7 @@
                             <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
-                        <div class="mr-sm-3 w-100-sm">
+                        <div class="mr-md-3 w-100-sm">
                             <select class="form-control bg-lets-light @error('destino') border-danger @enderror"
                                 aria-label="Destino" name="destino">
                                 <option selected disabled hidden>Destino</option>
@@ -57,12 +57,12 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="d-flex mt-3 mt-sm-0 w-100">
-                        <div class="mr-3 w-100-sm">
+                    <div class="d-flex mt-3 mt-md-0 w-100">
+                        <div class="mr-3 w-100-sm w-50">
                             <input type="date" class="form-control bg-lets-light" placeholder="Fecha de Ida"
                                 name="dia_salida">
                         </div>
-                        <div class="w-100-sm" style="display:none;" id="input-hidden">
+                        <div class="w-50" style="display:none;" id="input-hidden">
                             <input type="date" class="form-control bg-lets-light" placeholder="Fecha de Vuelta"
                                 name="dia_llegada">
                         </div>
@@ -81,11 +81,11 @@
         <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive">
             <div>
                 <div class="d-flex align-items-center mb-4 fa-arrow-responsive">
-                    <i class="fas fa-arrow-circle-down fa-5x"></i>
+                    <i class="fas fa-arrow-circle-right fa-5x"></i>
                     <h2 class="h1 m-0 ml-2">Morelia</h2>
                 </div>
                 <div class="d-flex align-items-center fa-arrow-responsive">
-                    <i class="fas fa-arrow-circle-up fa-5x"></i>
+                    <i class="fas fa-arrow-circle-left fa-5x"></i>
                     <h2 class="h1 m-0 ml-2">CDMX</h2>
                 </div>
             </div>
@@ -197,30 +197,40 @@
         <article>
             <section>
                 <div class="card">
-                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
-                        <h5>Unidades</h5>
-                        <a href="{{route('unidad.index')}}" class="btn btn-lets">Modificar</a>
-                    </div>
-                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
-                        <h5>Choferes</h5>
-                        <a href="{{route('chofer.index')}}" class="btn btn-lets">Modificar</a>
+                    <div class="card-header background-lets">
+                        <h4>Administración</h4>
                     </div>
                     <div class="card-body d-flex justify-content-between align-items-center border-bottom">
                         <h5>Corridas</h5>
-                        <a href="{{route('corrida.index')}}" class="btn btn-lets">Modificar</a>
+                        <a href="{{route('corrida.index')}}" class="btn btn-lets">Administrar</a>
                     </div>
                     <div class="card-body d-flex justify-content-between align-items-center border-bottom">
-                        <h5>Destinos</h5>
-                        <a href="{{route('destino.index')}}" class="btn btn-lets">Modificar</a>
+                        <h5>Unidades</h5>
+                        <a href="{{route('unidad.index')}}" class="btn btn-lets">Administrar</a>
                     </div>
                     <div class="card-body d-flex justify-content-between align-items-center border-bottom">
-                        <h5>Servicios</h5>
-                        <a href="{{route('servicio.index')}}" class="btn btn-lets">Modificar</a>
+                        <h5>Choferes</h5>
+                        <a href="{{route('chofer.index')}}" class="btn btn-lets">Administrar</a>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
+                        <h5>Origenes/Destinos</h5>
+                        <a href="{{route('destino.index')}}" class="btn btn-lets">Administrar</a>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
+                        <h5>Servicios de la Unidad</h5>
+                        <a href="{{route('servicio.index')}}" class="btn btn-lets">Administrar</a>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
+                        <h5>Nuevo Pasaje</h5>
+                        <a href="{{route('corrida.admin_buscar')}}" class="btn btn-lets">Crear</a>
                     </div>
                 </div>
             </section>
             <section class="my-5">
                 <div class="card">
+                    <div class="card-header background-lets">
+                        <h4>Reportes</h4>
+                    </div>
                     <div class="card-body d-flex justify-content-between align-items-center border-bottom">
                         <div class="d-flex align-items-center">
                             <h5 class="m-0">Transferencias</h5>
@@ -234,14 +244,6 @@
                         <h5>Pasajeros</h5>
                         <a href="{{route('pasajeros.verCorridas')}}" class="btn btn-lets">Ver</a>
                     </div>
-                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
-                        <h5>Nuevo Pasaje</h5>
-                        <a href="{{route('corrida.admin_buscar')}}" class="btn btn-lets">Ver</a>
-                    </div>
-                </div>
-            </section>
-            <section class="my-5">
-                <div class="card">
                     <div class="card-body d-flex justify-content-between align-items-center border-bottom">
                         <h5>Pagos</h5>
                         <a href="{{route('pagos.buscador')}}" class="btn btn-lets">Ver</a>
@@ -269,15 +271,14 @@
 @elseif(Auth::user()->role === 0)
 {{-- <div class="background-image" style="background-image: url({{asset('img/background-user.jpg')}})"></div> --}}
     <section class="background-lets d-flex justify-content-between height-40">
-        <h2 class="align-self-center h1 font-weight-bold font-3 asd">
+        <h2 class="align-self-center h1 font-weight-bold font-3 asd mb-4">
             Tu mejor opción para viajar cómodo, seguro y a bajo costo.
         </h2>
         <img src="{{asset('img/background-user.png')}}" alt=""
             class="background-image align-self-center align-self-md-start">
-
     </section>
 
-    <section class="search-form m-auto shadow-sm p-3 bg-white rounded">
+    <section class="search-form m-auto shadow-sm p-3 bg-white rounded w-75-lg">
         @if (session('success'))
         <div class="alert alert-success mx-2" role="alert">
             {{session('success')}}
@@ -346,11 +347,11 @@
         <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive">
             <div>
                 <div class="d-flex align-items-center mb-4 fa-arrow-responsive">
-                    <i class="fas fa-arrow-circle-down fa-5x"></i>
+                    <i class="fas fa-arrow-circle-right fa-5x"></i>
                     <h2 class="h1 m-0 ml-2">Morelia</h2>
                 </div>
                 <div class="d-flex align-items-center fa-arrow-responsive">
-                    <i class="fas fa-arrow-circle-up fa-5x"></i>
+                    <i class="fas fa-arrow-circle-left fa-5x"></i>
                     <h2 class="h1 m-0 ml-2">CDMX</h2>
                 </div>
             </div>

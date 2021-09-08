@@ -10,7 +10,7 @@
     <title>Let's Van</title>
 
     <!-- Scripts -->
-    <script src="{{ secure_asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/all.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -88,8 +88,8 @@
             </div>
             <div class="d-flex align-items-center justify-content-center m-auto">
                 <p class="m-0 mr-4">Encontranos en:</p>
-                <a href="https://www.instagram.com/letsvanmx/" class="text-white mr-4"><i class="fab fa-instagram fa-2x"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100072046007486" class="text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="https://www.instagram.com/letsvanmx/" target="_blank" class="text-white mr-4"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100072046007486" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
             </div>
             <div class="d-flex flex-column align-items-center justify-content-center m-auto m-sm-0">
                 <a href="/terminos-y-condiciones">Terminos y Condiciones</a>

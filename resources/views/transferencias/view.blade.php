@@ -2,7 +2,10 @@
 @section('title',"Ver Transferencia - Let's Van")
 @section('main')
     <div class="container">
-        <section class="d-flex flex-column align-items-center mt-5">
+        <section class="w-50 crud--new mt-5">
+            <a href="{{route('ver_transferencias')}}" class="btn btn-lets fsize-1">Volver</a>
+        </section>
+        <section class="d-flex flex-column align-items-center mt-3">
             <div class="images">
                 <img src="{{asset('img/transferencias/'.$payment->imagen)}}" alt="Imágen de transferencia" width="800" height="500">
             </div>

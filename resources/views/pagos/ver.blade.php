@@ -6,6 +6,9 @@
             Pagos {{$fechas[0]}} - {{$fechas[1]}}
         </h2>
     </article>
+    <div class="w-50 crud--new">
+        <a href="{{route('pagos.buscador')}}" class="btn btn-lets fsize-1">Volver</a>
+    </div>
     <article class="p-3 reservas-user">
         <table class="table table-hover">
             <thead class="thead-dark">
@@ -44,9 +47,6 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="mt-4">
-            <a href="{{route('pagos.buscador')}}" class="fz-1">Volver</a>
-        </div>
     </article>
 
 @endsection

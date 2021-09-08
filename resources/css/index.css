@@ -10,7 +10,7 @@ html, body{
     min-height: 100vh;
     overflow: auto;
 }
-main{
+main,.vh-main{
     min-height: 85vh;
 }
 h1{
@@ -264,6 +264,11 @@ h1{
     .reservas-user{
         width: 75%;
         margin: 0 auto;
+    }
+}
+@media screen and (min-width:1200px) {
+    .w-75-lg{
+        width: 75%;
     }
 }
 @media screen and (max-width: 1094px){

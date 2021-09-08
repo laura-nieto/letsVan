@@ -6,6 +6,9 @@
             Ver Pasajeros
         </h2>
     </article>
+    <section class="w-50 crud--new">
+        <a href="{{route('index')}}" class="btn btn-lets fsize-1">Inicio</a>
+    </section>
     <article class="px-5 d-flex justify-content-between article-pasajeros-responsive">
         <section class=" w-25 mr-4 section--corrida">
             <div class="card text-dark bg-light">

@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('title',"Ver Viajes - Let's Van")
 @section('main')
-<div class="background-lets">
+<div class="background-lets vh-main">
     <article class="home--title">
         <h2 class="text-center h1">
             Ver Viajes
@@ -15,7 +15,7 @@
 <section class="px-lg-5 px-2">
     @if ($coincidencias->isEmpty())
         <article>
-            <div class="card p-4">
+            <div class="card p-4 cristal-color">
                 <h4 class="text-center">Parece que no hay viajes con esas características</h4>
             </div>
         </article>

@@ -59,7 +59,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="">Costo</label>
+                    <label class="form-label" for="">Costo de Renta</label>
                     <input type="number" class="form-control @error('servicios') is-invalid @enderror" name="costo_renta" value="{{$unidad->costo_renta}}">
                     @error('costo_renta')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>

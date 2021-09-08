@@ -7,8 +7,10 @@
     <article class="home--title">
         <h2 class="text-center">Ver Pagos</h2>
     </article>
+    <section class="w-50 crud--new">
+        <a href="{{route('index')}}" class="btn btn-lets fsize-1">Inicio</a>
+    </section>
     <section class="m-auto shadow-sm p-3 bg-white rounded">
-       
         <form action="{{route('pagos.coincidencias')}}" method="get">
             <article class="mb-4">
                 <div class="d-flex justify-content-center">

@@ -6,6 +6,9 @@
                 Ver Reservas
             </h2>
         </article>
+        <article class="w-50 crud--new">
+            <a href="{{route('index')}}" class="btn btn-lets fsize-1">Inicio</a>
+        </article>
         <article class="p-3 reservas-user">
             <table class="table table-hover">
                 <thead class="thead-dark">
