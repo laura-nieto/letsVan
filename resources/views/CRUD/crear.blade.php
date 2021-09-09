@@ -17,7 +17,7 @@
         @endswitch
     </h2>
 </article>
-<article class="w-75 m-auto border">
+<article class="w-75 mx-auto mb-5 border">
     <form action="{{ route(Request::segment(1) . '.store')}}" method="post" class="p-5 form--new" enctype="multipart/form-data">
         @csrf
         @switch(Request::segment(1))

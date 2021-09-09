@@ -164,6 +164,7 @@ class PaymentController extends Controller
         $payment->usuario_id = $idUser;
         $payment->number_order = uniqid();
         $payment->descripcion = json_encode($descripcion);
+        $payment->tipo_pago = 'Transferencia';
         $payment->asientos = json_encode($guardarAsientos);
         $payment->total = session()->get('total');
         $payment->pay = 2;  
@@ -241,6 +242,7 @@ class PaymentController extends Controller
         $payment->number_order = $request->payment_id;
         $payment->descripcion = json_encode($descripcion);
         $payment->asientos = json_encode($guardarAsientos);
+        $payment->tipo_pago = 'Mercado Pago';
         $payment->total = session()->get('total');
         $payment->pay = 1;
         $payment->save();
@@ -265,10 +267,8 @@ class PaymentController extends Controller
         //BORRAR DATOS DE SESSION
         $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon']);
         
-        return redirect()->route('reserva_informacion',$idCorrida);
+        return redirect()->route('reserva_informacion',$idCorrida)->with('success','asd');
     }
-
-
 
     
     public function vista_fail()
@@ -278,5 +278,11 @@ class PaymentController extends Controller
     public function vista_pending()
     {
         return redirect()->route('index')->with('success','Su pago está siendo procesado');
+    }
+
+    public function show($idPayment)
+    {
+        $payment = Payment::findOrFail($idPayment);
+        return view('pagos.verUsuario',['payment'=>$payment]);
     }
 }

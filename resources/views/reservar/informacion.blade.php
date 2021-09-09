@@ -7,9 +7,11 @@
         </h2>
     </article>
     <article class="container">
+        @if (session('success'))
         <div class="alert alert-info" role="alert">
             Toda la Información ha sido enviada al correo ingresado.
         </div>
+        @endif
         <section>
             <div class="card mb-3">
                 <div class="card-header background-lets">

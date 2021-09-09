@@ -63,6 +63,7 @@ Route::get('/reserva/transferencia/{id}',[CorridaController::class,'informacion_
 Route::middleware(['auth'])->group(function(){
     // VER RESERVAS
     Route::get('/reservas/ver/{id}',[UserController::class,'ver_reservas'])->name('ver_reservas');
+    Route::get('/pago/{id}',[PaymentController::class,'show'])->name('ver_corrida');
 
     // PASAJE ADMIN
     Route::get('/buscar/admin',[HomeController::class,'buscador'])->name('corrida.admin_buscar')->middleware('admin');

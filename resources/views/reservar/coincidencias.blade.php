@@ -24,34 +24,25 @@
         <article class="mt-2 shadow-sm w-responsive-75">
             <div class="card d-flex flex-md-row align-items-md-center p-2 cristal-color">
                 <div class="card-body d-flex flex-column flex-sm-row flex-wrap w-60 align-items-center">
-                    <div class="w-25">
-                        <div class="w-100">
-                            <img src="{{asset('img/unidades/'.$corrida->unidad->image)}}" alt="Imágen de la unidad"
-                                class="image-unity">
-                        </div>
-                        <div class="mt-4">
-                            
-                        </div>
+                    <div class="w-25 w-100-responsive d-flex justify-content-center d-sm-block">
+                        <img src="{{asset('img/unidades/'.$corrida->unidad->image)}}" alt="Imágen de la unidad"
+                            class="image-unity">
                     </div>
-                    <div class="w-75 align-self-sm-end">
+                    <div class="w-75 mt-3 mt-sm-0">
                         <div class="w-100 d-flex justify-content-center justify-content-sm-around">
                             <div>
                                 <h5 class="text-center"><strong>{{$corrida->origen_tabla->destino}}</strong></h5>
                                 <h5>{{$corrida->dia_salida->format('d-m-y')}}</h5>
                                 <h5>{{$corrida->hora_salida}}</h5>
                             </div>
-                            <div class="mx-5 mx-sm-0">
-                                <img src="{{asset('/img/icon-bus.png')}}" alt="" class="img-icon">
+                            <div class="mx-5 mx-sm-0 d-flex flex-column justify-content-between align-items-center">
+                                <i class="fas fa-arrows-alt-h fa-3x"></i>
+                                <h5><strong>${{$corrida->precio->adulto}} MXN</strong></h5>
                             </div>
                             <div>
                                 <h5 class="text-center"><strong>{{$corrida->destino_tabla->destino}}</strong></h5>
                                 <h5>{{$corrida->dia_llegada->format('d-m-y')}}</h5>
                                 <h5>{{$corrida->hora_llegada}}</h5>
-                            </div>
-                        </div>
-                        <div class="w-100 mt-4 d-flex justify-content-around">
-                            <div>
-                                <h5><strong>${{$corrida->precio->adulto}} MXN</strong></h5>
                             </div>
                         </div>
                     </div>

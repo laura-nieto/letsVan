@@ -15,6 +15,7 @@
                 <tr>
                     <th scope="col">Apellido y Nombre comprador</th>
                     <th scope="col">Teléfono del comprador</th>
+                    <th scope="col">Tipo de Pago</th>
                     <th scope="col">Número de Orden</th>
                     <th scope="col">Total</th>
                     <th scope="col">Estado del Pago</th>
@@ -32,6 +33,7 @@
                     <tr>
                         <td>{{$payment->comprador->apellido . ' ' . $payment->comprador->nombre}}</td>
                         <td>{{$payment->comprador->telefono}}</td>
+                        <td>{{$payment->tipo_pago}}</td>
                         <td>{{$payment->number_order}}</td>
                         <td>{{$payment->total}}</td>
                         <td>
@@ -40,7 +42,7 @@
                             @elseif($payment->pay == 1)
                             Pagado
                             @elseif($payment->pay == 2)
-                            Transferencia aún no paga
+                            Pago no realizado
                             @endif
                         </td>
                     </tr>

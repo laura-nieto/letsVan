@@ -366,4 +366,7 @@ h1{
     .order-list-me{
         width: 100%;
     }
+    .w-100-responsive{
+        width: 100%!important;
+    }
 }

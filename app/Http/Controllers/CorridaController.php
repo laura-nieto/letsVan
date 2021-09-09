@@ -173,7 +173,7 @@ class CorridaController extends Controller
      */
     public function show(Corrida $corrida)
     {
-        //
+        return view('reservar.informacion',['corrida'=>$corrida]);
     }
 
     /**
