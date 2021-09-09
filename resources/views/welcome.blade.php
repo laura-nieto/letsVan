@@ -76,7 +76,7 @@
     </section>
     <section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center justify-content-between">
         <div class="w-25">
-            <img src="{{asset('img/CATEDRAL-MORELIA-BLUE2.png')}}" alt="" class="img-home-catedral">
+            <img src="{{asset('img/CATEDRAL-MORELIA-BLUE_NGO.png')}}" alt="" class="img-home-catedral">
         </div>
         <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive">
             <div>

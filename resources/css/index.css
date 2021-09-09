@@ -145,9 +145,9 @@ h1{
     width: 75%;
 }
 .order-list-me li{
-    background-color: rgba(0,0,0,0.8);
+    /* background-color: rgba(0,0,0,0.8);
     border-radius: 0 0.5rem 0.5rem 0.5rem;
-    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05); */
     counter-increment: gradient-counter;
     margin-top: 2rem;
     min-height: 3rem;
@@ -156,14 +156,14 @@ h1{
     font-size: 1.3rem;
 }
 .order-list-me li:before {
-    background: linear-gradient(135deg, #1d1f20 0%,#68c3ed 100%);
+    background: linear-gradient(135deg, #68c3ed 0%,#1d1f20 100%);
     border-radius: 1rem 1rem 0 1rem;
     content: '';
     height: 3rem;
     left: -1rem;
     overflow: hidden;
     position: absolute;
-    top: -1rem;
+    /* top: -1rem; */
     width: 3rem;
     align-items: flex-end;
     box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
