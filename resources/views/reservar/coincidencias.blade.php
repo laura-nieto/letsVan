@@ -47,11 +47,15 @@
                         </div>
                     </div>
                     <div class="w-100 mt-3">
-                        <h5>Servicios:
+                        <h5 class="font-weight-bold">Servicios:</h5>
+                        <div class="d-flex flex-wrap justify-content-between">
                             @foreach ($corrida->unidad->servicios as $servicio)
-                            {{$servicio->nombre . ', '}}
+                            <div class="border border-white d-flex flex-column servicios-imagen align-items-center p-3 m-2">
+                                <img src="{{asset('/img/servicios/'.$servicio->imagen)}}" alt="">
+                                <p class="mb-0 mt-2 font-weight-bold">{{$servicio->nombre}}</p>
+                            </div>
                             @endforeach
-                        </h5>
+                        </div>
                     </div>
                 </div>
                 <div class="w-40-responsive card-body border-dashed-left ml-sm-3">

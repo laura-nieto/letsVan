@@ -157,7 +157,7 @@
             <thead>
                 <tr>
                     <th scope="col">N°</th>
-                    <th scope="col">Destino</th>
+                    <th scope="col">Ruta</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>

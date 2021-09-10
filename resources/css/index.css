@@ -3,8 +3,8 @@
     src: url('/fonts/Smilecomix.ttf');
 }
 @font-face {
-    font-family: Eastman;
-    src: url('/fonts/Eastman-Condensed-Extrabold-trial.otf');
+    font-family: Super-Mario;
+    src: url('/fonts/super-mario-maker-2.ttf');
 }
 html, body{ 
     min-height: 100vh;
@@ -73,11 +73,8 @@ h1{
 .height-40{
     min-height: 40vh;
 }
-.background-image{
-    height: 35vh;
-}
 .height-40>h2{
-    font-family: 'Eastman', sans-serif;
+    font-family: 'Super-Mario', sans-serif;
     padding-left: 30px;
     width: 40%;
 }
@@ -115,7 +112,7 @@ h1{
 .footer-index p,.fz-1{
     font-size: 1.1rem;
 }
-.caracteristicas p, .description-as>p{
+.caracteristicas p, .description-as>p,.image-caracteristicas + p{
     font-size: 1.3rem;
 }
 .caracteristicas h5{
@@ -137,43 +134,10 @@ h1{
 .social-media{
     width: 35px;
 }
-.order-list-me{
-    counter-reset: gradient-counter;
-    list-style: none;
-    margin: 1.75rem 0;
-    padding-left: 1rem;
-    width: 75%;
-}
-.order-list-me li{
-    /* background-color: rgba(0,0,0,0.8);
-    border-radius: 0 0.5rem 0.5rem 0.5rem;
-    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05); */
-    counter-increment: gradient-counter;
-    margin-top: 2rem;
-    min-height: 3rem;
-    padding: 1rem 1rem 1rem 3rem;
-    position: relative;
-    font-size: 1.3rem;
-}
-.order-list-me li:before {
-    background: linear-gradient(135deg, #68c3ed 0%,#1d1f20 100%);
-    border-radius: 1rem 1rem 0 1rem;
-    content: '';
-    height: 3rem;
-    left: -1rem;
-    overflow: hidden;
-    position: absolute;
-    /* top: -1rem; */
-    width: 3rem;
-    align-items: flex-end;
-    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
-    content: counter(gradient-counter);
-    color: #fff;
-    display: flex;
-    font: 900 1.5em/1 'Montserrat';
-    justify-content: flex-end;
-    padding: 0.125em 0.25em;
-    z-index: 1;
+.image-caracteristicas{
+    height: 45px;
+    object-fit: cover;
+    width: 45px;
 }
 /* PRIVACIDAD */
 .privacidad{
@@ -208,6 +172,14 @@ h1{
     max-width: 100%;
     width: 150px;
 }
+.servicios-imagen{
+    border-radius: 10%;
+    width: 25%;
+    margin-right: 5px;
+}
+.servicios-imagen>img{
+    width: 50px;
+}
 .w-60{
     width: 60%;
 }
@@ -230,6 +202,9 @@ h1{
 /* CREAR CORRIDA */
 .new--corrida--precio{
     margin-top: 30px;
+}
+.w-25-responsive{
+    width: 25%;
 }
 /* MODIFICAR */
 .crud--new{
@@ -270,6 +245,36 @@ h1{
     .w-75-lg{
         width: 75%;
     }
+    .position-bot{
+        bottom: 65px;
+        right: 3px;
+    }
+    .position-middle{
+        bottom: 215px;
+        right: 10px;
+    }
+    .position-top{
+        left: -42px;
+        top: 10px;
+    }
+}
+@media screen and (max-width:1200px) {
+    .background-image{
+        height: 100%;
+        width: 60%;
+    }
+    .position-bot{
+        bottom: 65px;
+        right: 3px;
+    }
+    .position-middle{
+        bottom: 200px;
+        right: 10px;
+    }
+    .position-top{
+        left: -42px;
+        top: 10px;
+    }
 }
 @media screen and (max-width: 1094px){
     .article-pasajeros-responsive{
@@ -294,13 +299,28 @@ h1{
     .fa-arrow-responsive{
         font-size: 8px;
     }
+    .height-40 {
+        min-height: 50vh;
+    }
+    .position-bot{
+        bottom: 65px;
+        right: 3px;
+    }
+    .position-middle{
+        bottom: 215px;
+        right: 10px;
+    }
+    .position-top{
+        left: -42px;
+        top: 10px;
+    }
+    .servicios-imagen{
+        width: 30%;
+    }
 }
 @media screen and (max-width:840px) {
     .height-40{
-        min-height: 35vh;
-    }
-    .height-40>img{
-        height: 30vh;
+        min-height: 45vh;
     }
     .height-40>h2{
         font-size: 2.3rem;
@@ -337,6 +357,9 @@ h1{
     .letter-responsive h3{
         font-size: 1.5rem;
     }
+    .w-25-responsive{
+        width: 50%;
+    }
 }
 @media screen and (max-width: 637px){
     .around--btn{
@@ -355,14 +378,8 @@ h1{
     .g-span-col-2{
         grid-column: 1;
     }
-    .height-40>img{
-        height: 25vh;
-    }
 }
-@media (max-width: 576px) { 
-    .height-40>img{
-        height: 20vh;
-    }
+@media (max-width: 576px) {
     .order-list-me{
         width: 100%;
     }

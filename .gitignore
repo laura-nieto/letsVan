@@ -3,6 +3,7 @@
 /public/storage
 /public/img/transferencias
 /public/img/unidades
+/public/img/servicios
 /storage/*.key
 /vendor
 .env

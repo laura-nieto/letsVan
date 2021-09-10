@@ -48,6 +48,13 @@ class ServicioController extends Controller
         $servicio = new Servicio;
         $servicio->nombre = $request->nombre;
         
+        //IMAGEN 
+        if($request->hasfile('imagen')){
+            $nameImg= uniqid() . '.'. $request->file('imagen')->getClientOriginalExtension();
+            $request->file('imagen')->move(public_path('img/servicios'), $nameImg);
+        }
+
+        $servicio->imagen = $nameImg;
         $servicio->save();
 
         return redirect()->route('servicio.index')->with('mensaje.success','El servicio ha sido creado.');
@@ -86,13 +93,20 @@ class ServicioController extends Controller
     {
         // VALIDATION
         $rules=[
-            '*'=>'required',
+            'nombre'=>'required',
         ];
         $message=[
             'required' => 'El campo es obligatorio',
         ];
         $request->validate($rules,$message);
 
+        //IMAGEN 
+        if($request->hasfile('imagen')){
+            $nameImg= uniqid() . '.'. $request->file('imagen')->getClientOriginalExtension();
+            $request->file('imagen')->move(public_path('img/servicios'), $nameImg);
+            $servicio->imagen = $nameImg;
+        }
+        
         $servicio->nombre = $request->nombre;
         $servicio->save();
 

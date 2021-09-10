@@ -12,13 +12,17 @@
         @break
         @case('corrida')
         Editar Corrida
+        @break
         @case('destino')
         Editar Destino
         @endswitch
     </h2>
 </article>
+<section class="w-50 crud--new">
+    <a href="{{url()->previous()}}" class="btn btn-lets mr-3 fsize-1">Regresar</a>
+</section>
 <article class="w-75 m-auto border">
-    <form action="{{ route(Request::segment(1) . '.update',[$unidad->id])}}" method="post" class="p-5 form--new">
+    <form action="{{ route(Request::segment(1) . '.update',[$unidad->id])}}" method="post" class="p-5 form--new" enctype="multipart/form-data">
         @csrf
         @method('put') 
         @switch(Request::segment(1))
@@ -121,35 +125,39 @@
 
             @case('corrida')
                 <section>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Origen</label>
-                        <select class="form-select" name="origen">
-                            <option selected disabled hidden>Seleccionar Origen</option>
-                            @foreach ($destinos as $destino)
-                                @if ($unidad->origen === $destino->id)
-                                    <option selected value="{{$destino->id}}">{{$destino->destino}}</option>
-                                @endif
-                                <option value="{{$destino->id}}">{{$destino->destino}}</option>
-                            @endforeach
-                        </select>
-                        @error('origen')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Destino</label>
-                        <select class="form-select" name="destino">
-                            <option selected disabled hidden>Seleccionar Destino</option>
-                            @foreach ($destinos as $destino)
-                                @if ($unidad->destino === $destino->id)
-                                    <option selected value="{{$destino->id}}">{{$destino->destino}}</option>
-                                @endif
-                                <option value="{{$destino->id}}">{{$destino->destino}}</option>
-                            @endforeach
-                        </select>
-                        @error('destino')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                        @enderror
+                    <div class="mb-3">    
+                        <div class="d-flex flex-wrap align-items-center">
+                            <div class="mr-sm-3">
+                                <label for="" class="form-label">Origen</label>
+                                <select class="form-control" name="origen">
+                                    <option selected disabled hidden>Seleccionar Origen</option>
+                                    @foreach ($destinos as $destino)
+                                        @if ($unidad->origen === $destino->id)
+                                            <option selected value="{{$destino->id}}">{{$destino->destino}}</option> 
+                                        @else
+                                            <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mt-2 mt-md-0">
+                                <label for="" class="form-label">Destino</label>
+                                <select class="form-control" name="destino">
+                                    <option selected disabled hidden>Seleccionar Destino</option>
+                                    @foreach ($destinos as $destino)
+                                        @if ($unidad->destino === $destino->id)
+                                            <option selected value="{{$destino->id}}">{{$destino->destino}}</option> 
+                                        @else
+                                            <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                            <a href="{{route('destino.create')}}" class="ml-5 mt-2 mt-md-0">Agregar ruta</a>
+                        </div>
+                        @if(session('destino'))
+                            <div class="alert alert-danger mt-1">{{ session('destino')}}</div>
+                        @endif
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Día Salida</label>
@@ -181,12 +189,13 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Unidad</label>
-                        <select class="form-select" aria-label="Default select example" name="unidad_id">
+                        <select class="form-control w-25-responsive" aria-label="Default select example" name="unidad_id">
                             @foreach ($unidades as $auto)
                                 @if ($unidad->unidad_id === $auto->id)
-                                    <option selected value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option>
+                                    <option selected value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option> 
+                                @else
+                                    <option value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option>
                                 @endif
-                                <option value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option>
                             @endforeach
                         </select>
                         @error('unidad_id')
@@ -195,10 +204,13 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Chofer</label>
-                        <select class="form-select" aria-label="Default select example" name="chofer_id">
-                            <option selected hidden value="">Elija una chofer</option>
+                        <select class="form-control w-25-responsive" aria-label="Default select example" name="chofer_id">
                             @foreach ($choferes as $chofer)
-                                <option value="{{$chofer->id}}">{{$chofer->apellido . ' ' . $chofer->nombre}}</option>
+                                @if ($unidad->chofer_id === $chofer->id)
+                                    <option selected value="{{$chofer->id}}">{{$chofer->apellido . ' ' . $chofer->nombre}}</option>
+                                @else
+                                    <option value="{{$chofer->id}}">{{$chofer->apellido . ' ' . $chofer->nombre}}</option>
+                                @endif
                             @endforeach
                         </select>
                         @error('chofer_id')
@@ -233,6 +245,13 @@
                 <button type="submit" class="btn btn-lets mt-3">Modificar</button>
                 @break
             @case('servicio')
+                <div class="mb-5">
+                    @error('imagen')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                    <label for="exampleFormControlFile1" class="fsize-1">Imágen del Servicio.</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen">
+                </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Nombre del servicio</label>
                     <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{$unidad->nombre}}">

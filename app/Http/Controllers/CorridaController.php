@@ -124,6 +124,9 @@ class CorridaController extends Controller
      */
     public function store(Request $request)
     {
+        if (!$request->has('origen') || !$request->has('destino')) {
+            return redirect()->back()->with('destino','El campo es obligatorio')->withInput();
+        }
         // VALIDATION
         $rules=[
             '*'=>'required',
