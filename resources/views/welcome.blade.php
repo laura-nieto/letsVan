@@ -121,28 +121,28 @@
     <section class="background-lets text-white mt-5 p-5 descripcion d-flex justify-content-center text-justify">
         <div class="w-75">
             <div class="d-flex align-items-center shadow-me">
-                <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas">
+                <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas image-caracteristicas-1">
                 <p class="mb-0 ml-3">
                     Reserva las 24 horas, desde la comodidad de tu casa u oficina, solo entra a nuestro sitio, busca tu salida y
                     fecha, ELIJE TU ASIENTO y tu forma de pago. Tan fácil como eso y ya tienes tu e-ticket para abordar tu Van.
                 </p>
             </div>
             <div class="d-flex align-items-center mt-5 shadow-me">
-                <img src="{{asset('/img/PAGOS.png')}}" alt="" class="image-caracteristicas">
+                <img src="{{asset('/img/PAGOS.png')}}" alt="" class="image-caracteristicas image-caracteristicas-2">
                 <p class="mb-0 ml-3">
                     Tu pago lo puedes hacer con tarjeta de crédito o débito, Transferencia o depósito. Todas las opciones, 100%
                     digital y sin papel.
                 </p>
             </div>
             <div class="d-flex align-items-center mt-5 shadow-me">
-                <img src="{{asset('/img/UBICACION.png')}}" alt="" class="image-caracteristicas">
+                <img src="{{asset('/img/UBICACION.png')}}" alt="" class="image-caracteristicas image-caracteristicas-3">
                 <p class="mb-0 ml-3">
                     Viaja de punto a punto sin la necesidad de estar en las terminales. Más rápido y con ubicaciones muy
                     céntricas.
                 </p>
             </div>
             <div class="d-flex align-items-center mt-5 shadow-me">
-                <img src="{{asset('/img/CINE.png')}}" alt="" class="image-caracteristicas">
+                <img src="{{asset('/img/CINE.png')}}" alt="" class="image-caracteristicas image-caracteristicas-4">
                 <p class="mb-0 ml-3">
                     Disfruta del mejor entretenimiento en tus viajes, contamos con las últimas películas de estreno.
                 </p>
@@ -417,29 +417,29 @@
 
     <section class="background-lets text-white mt-5 p-5 descripcion d-flex justify-content-center text-justify">
         <div class="w-75">
-            <div class="d-flex align-items-center p-2 shadow-me">
-                <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas">
+            <div class="d-flex align-items-center shadow-me">
+                <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas image-caracteristicas-1">
                 <p class="mb-0 ml-3">
                     Reserva las 24 horas, desde la comodidad de tu casa u oficina, solo entra a nuestro sitio, busca tu salida y
                     fecha, ELIJE TU ASIENTO y tu forma de pago. Tan fácil como eso y ya tienes tu e-ticket para abordar tu Van.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5 p-2 shadow-me">
-                <img src="{{asset('/img/PAGOS.png')}}" alt="" class="image-caracteristicas">
+            <div class="d-flex align-items-center mt-5 shadow-me">
+                <img src="{{asset('/img/PAGOS.png')}}" alt="" class="image-caracteristicas image-caracteristicas-2">
                 <p class="mb-0 ml-3">
                     Tu pago lo puedes hacer con tarjeta de crédito o débito, Transferencia o depósito. Todas las opciones, 100%
                     digital y sin papel.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5 p-2 shadow-me">
-                <img src="{{asset('/img/UBICACION.png')}}" alt="" class="image-caracteristicas">
+            <div class="d-flex align-items-center mt-5 shadow-me">
+                <img src="{{asset('/img/UBICACION.png')}}" alt="" class="image-caracteristicas image-caracteristicas-3">
                 <p class="mb-0 ml-3">
                     Viaja de punto a punto sin la necesidad de estar en las terminales. Más rápido y con ubicaciones muy
                     céntricas.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5 p-2 shadow-me">
-                <img src="{{asset('/img/CINE.png')}}" alt="" class="image-caracteristicas">
+            <div class="d-flex align-items-center mt-5 shadow-me">
+                <img src="{{asset('/img/CINE.png')}}" alt="" class="image-caracteristicas image-caracteristicas-4">
                 <p class="mb-0 ml-3">
                     Disfruta del mejor entretenimiento en tus viajes, contamos con las últimas películas de estreno.
                 </p>

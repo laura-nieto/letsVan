@@ -35,6 +35,7 @@
                                     <h3 style="font-size:1.3rem;margin-bottom:5px;">Ubicación de Salida</h3>
                                     <p style="font-size:1.1rem;margin-bottom:5px">{{$corrida->origen_tabla->ubicacion}}</p>
                                     <a href="" style="font-size:0.9rem">{{$corrida->origen_tabla->url}}</a>
+                                    <p style="font-size:1.1rem;margin-top:5px">{{$corrida->origen_tabla->referencia}}</p>
                                 </div>
                                 <div style="margin-top:30px">
                                     <h4 style="font-size:1.1rem;margin-bottom:5px;">Hora de Salida</h4>
@@ -50,6 +51,7 @@
                                     <h3 style="font-size:1.3rem;margin-bottom:5px;">Ubicación de Regreso</h3>
                                     <p style="font-size:1.1rem;margin-bottom:5px">{{$corrida->destino_tabla->ubicacion}}</p>
                                     <a href="" style="font-size:0.9rem">{{$corrida->destino_tabla->url}}</a>
+                                    <p style="font-size:1.1rem;margin-top:5px">{{$corrida->destino_tabla->referencia}}</p>
                                 </div>
                                 <div style="margin-top:30px">
                                     <h4 style="font-size:1.1rem;margin-bottom:5px;">Hora de Llegada</h4>

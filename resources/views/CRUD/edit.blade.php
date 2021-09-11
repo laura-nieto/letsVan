@@ -283,7 +283,11 @@
                 <div class="mb-3">
                     <label for="" class="form-label">URL</label>
                     <input type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{$unidad->url}}">
-                    <button type="submit" class="btn btn-lets mt-4">Crear</button>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Referencia</label>
+                    <input type="text" class="form-control @error('url') is-invalid @enderror" name="referencia" value="{{$unidad->referencia}}">
+                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
                 </div>
                 @break
         @endswitch

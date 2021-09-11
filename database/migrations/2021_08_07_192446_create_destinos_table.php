@@ -19,6 +19,7 @@ class CreateDestinosTable extends Migration
             $table->string('destino_origen');
             $table->string('ubicacion');
             $table->string('url');
+            $table->string('referencia');
             $table->timestamps();
         });
     }

@@ -50,6 +50,7 @@ class DestinoController extends Controller
         $destino->destino_origen = $request->type;
         $destino->ubicacion = $request->ubicacion;
         $destino->url = $request->url;
+        $destino->referencia = $request->referencia;
         
         $destino->save();
 
@@ -100,6 +101,7 @@ class DestinoController extends Controller
         $destino->destino_origen = $request->type;
         $destino->ubicacion = $request->ubicacion;
         $destino->url = $request->url;
+        $destino->referencia = $request->referencia;
         $destino->save();
 
         return redirect()->route('destino.index')->with('mensaje.success','El destino ha sido creado.');
