@@ -19,6 +19,9 @@
         @case('destino')
         Destinos
         @break
+        @case('cupon')
+        Cupones
+        @break
         @endswitch
     </h2>
 </article>
@@ -187,7 +190,27 @@
                 @endforeach
             </tbody>
             @break
-            @default
+            @case('cupon')
+                <thead>
+                    <tr>
+                        <th scope="col">Cupon</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($cupones as $cupon)
+                        <td>{{$cupon->nombre}}</td>
+                        <td class="d-flex d-flex-justify-around around--btn">
+                            <a href="{{Request::segment(1) . '/' . $cupon->id . '/edit'}}"
+                                class="btn btn-lets">Modificar</a>
+                            <form method="POST" action="{{route( 'cupon.destroy',$cupon->id)}}">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-danger" value="Eliminar">
+                            </form>
+                        </td>
+                    @endforeach
+                </tbody>
             @endswitch
         </table>
     </section>

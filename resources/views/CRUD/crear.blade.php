@@ -15,6 +15,10 @@
         @break
         @case('corrida')
         Crear nueva corrida
+        @break
+        @case('cupon')
+        Crear nuevo cupón
+        @break
         @endswitch
     </h2>
 </article>
@@ -286,6 +290,16 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Referencia</label>
                     <input type="text" class="form-control @error('url') is-invalid @enderror" name="referencia" value="{{old('referencia')}}">
+                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                @break
+            @case('cupon')
+                <div class="mb-3">
+                    <label for="" class="form-label">Código del cupón</label>
+                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{old('nombre')}}">
+                    @error('nombre')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="btn btn-lets mt-3">Crear</button>
                 </div>
                 @break

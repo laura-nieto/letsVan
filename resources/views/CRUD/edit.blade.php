@@ -15,6 +15,8 @@
         @break
         @case('destino')
         Editar Destino
+        @case('cupon')
+        Editar Cupón
         @endswitch
     </h2>
 </article>
@@ -287,6 +289,16 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Referencia</label>
                     <input type="text" class="form-control @error('url') is-invalid @enderror" name="referencia" value="{{$unidad->referencia}}">
+                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                @break
+            @case('cupon')
+                <div class="mb-3">
+                    <label for="" class="form-label">Código del cupón</label>
+                    <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{$unidad->nombre}}">
+                    @error('nombre')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="btn btn-lets mt-3">Crear</button>
                 </div>
                 @break

@@ -12,6 +12,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebhoocksController;
 use App\Http\Controllers\PaymentsImageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CuponController;
 
 use App\Http\Controllers\PrecioController;
 
@@ -73,6 +74,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('corrida',CorridaController::class)->middleware('admin');
     Route::resource('servicio',ServicioController::class)->middleware('admin');
     Route::resource('destino',DestinoController::class)->middleware('admin');
+    Route::resource('cupon',CuponController::class)->middleware('admin');
 
     //VER PASAJEROS
     Route::get('pasajeros',[PasajeroController::class,'verCorridas'])->name('pasajeros.verCorridas')->middleware('conductor');

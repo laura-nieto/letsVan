@@ -92,6 +92,9 @@ h1{
 .w-95{
     width: 95%;
 }
+.w-250{
+    width: 250px;
+}
 .row-span-2{
     grid-row: span 2;
 }
@@ -202,6 +205,12 @@ h1{
 }
 .w-60{
     width: 60%;
+}
+.w-40{
+    width: 40%;
+}
+.w-30{
+    width: 30%;
 }
 .border-dashed-left{
     border-left: dashed 2px rgba(0, 0, 0, 0.2);

@@ -252,6 +252,10 @@
                         <a href="{{route('servicio.index')}}" class="btn btn-lets">Administrar</a>
                     </div>
                     <div class="card-body d-flex justify-content-between align-items-center border-bottom">
+                        <h5>Cupones</h5>
+                        <a href="{{route('cupon.index')}}" class="btn btn-lets">Administrar</a>
+                    </div>
+                    <div class="card-body d-flex justify-content-between align-items-center border-bottom">
                         <h5>Nuevo Pasaje</h5>
                         <a href="{{route('corrida.admin_buscar')}}" class="btn btn-lets">Crear</a>
                     </div>

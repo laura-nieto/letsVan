@@ -11,6 +11,7 @@ use App\Models\Pasajero;
 use App\Models\Comprador;
 use App\Models\Corrida;
 use App\Models\PaymentsImage;
+use App\Models\Cupon;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
@@ -90,7 +91,8 @@ class PaymentController extends Controller
 
     public function descontar(Request $request,$idCorrida)
     {
-        if(strtoupper($request->cupon) == 'PROMO2021'){
+        $cupon = Cupon::where('nombre',$request->cupon)->exists();
+        if($cupon){
             $total = $request->session()->get('total');
             $total -= 60;
             $request->session()->forget('total');
