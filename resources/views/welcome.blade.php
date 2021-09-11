@@ -10,13 +10,13 @@
         <div class="d-flex justify-content-end">
             <div class="position-relative">
                 <div class="position-absolute position-top">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" viewBox="0 0 52 52">
-                        <image id="TV" width="52" height="52" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAADrklEQVRogd2a24tPURTHPzOMSwxGbpk0kkuTS3IrMzFPSomYSCmFF/KgRJEH8STXSCIl48GtEE/+AS88uCYTyiUMpsYMY4i5aP1aUzN71v5dzpnfnD0+der32+fsfdb3t/dee629fwMIlznAQWA+8ABoDdjWjFQA9UCHXqcDtzctIqahixi5ngdsb1qqDDFy7Q3YZi+VQKMhpgYYGKjNXio9PSNiCvramDHAKeAKsDhC/aXAN0PM2STECNe6GPELWJlD3Yo0wywxah1jfmcpyjfMLiXVM53sNIzK1FNLPGLOJS2mkyM5iJKeaTKev5iM6X6OGka6wy8ob5YNlijpqWXAAo+Y86GK6eSQR9QPo/xCGCZn5rBhfPBzJhMiqs0Q0q7DLC+4Y7cc2KY5yMgYL+xQMZLTFBr3nuq73Xu50KztiKt/ZNXbAbRkMVRCu/4AB1wxW/qhEPfah3b7WA1fRsfo/hCQnpoteUZ1FmLqgCfAa+Al8AX47snzG3XiFwNFxv0RwHBgOjBFjABm9cIPMghYi7pPXzfKZFsX00FkQhzDQg1K4w671FJQ47l5AxiaRyEWu2MKqinUDy7v1VH86mNBxzRRjEqHbx04o3MkCY7rHIyEJUgau5uQGHTe1qa5/xn46btpCZLh9qp3bIuETIEXRsWPwGr1jjN1zyErQW80j0mSx867JcxZBdzRqP0dsB24mo2grwmLET4430XgQ+O5HhG7Jaip9+yKTEOWFXt4aEtQczIauuEuF3OBecZzm90CS9Dn3rcvZ1y7JFS6DawBxqtjOAlscBu29oxDyO9bjLJJwC11WEN8FeMkWPnEt8606Qiq72+CLMTLLQKmAtOAXSqwG6EKKna+N+j8eagixBOf0PS7G5agEOaQO0eeaQTjctMtsARNzIuJueEGp4M9tYe5BZagvs6BLNyEUtag5cZzO9wCS1BJ3szMnlHOk4M0T5IcbYY6h+u6xdwNax0aF4CgyUZZiW4dt6Y7c7V6aKquzElihTmdpD1A9jmF8gTFDImzC+Rbh6qj2xObKg1zIuETtBUoS0CM2LM/bgPWQlqi2WDkXyoCRbqlVhGjjYJCKx5S5D8H94E96irzFUFMANYD94CNMdtqL9Cc4nKGB//qTsxb3Rau0xC/Pt0OjIO8q1TXlFL9w0aZOiB33YmKnMinwoc3/8HpQ4P2dooVGj/1Z0Gb3F5doxFtfxMiCZ+ERCnciS7jWtYgOYK3jkJCQkIgSSvkUOFTyjDgH6q9C0X1pwdCAAAAAElFTkSuQmCC"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="40" viewBox="0 0 49 40">
+                        <image id="WIFI" width="49" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAoCAYAAABXRRJPAAADmklEQVRYhe3Ze+idcxwH8NfZ5jc1ZXM3xdxDmKgxNpfFj8b+kPjDUuRSkkQSEZMkIpfYEMU//jDxpyKbSyblujUxud/ZzPyYLWv66nN0Op3n+zznnOccv8m7nj/O+X6fz/dzv3yfhnowAdOxL2Zgb+yJnbF9nLARa/ENvsBn+DR+94V+hEgMz8EpODqY36FLGr/iE7yFl/AaPq9JsYXYHZfiRfyGrTU/SajncRF2qZv5/XAvfhgA40XPt7gzXLMv7IV78MsQmW9/1uGO8IKOKIqJibgCN2C3ilr4EWvwUQTtd1iPP+KcFOBTsUfE00E4oAu3+Rq3YUmVzYfhlYpaehM34QTsVJGZVqTsdSIW4e2KZ76AA3NEF4b5ckS+x/2Y1QPTOaQ0fTwW46cKPJzTTqsRQZR7MZnz+pxv1ohUc24OZnM8LWoemXL705mNm3BXF7FRtzDJ6n9m+Hs8WeAZnF1A5D1cjtcrHDgJ++PQCNp9sCumxPpYpOhUrT/E6ih0WyrQPhkP4pAOa5uFAGMdJFxSoQJPxmj48eogWDV1JguvxAOYh+1KzkqZ7YkCN/8bp2FD/Lk5tJ9Dcq3r8EGN9WAVro6MlcM1Yb1mDZnbuvd0fIlzMwSSy1wZTdugiltyt8tK+roLY9/cTos5LcyK2BgU8+3PchyV4ecfXqt2scnMt0cM5JCq9LuRENZEivw99k+Jap0K1UwcWSHjpSbz2oi5njGCR0s0luaEpzAf07o4KGlyAZZWSAj3RSvUNVIFfbIkuywuSHvd4gg8VlIPHupl/mlk0u8yHFMD8+2YXRB3P+OMfgifGsNKk+CtvZq2IkaiQ2iety4myEJUNc/8iI1b8EjJ3oNxXATvjChSQptppn4HK/BxCZ2rIqgXhuVrQS6TjMRhyyNWytLnxmipzyux6tD6tdEY9HutB2/gpGEx245GuFcdhW1LtDFDF+DhAVTpu3thZlKPQmyNq5XzW1rt1rVXY/39qNqNqNYzo0eb3YHm+rgKGjpGo61oajIF67EVmJjTNsdvKGrmhoUzQ9s3dnnexOjHUr81798UoInpfbyb7mz/x38CdV3tFyG15ofH2spoPbYpXBzjbjMDfYVLtiUBzsoUtAXjgL9STCiZxVfEnnGNHeOGvEiItS3teW1aqxubYsAvwljsGddCpO8Rz2bWn4t5Ytxjakxj7a70cpc3IpUwyDqR7qguiHvWhPR1NN2l1upK8BdwBAQz+AO8TAAAAABJRU5ErkJggg=="/>
                     </svg>
                 </div>
                 <div class="position-absolute position-middle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="40" viewBox="0 0 49 40">
-                        <image id="WIFI" width="49" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAoCAYAAABXRRJPAAADmklEQVRYhe3Ze+idcxwH8NfZ5jc1ZXM3xdxDmKgxNpfFj8b+kPjDUuRSkkQSEZMkIpfYEMU//jDxpyKbSyblujUxud/ZzPyYLWv66nN0Op3n+zznnOccv8m7nj/O+X6fz/dzv3yfhnowAdOxL2Zgb+yJnbF9nLARa/ENvsBn+DR+94V+hEgMz8EpODqY36FLGr/iE7yFl/AaPq9JsYXYHZfiRfyGrTU/SajncRF2qZv5/XAvfhgA40XPt7gzXLMv7IV78MsQmW9/1uGO8IKOKIqJibgCN2C3ilr4EWvwUQTtd1iPP+KcFOBTsUfE00E4oAu3+Rq3YUmVzYfhlYpaehM34QTsVJGZVqTsdSIW4e2KZ76AA3NEF4b5ckS+x/2Y1QPTOaQ0fTwW46cKPJzTTqsRQZR7MZnz+pxv1ohUc24OZnM8LWoemXL705mNm3BXF7FRtzDJ6n9m+Hs8WeAZnF1A5D1cjtcrHDgJ++PQCNp9sCumxPpYpOhUrT/E6ih0WyrQPhkP4pAOa5uFAGMdJFxSoQJPxmj48eogWDV1JguvxAOYh+1KzkqZ7YkCN/8bp2FD/Lk5tJ9Dcq3r8EGN9WAVro6MlcM1Yb1mDZnbuvd0fIlzMwSSy1wZTdugiltyt8tK+roLY9/cTos5LcyK2BgU8+3PchyV4ecfXqt2scnMt0cM5JCq9LuRENZEivw99k+Jap0K1UwcWSHjpSbz2oi5njGCR0s0luaEpzAf07o4KGlyAZZWSAj3RSvUNVIFfbIkuywuSHvd4gg8VlIPHupl/mlk0u8yHFMD8+2YXRB3P+OMfgifGsNKk+CtvZq2IkaiQ2iety4myEJUNc/8iI1b8EjJ3oNxXATvjChSQptppn4HK/BxCZ2rIqgXhuVrQS6TjMRhyyNWytLnxmipzyux6tD6tdEY9HutB2/gpGEx245GuFcdhW1LtDFDF+DhAVTpu3thZlKPQmyNq5XzW1rt1rVXY/39qNqNqNYzo0eb3YHm+rgKGjpGo61oajIF67EVmJjTNsdvKGrmhoUzQ9s3dnnexOjHUr81798UoInpfbyb7mz/x38CdV3tFyG15ofH2spoPbYpXBzjbjMDfYVLtiUBzsoUtAXjgL9STCiZxVfEnnGNHeOGvEiItS3teW1aqxubYsAvwljsGddCpO8Rz2bWn4t5Ytxjakxj7a70cpc3IpUwyDqR7qguiHvWhPR1NN2l1upK8BdwBAQz+AO8TAAAAABJRU5ErkJggg=="/>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" viewBox="0 0 52 52">
+                        <image id="TV" width="52" height="52" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAADrklEQVRogd2a24tPURTHPzOMSwxGbpk0kkuTS3IrMzFPSomYSCmFF/KgRJEH8STXSCIl48GtEE/+AS88uCYTyiUMpsYMY4i5aP1aUzN71v5dzpnfnD0+der32+fsfdb3t/dee629fwMIlznAQWA+8ABoDdjWjFQA9UCHXqcDtzctIqahixi5ngdsb1qqDDFy7Q3YZi+VQKMhpgYYGKjNXio9PSNiCvramDHAKeAKsDhC/aXAN0PM2STECNe6GPELWJlD3Yo0wywxah1jfmcpyjfMLiXVM53sNIzK1FNLPGLOJS2mkyM5iJKeaTKev5iM6X6OGka6wy8ob5YNlijpqWXAAo+Y86GK6eSQR9QPo/xCGCZn5rBhfPBzJhMiqs0Q0q7DLC+4Y7cc2KY5yMgYL+xQMZLTFBr3nuq73Xu50KztiKt/ZNXbAbRkMVRCu/4AB1wxW/qhEPfah3b7WA1fRsfo/hCQnpoteUZ1FmLqgCfAa+Al8AX47snzG3XiFwNFxv0RwHBgOjBFjABm9cIPMghYi7pPXzfKZFsX00FkQhzDQg1K4w671FJQ47l5AxiaRyEWu2MKqinUDy7v1VH86mNBxzRRjEqHbx04o3MkCY7rHIyEJUgau5uQGHTe1qa5/xn46btpCZLh9qp3bIuETIEXRsWPwGr1jjN1zyErQW80j0mSx867JcxZBdzRqP0dsB24mo2grwmLET4430XgQ+O5HhG7Jaip9+yKTEOWFXt4aEtQczIauuEuF3OBecZzm90CS9Dn3rcvZ1y7JFS6DawBxqtjOAlscBu29oxDyO9bjLJJwC11WEN8FeMkWPnEt8606Qiq72+CLMTLLQKmAtOAXSqwG6EKKna+N+j8eagixBOf0PS7G5agEOaQO0eeaQTjctMtsARNzIuJueEGp4M9tYe5BZagvs6BLNyEUtag5cZzO9wCS1BJ3szMnlHOk4M0T5IcbYY6h+u6xdwNax0aF4CgyUZZiW4dt6Y7c7V6aKquzElihTmdpD1A9jmF8gTFDImzC+Rbh6qj2xObKg1zIuETtBUoS0CM2LM/bgPWQlqi2WDkXyoCRbqlVhGjjYJCKx5S5D8H94E96irzFUFMANYD94CNMdtqL9Cc4nKGB//qTsxb3Rau0xC/Pt0OjIO8q1TXlFL9w0aZOiB33YmKnMinwoc3/8HpQ4P2dooVGj/1Z0Gb3F5doxFtfxMiCZ+ERCnciS7jWtYgOYK3jkJCQkIgSSvkUOFTyjDgH6q9C0X1pwdCAAAAAElFTkSuQmCC"/>
                     </svg>
                 </div>
                 <div class="position-absolute position-bot">
@@ -55,8 +55,8 @@
                             <select class="form-control bg-lets-light @error('origen') border-danger @enderror"
                                 aria-label="Origen" name="origen">
                                 <option selected disabled hidden>Origen</option>
-                                @foreach ($destinos as $destino)
-                                <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                @foreach ($origenes as $origen)
+                                <option value="{{$origen->id}}">{{$origen->destino}}</option>
                                 @endforeach
                             </select>
                             @error('origen')
@@ -113,35 +113,35 @@
                 <h2 class="text-success text-center font-weight-bold font-3">$360</h2>
             </div>
         </div>
-        <div class="w-25">
-            <img src="{{asset('/img/columna.png')}}" alt="" class="img-home-columna">
+        <div class="w-10">
+            <img src="{{asset('/img/ANGEL-BLUE.png')}}" alt="" class="img-home-columna">
         </div>
     </section>
 
     <section class="background-lets text-white mt-5 p-5 descripcion d-flex justify-content-center text-justify">
         <div class="w-75">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center shadow-me">
                 <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Reserva las 24 horas, desde la comodidad de tu casa u oficina, solo entra a nuestro sitio, busca tu salida y
                     fecha, ELIJE TU ASIENTO y tu forma de pago. Tan fácil como eso y ya tienes tu e-ticket para abordar tu Van.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5">
+            <div class="d-flex align-items-center mt-5 shadow-me">
                 <img src="{{asset('/img/PAGOS.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Tu pago lo puedes hacer con tarjeta de crédito o débito, Transferencia o depósito. Todas las opciones, 100%
                     digital y sin papel.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5">
+            <div class="d-flex align-items-center mt-5 shadow-me">
                 <img src="{{asset('/img/UBICACION.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Viaja de punto a punto sin la necesidad de estar en las terminales. Más rápido y con ubicaciones muy
                     céntricas.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5">
+            <div class="d-flex align-items-center mt-5 shadow-me">
                 <img src="{{asset('/img/CINE.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Disfruta del mejor entretenimiento en tus viajes, contamos con las últimas películas de estreno.
@@ -308,13 +308,13 @@
         <div class="d-flex justify-content-end">
             <div class="position-relative">
                 <div class="position-absolute position-top">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" viewBox="0 0 52 52">
-                        <image id="TV" width="52" height="52" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAADrklEQVRogd2a24tPURTHPzOMSwxGbpk0kkuTS3IrMzFPSomYSCmFF/KgRJEH8STXSCIl48GtEE/+AS88uCYTyiUMpsYMY4i5aP1aUzN71v5dzpnfnD0+der32+fsfdb3t/dee629fwMIlznAQWA+8ABoDdjWjFQA9UCHXqcDtzctIqahixi5ngdsb1qqDDFy7Q3YZi+VQKMhpgYYGKjNXio9PSNiCvramDHAKeAKsDhC/aXAN0PM2STECNe6GPELWJlD3Yo0wywxah1jfmcpyjfMLiXVM53sNIzK1FNLPGLOJS2mkyM5iJKeaTKev5iM6X6OGka6wy8ob5YNlijpqWXAAo+Y86GK6eSQR9QPo/xCGCZn5rBhfPBzJhMiqs0Q0q7DLC+4Y7cc2KY5yMgYL+xQMZLTFBr3nuq73Xu50KztiKt/ZNXbAbRkMVRCu/4AB1wxW/qhEPfah3b7WA1fRsfo/hCQnpoteUZ1FmLqgCfAa+Al8AX47snzG3XiFwNFxv0RwHBgOjBFjABm9cIPMghYi7pPXzfKZFsX00FkQhzDQg1K4w671FJQ47l5AxiaRyEWu2MKqinUDy7v1VH86mNBxzRRjEqHbx04o3MkCY7rHIyEJUgau5uQGHTe1qa5/xn46btpCZLh9qp3bIuETIEXRsWPwGr1jjN1zyErQW80j0mSx867JcxZBdzRqP0dsB24mo2grwmLET4430XgQ+O5HhG7Jaip9+yKTEOWFXt4aEtQczIauuEuF3OBecZzm90CS9Dn3rcvZ1y7JFS6DawBxqtjOAlscBu29oxDyO9bjLJJwC11WEN8FeMkWPnEt8606Qiq72+CLMTLLQKmAtOAXSqwG6EKKna+N+j8eagixBOf0PS7G5agEOaQO0eeaQTjctMtsARNzIuJueEGp4M9tYe5BZagvs6BLNyEUtag5cZzO9wCS1BJ3szMnlHOk4M0T5IcbYY6h+u6xdwNax0aF4CgyUZZiW4dt6Y7c7V6aKquzElihTmdpD1A9jmF8gTFDImzC+Rbh6qj2xObKg1zIuETtBUoS0CM2LM/bgPWQlqi2WDkXyoCRbqlVhGjjYJCKx5S5D8H94E96irzFUFMANYD94CNMdtqL9Cc4nKGB//qTsxb3Rau0xC/Pt0OjIO8q1TXlFL9w0aZOiB33YmKnMinwoc3/8HpQ4P2dooVGj/1Z0Gb3F5doxFtfxMiCZ+ERCnciS7jWtYgOYK3jkJCQkIgSSvkUOFTyjDgH6q9C0X1pwdCAAAAAElFTkSuQmCC"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="40" viewBox="0 0 49 40">
+                        <image id="WIFI" width="49" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAoCAYAAABXRRJPAAADmklEQVRYhe3Ze+idcxwH8NfZ5jc1ZXM3xdxDmKgxNpfFj8b+kPjDUuRSkkQSEZMkIpfYEMU//jDxpyKbSyblujUxud/ZzPyYLWv66nN0Op3n+zznnOccv8m7nj/O+X6fz/dzv3yfhnowAdOxL2Zgb+yJnbF9nLARa/ENvsBn+DR+94V+hEgMz8EpODqY36FLGr/iE7yFl/AaPq9JsYXYHZfiRfyGrTU/SajncRF2qZv5/XAvfhgA40XPt7gzXLMv7IV78MsQmW9/1uGO8IKOKIqJibgCN2C3ilr4EWvwUQTtd1iPP+KcFOBTsUfE00E4oAu3+Rq3YUmVzYfhlYpaehM34QTsVJGZVqTsdSIW4e2KZ76AA3NEF4b5ckS+x/2Y1QPTOaQ0fTwW46cKPJzTTqsRQZR7MZnz+pxv1ohUc24OZnM8LWoemXL705mNm3BXF7FRtzDJ6n9m+Hs8WeAZnF1A5D1cjtcrHDgJ++PQCNp9sCumxPpYpOhUrT/E6ih0WyrQPhkP4pAOa5uFAGMdJFxSoQJPxmj48eogWDV1JguvxAOYh+1KzkqZ7YkCN/8bp2FD/Lk5tJ9Dcq3r8EGN9WAVro6MlcM1Yb1mDZnbuvd0fIlzMwSSy1wZTdugiltyt8tK+roLY9/cTos5LcyK2BgU8+3PchyV4ecfXqt2scnMt0cM5JCq9LuRENZEivw99k+Jap0K1UwcWSHjpSbz2oi5njGCR0s0luaEpzAf07o4KGlyAZZWSAj3RSvUNVIFfbIkuywuSHvd4gg8VlIPHupl/mlk0u8yHFMD8+2YXRB3P+OMfgifGsNKk+CtvZq2IkaiQ2iety4myEJUNc/8iI1b8EjJ3oNxXATvjChSQptppn4HK/BxCZ2rIqgXhuVrQS6TjMRhyyNWytLnxmipzyux6tD6tdEY9HutB2/gpGEx245GuFcdhW1LtDFDF+DhAVTpu3thZlKPQmyNq5XzW1rt1rVXY/39qNqNqNYzo0eb3YHm+rgKGjpGo61oajIF67EVmJjTNsdvKGrmhoUzQ9s3dnnexOjHUr81798UoInpfbyb7mz/x38CdV3tFyG15ofH2spoPbYpXBzjbjMDfYVLtiUBzsoUtAXjgL9STCiZxVfEnnGNHeOGvEiItS3teW1aqxubYsAvwljsGddCpO8Rz2bWn4t5Ytxjakxj7a70cpc3IpUwyDqR7qguiHvWhPR1NN2l1upK8BdwBAQz+AO8TAAAAABJRU5ErkJggg=="/>
                     </svg>
                 </div>
                 <div class="position-absolute position-middle">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49" height="40" viewBox="0 0 49 40">
-                        <image id="WIFI" width="49" height="40" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAoCAYAAABXRRJPAAADmklEQVRYhe3Ze+idcxwH8NfZ5jc1ZXM3xdxDmKgxNpfFj8b+kPjDUuRSkkQSEZMkIpfYEMU//jDxpyKbSyblujUxud/ZzPyYLWv66nN0Op3n+zznnOccv8m7nj/O+X6fz/dzv3yfhnowAdOxL2Zgb+yJnbF9nLARa/ENvsBn+DR+94V+hEgMz8EpODqY36FLGr/iE7yFl/AaPq9JsYXYHZfiRfyGrTU/SajncRF2qZv5/XAvfhgA40XPt7gzXLMv7IV78MsQmW9/1uGO8IKOKIqJibgCN2C3ilr4EWvwUQTtd1iPP+KcFOBTsUfE00E4oAu3+Rq3YUmVzYfhlYpaehM34QTsVJGZVqTsdSIW4e2KZ76AA3NEF4b5ckS+x/2Y1QPTOaQ0fTwW46cKPJzTTqsRQZR7MZnz+pxv1ohUc24OZnM8LWoemXL705mNm3BXF7FRtzDJ6n9m+Hs8WeAZnF1A5D1cjtcrHDgJ++PQCNp9sCumxPpYpOhUrT/E6ih0WyrQPhkP4pAOa5uFAGMdJFxSoQJPxmj48eogWDV1JguvxAOYh+1KzkqZ7YkCN/8bp2FD/Lk5tJ9Dcq3r8EGN9WAVro6MlcM1Yb1mDZnbuvd0fIlzMwSSy1wZTdugiltyt8tK+roLY9/cTos5LcyK2BgU8+3PchyV4ecfXqt2scnMt0cM5JCq9LuRENZEivw99k+Jap0K1UwcWSHjpSbz2oi5njGCR0s0luaEpzAf07o4KGlyAZZWSAj3RSvUNVIFfbIkuywuSHvd4gg8VlIPHupl/mlk0u8yHFMD8+2YXRB3P+OMfgifGsNKk+CtvZq2IkaiQ2iety4myEJUNc/8iI1b8EjJ3oNxXATvjChSQptppn4HK/BxCZ2rIqgXhuVrQS6TjMRhyyNWytLnxmipzyux6tD6tdEY9HutB2/gpGEx245GuFcdhW1LtDFDF+DhAVTpu3thZlKPQmyNq5XzW1rt1rVXY/39qNqNqNYzo0eb3YHm+rgKGjpGo61oajIF67EVmJjTNsdvKGrmhoUzQ9s3dnnexOjHUr81798UoInpfbyb7mz/x38CdV3tFyG15ofH2spoPbYpXBzjbjMDfYVLtiUBzsoUtAXjgL9STCiZxVfEnnGNHeOGvEiItS3teW1aqxubYsAvwljsGddCpO8Rz2bWn4t5Ytxjakxj7a70cpc3IpUwyDqR7qguiHvWhPR1NN2l1upK8BdwBAQz+AO8TAAAAABJRU5ErkJggg=="/>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" viewBox="0 0 52 52">
+                        <image id="TV" width="52" height="52" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAADrklEQVRogd2a24tPURTHPzOMSwxGbpk0kkuTS3IrMzFPSomYSCmFF/KgRJEH8STXSCIl48GtEE/+AS88uCYTyiUMpsYMY4i5aP1aUzN71v5dzpnfnD0+der32+fsfdb3t/dee629fwMIlznAQWA+8ABoDdjWjFQA9UCHXqcDtzctIqahixi5ngdsb1qqDDFy7Q3YZi+VQKMhpgYYGKjNXio9PSNiCvramDHAKeAKsDhC/aXAN0PM2STECNe6GPELWJlD3Yo0wywxah1jfmcpyjfMLiXVM53sNIzK1FNLPGLOJS2mkyM5iJKeaTKev5iM6X6OGka6wy8ob5YNlijpqWXAAo+Y86GK6eSQR9QPo/xCGCZn5rBhfPBzJhMiqs0Q0q7DLC+4Y7cc2KY5yMgYL+xQMZLTFBr3nuq73Xu50KztiKt/ZNXbAbRkMVRCu/4AB1wxW/qhEPfah3b7WA1fRsfo/hCQnpoteUZ1FmLqgCfAa+Al8AX47snzG3XiFwNFxv0RwHBgOjBFjABm9cIPMghYi7pPXzfKZFsX00FkQhzDQg1K4w671FJQ47l5AxiaRyEWu2MKqinUDy7v1VH86mNBxzRRjEqHbx04o3MkCY7rHIyEJUgau5uQGHTe1qa5/xn46btpCZLh9qp3bIuETIEXRsWPwGr1jjN1zyErQW80j0mSx867JcxZBdzRqP0dsB24mo2grwmLET4430XgQ+O5HhG7Jaip9+yKTEOWFXt4aEtQczIauuEuF3OBecZzm90CS9Dn3rcvZ1y7JFS6DawBxqtjOAlscBu29oxDyO9bjLJJwC11WEN8FeMkWPnEt8606Qiq72+CLMTLLQKmAtOAXSqwG6EKKna+N+j8eagixBOf0PS7G5agEOaQO0eeaQTjctMtsARNzIuJueEGp4M9tYe5BZagvs6BLNyEUtag5cZzO9wCS1BJ3szMnlHOk4M0T5IcbYY6h+u6xdwNax0aF4CgyUZZiW4dt6Y7c7V6aKquzElihTmdpD1A9jmF8gTFDImzC+Rbh6qj2xObKg1zIuETtBUoS0CM2LM/bgPWQlqi2WDkXyoCRbqlVhGjjYJCKx5S5D8H94E96irzFUFMANYD94CNMdtqL9Cc4nKGB//qTsxb3Rau0xC/Pt0OjIO8q1TXlFL9w0aZOiB33YmKnMinwoc3/8HpQ4P2dooVGj/1Z0Gb3F5doxFtfxMiCZ+ERCnciS7jWtYgOYK3jkJCQkIgSSvkUOFTyjDgH6q9C0X1pwdCAAAAAElFTkSuQmCC"/>
                     </svg>
                 </div>
                 <div class="position-absolute position-bot">
@@ -352,8 +352,8 @@
                             <select class="form-control bg-lets-light @error('origen') border-danger @enderror"
                                 aria-label="Origen" name="origen">
                                 <option selected disabled hidden>Origen</option>
-                                @foreach ($destinos as $destino)
-                                <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                @foreach ($origenes as $origen)
+                                <option value="{{$origen->id}}">{{$origen->destino}}</option>
                                 @endforeach
                             </select>
                             @error('origen')
@@ -410,35 +410,35 @@
                 <h2 class="text-success text-center font-weight-bold font-3">$360</h2>
             </div>
         </div>
-        <div class="w-25">
-            <img src="{{asset('/img/columna.png')}}" alt="" class="img-home-columna">
+        <div class="w-10">
+            <img src="{{asset('/img/ANGEL-BLUE.png')}}" alt="" class="img-home-columna">
         </div>
     </section>
 
     <section class="background-lets text-white mt-5 p-5 descripcion d-flex justify-content-center text-justify">
         <div class="w-75">
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center p-2 shadow-me">
                 <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Reserva las 24 horas, desde la comodidad de tu casa u oficina, solo entra a nuestro sitio, busca tu salida y
                     fecha, ELIJE TU ASIENTO y tu forma de pago. Tan fácil como eso y ya tienes tu e-ticket para abordar tu Van.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5">
+            <div class="d-flex align-items-center mt-5 p-2 shadow-me">
                 <img src="{{asset('/img/PAGOS.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Tu pago lo puedes hacer con tarjeta de crédito o débito, Transferencia o depósito. Todas las opciones, 100%
                     digital y sin papel.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5">
+            <div class="d-flex align-items-center mt-5 p-2 shadow-me">
                 <img src="{{asset('/img/UBICACION.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Viaja de punto a punto sin la necesidad de estar en las terminales. Más rápido y con ubicaciones muy
                     céntricas.
                 </p>
             </div>
-            <div class="d-flex align-items-center mt-5">
+            <div class="d-flex align-items-center mt-5 p-2 shadow-me">
                 <img src="{{asset('/img/CINE.png')}}" alt="" class="image-caracteristicas">
                 <p class="mb-0 ml-3">
                     Disfruta del mejor entretenimiento en tus viajes, contamos con las últimas películas de estreno.

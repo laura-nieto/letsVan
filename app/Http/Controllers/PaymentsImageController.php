@@ -82,13 +82,14 @@ class PaymentsImageController extends Controller
                 $corrida = $payment->corrida;
                 
                 //PDF
+                $image = base64_encode(file_get_contents(public_path('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')));
                 $data = [
-                    'nombre' => $comprador->nombre . " " . $comprador->apellido,
-                    'telefono' => $comprador->telefono,
                     'corrida' => $corrida,
                     'total' => $payment->total,
-                    'descripcion' =>json_decode($payment->descripcion,true),
-                    'asientos'=> json_decode($payment->asientos)
+                    'tipo_pago' => $payment->tipo_pago,
+                    'pasajeros' =>json_decode($payment->descripcion,true),
+                    'asientos'=> json_decode($payment->asientos),
+                    'image'=>$image
                 ];
                 $pdf = PDF::loadView('pdf.ticket', $data);
                 

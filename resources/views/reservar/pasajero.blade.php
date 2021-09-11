@@ -59,6 +59,18 @@
                                 <label class="form-label">Apellido</label>
                                 <input type="text" class="form-control" name="pasajero-{{$i}}[apellido]" required>
                             </div>
+                            @if(session()->has('niños'))
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pasajero-{{$i}}[type]" value="adulto" required>
+                                    <label class="form-check-label">Adulto</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pasajero-{{$i}}[type]" value="niño">
+                                    <label class="form-check-label">Niño</label>
+                                </div>
+                            @else
+                                <input type="hidden" name="pasajero-{{$i}}[type]" value="adulto">
+                            @endif
                         </div>
                     @endfor
                 </div>

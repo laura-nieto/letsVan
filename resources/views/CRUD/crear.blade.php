@@ -262,11 +262,26 @@
                 @break
             @case('destino')
                 <div class="mb-3">
-                    <label for="" class="form-label">Nombre del Destino</label>
+                    <label for="" class="form-label">Nombre de la ruta</label>
                     <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{old('nombre')}}">
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Tipo de ruta</label>
+                    <select class="form-control w-50 width-75-responsive" name="type">
+                        <option value="origen">Origen</option>
+                        <option value="destino">Destino</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Ubicación</label>
+                    <input type="text" class="form-control @error('ubicacion') is-invalid @enderror" name="ubicacion" value="{{old('ubicacion')}}">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">URL</label>
+                    <input type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{old('url')}}">
                     <button type="submit" class="btn btn-lets mt-3">Crear</button>
                 </div>
                 @break

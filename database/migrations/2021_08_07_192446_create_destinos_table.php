@@ -16,6 +16,9 @@ class CreateDestinosTable extends Migration
         Schema::create('destinos', function (Blueprint $table) {
             $table->id();
             $table->string('destino');
+            $table->string('destino_origen');
+            $table->string('ubicacion');
+            $table->string('url');
             $table->timestamps();
         });
     }

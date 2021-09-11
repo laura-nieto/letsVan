@@ -79,6 +79,9 @@ class PasajeroController extends Controller
         $request->session()->put('cantidad',$cantidad);
         $request->session()->put('total',$total);
         $request->session()->put('pasajes',$pasajes);
+        if ($request->niños != null) {
+            $request->session()->put('niños',true);
+        }
 
         return redirect()->route('mostrar_ingreso_pasajeros',[$request->corrida]);
     }

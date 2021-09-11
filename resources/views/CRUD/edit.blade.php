@@ -268,7 +268,22 @@
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Tipo de ruta</label>
+                    <select class="form-control w-50 width-75-responsive" name="type">
+                        <option value="origen" {{$unidad->destino_origen == 'origen' ? 'selected' : ''}}>Origen</option>
+                        <option value="destino" {{$unidad->destino_origen == 'destino' ? 'selected' : ''}}>Destino</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Ubicación</label>
+                    <input type="text" class="form-control @error('ubicacion') is-invalid @enderror" name="ubicacion" value="{{$unidad->ubicacion}}">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">URL</label>
+                    <input type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{$unidad->url}}">
+                    <button type="submit" class="btn btn-lets mt-4">Crear</button>
                 </div>
                 @break
         @endswitch

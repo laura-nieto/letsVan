@@ -118,8 +118,13 @@ class PaymentController extends Controller
             $newPasajero = new Pasajero;
             $newPasajero->nombre = $pasajero['nombre'];
             $newPasajero->apellido = $pasajero['apellido'];
+            $newPasajero->type = $pasajero['type'];
             $newPasajero->save();
-            
+            $pasajeros[] = [
+                'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                'type'=> $newPasajero->type
+            ];
+
             $newAsiento = new Asiento;
             $newAsiento->pasajero_id = $newPasajero->id;
             $newAsiento->corrida_id = $idCorrida;
@@ -141,21 +146,6 @@ class PaymentController extends Controller
         $newComprador->save();
 
         $corrida = Corrida::findOrFail($idCorrida);
-        if (session()->get('pasajes')['adultos'] != null) {
-            $descripcion['adulto']=[
-                'precio'=> $corrida->precio->adulto,
-                'cantidad' => session()->get('pasajes')['adultos']
-            ];
-        }
-        if (session()->get('pasajes')['niños'] != null) {
-            $descripcion['ninios']=[
-                'precio'=> $corrida->precio->niño,
-                'cantidad' => session()->get('pasajes')['niños']
-            ];
-        }
-        if ($request->session()->exists('cupon')) {
-            $descripcion['cupon'] = session()->get('cupon');
-        }
 
         // PAYMENT
         $payment = new Payment;
@@ -163,7 +153,7 @@ class PaymentController extends Controller
         $payment->comprador_id = $newComprador->id;
         $payment->usuario_id = $idUser;
         $payment->number_order = uniqid();
-        $payment->descripcion = json_encode($descripcion);
+        $payment->descripcion = json_encode($pasajeros);
         $payment->tipo_pago = 'Transferencia';
         $payment->asientos = json_encode($guardarAsientos);
         $payment->total = session()->get('total');
@@ -176,7 +166,7 @@ class PaymentController extends Controller
         Mail::to($comprador['email'])->send($correo);
 
         //BORRAR DATOS DE SESSION
-        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon']);
+        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon','niños']);
         
         return redirect()->route('reserva_transferencia',$idCorrida);
     }
@@ -195,8 +185,13 @@ class PaymentController extends Controller
             $newPasajero = new Pasajero;
             $newPasajero->nombre = $pasajero['nombre'];
             $newPasajero->apellido = $pasajero['apellido'];
+            $newPasajero->type = $pasajero['type'];
             $newPasajero->save();
-            
+            $pasajeros[] = [
+                'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                'type'=> $newPasajero->type
+            ];
+
             $newAsiento = new Asiento;
             $newAsiento->pasajero_id = $newPasajero->id;
             $newAsiento->corrida_id = $idCorrida;
@@ -218,21 +213,6 @@ class PaymentController extends Controller
         $newComprador->save();
     
         $corrida = Corrida::findOrFail($idCorrida);
-        if (session()->get('pasajes')['adultos'] != null) {
-            $descripcion['adulto']=[
-                'precio'=> $corrida->precio->adulto,
-                'cantidad' => session()->get('pasajes')['adultos']
-            ];
-        }
-        if (session()->get('pasajes')['niños'] != null) {
-            $descripcion['ninios']=[
-                'precio'=> $corrida->precio->niño,
-                'cantidad' => session()->get('pasajes')['niños']
-            ];
-        }
-        if ($request->session()->exists('cupon')) {
-            $descripcion['cupon'] = session()->get('cupon');
-        }
 
         // PAYMENT
         $payment=new Payment;
@@ -240,21 +220,22 @@ class PaymentController extends Controller
         $payment->comprador_id = $newComprador->id;
         $payment->usuario_id = $idUser;
         $payment->number_order = $request->payment_id;
-        $payment->descripcion = json_encode($descripcion);
+        $payment->descripcion = json_encode($pasajeros);
         $payment->asientos = json_encode($guardarAsientos);
         $payment->tipo_pago = 'Mercado Pago';
         $payment->total = session()->get('total');
         $payment->pay = 1;
         $payment->save();
-
+        
         //PDF
+        $image = base64_encode(file_get_contents(public_path('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')));
         $data = [
-            'nombre' => $comprador['nombre'] . " " . $comprador['apellido'],
-            'telefono' => $comprador['telefono'],
             'corrida' => $corrida,
             'total' => session()->get('total'),
-            'descripcion' => $descripcion,
-            'asientos'=> $guardarAsientos
+            'tipo_pago' => $payment->tipo_pago,
+            'asientos'=> $guardarAsientos,
+            'pasajeros' => $pasajeros,
+            'image'=>$image
         ];
         $pdf = PDF::loadView('pdf.ticket', $data);
        
@@ -265,18 +246,20 @@ class PaymentController extends Controller
 
 
         //BORRAR DATOS DE SESSION
-        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon']);
+        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon','niños']);
         
         return redirect()->route('reserva_informacion',$idCorrida)->with('success','asd');
     }
 
     
-    public function vista_fail()
+    public function vista_fail(Request $request)
     {
-        return redirect()->route('index')->with('error','Su pago no se pudo realizar.');
+        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon','niños']);
+        return redirect()->route('index')->with('error','Su pago no se pudo realizar. Intentelo nuevamente.');
     }
     public function vista_pending()
     {
+        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon','niños']);
         return redirect()->route('index')->with('success','Su pago está siendo procesado');
     }
 

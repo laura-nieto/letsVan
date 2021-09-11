@@ -17,6 +17,7 @@ class CreatePasajerosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('type');
             $table->timestamps();
         });
     }

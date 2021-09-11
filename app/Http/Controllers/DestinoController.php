@@ -47,6 +47,9 @@ class DestinoController extends Controller
 
         $destino = new Destino;
         $destino->destino = $request->nombre;
+        $destino->destino_origen = $request->type;
+        $destino->ubicacion = $request->ubicacion;
+        $destino->url = $request->url;
         
         $destino->save();
 
@@ -94,6 +97,9 @@ class DestinoController extends Controller
         $request->validate($rules,$message);
 
         $destino->destino = $request->nombre;
+        $destino->destino_origen = $request->type;
+        $destino->ubicacion = $request->ubicacion;
+        $destino->url = $request->url;
         $destino->save();
 
         return redirect()->route('destino.index')->with('mensaje.success','El destino ha sido creado.');

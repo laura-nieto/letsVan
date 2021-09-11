@@ -29,12 +29,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $destinos = Destino::all();
+        $destinos = Destino::where('destino_origen','destino')->get();
+        $origenes = Destino::where('destino_origen','origen')->get();
         if(PaymentsImage::where('visto',0)->exists()) {
             $payments = PaymentsImage::where('visto',0)->count();
         }else{
             $payments = false;
         }
-        return view('welcome',['destinos'=>$destinos,'exists'=>$payments]);
+        return view('welcome',['destinos'=>$destinos,'origenes'=>$origenes,'exists'=>$payments]);
     }
 }
