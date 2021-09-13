@@ -135,6 +135,7 @@
                 <tr>
                     <th scope="col">N°</th>
                     <th scope="col">Servicio</th>
+                    <th scope="col">Vista Previa</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
@@ -143,6 +144,9 @@
                 <tr>
                     <th scope="row">{{$servicio->id}}</th>
                     <td>{{$servicio->nombre}}</td>
+                    <td>
+                        <img src="{{asset('/img/servicios').'/'.$servicio->imagen}}" alt="" class="image-servicio-crud">
+                    </td>
                     <td class="d-flex d-flex-justify-around around--btn">
                         <a href="{{Request::segment(1) . '/' . $servicio->id . '/edit'}}"
                             class="btn btn-lets">Modificar</a>

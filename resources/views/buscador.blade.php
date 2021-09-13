@@ -30,8 +30,8 @@
                     <select class="form-control @error('origen') border-danger @enderror" aria-label="Origen"
                         name="origen">
                         <option selected disabled hidden>Origen</option>
-                        @foreach ($destinos as $destino)
-                        <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                        @foreach ($origenes as $origen)
+                        <option value="{{$origen->id}}">{{$origen->destino}}</option>
                         @endforeach
                     </select>
                     @error('origen')
@@ -59,15 +59,24 @@
             </div>
         </article>
         <article class="d-flex justify-content-between">
-            {{-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="viaje_redondo">
-                                <label class="form-check-label">
-                                    Viaje Redondo
-                                </label>
-                            </div> --}}
             <button type="submit" class="btn btn-lets">Buscar</button>
         </article>
     </form>
 </section>
 </div>
+@endsection
+@section('js')
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script>
+    $('#tipo').change(function () {
+        if ($('#tipo option:selected').val() == 1) {
+            $('#input-hidden').show();
+
+        } else {
+            $('#input-hidden').hide();
+        }
+    });
+
+</script>
 @endsection

@@ -13,8 +13,12 @@
         @case('corrida')
         Editar Corrida
         @break
+        @case('chofer')
+        Editar Chofer
+        @break
         @case('destino')
         Editar Destino
+        @break
         @case('cupon')
         Editar Cupón
         @endswitch
@@ -23,7 +27,7 @@
 <section class="w-50 crud--new">
     <a href="{{url()->previous()}}" class="btn btn-lets mr-3 fsize-1">Regresar</a>
 </section>
-<article class="w-75 m-auto border">
+<article class="w-75 mx-auto mb-5 border">
     <form action="{{ route(Request::segment(1) . '.update',[$unidad->id])}}" method="post" class="p-5 form--new" enctype="multipart/form-data">
         @csrf
         @method('put') 
@@ -72,6 +76,7 @@
                     @enderror
                 </div>
                 <div class="mb-3 grid-c5 grid-c3-responsive">
+                    <h5 class="r-1">Servicios</h5>
                     @foreach ($servicios as $servicio)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="servicios[]" value="{{$servicio->id}}" {{$unidad->servicios->contains($servicio->id)?'checked':''}}>

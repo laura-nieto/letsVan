@@ -39,12 +39,13 @@ class ServicioController extends Controller
         // VALIDATION
         $rules=[
             '*'=>'required',
+            'imagen'=>'required'
         ];
         $message=[
             'required' => 'El campo es obligatorio',
         ];
         $request->validate($rules,$message);
-
+        
         $servicio = new Servicio;
         $servicio->nombre = $request->nombre;
         

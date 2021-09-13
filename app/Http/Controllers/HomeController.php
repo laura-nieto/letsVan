@@ -10,8 +10,9 @@ class HomeController extends Controller
 {
     public function buscador()
     {
-        $destinos = Destino::all();
-        return view('buscador',['destinos'=>$destinos]);
+        $destinos = Destino::where('destino_origen','destino')->get();
+        $origenes = Destino::where('destino_origen','origen')->get();
+        return view('buscador',['origenes'=>$origenes,'destinos'=>$destinos]);
     }
     public function privacidad()
     {

@@ -7,7 +7,7 @@
         @case('unidad')
         Crear nueva Unidad
         @break
-        @case('choferes')
+        @case('chofer')
         Crear nuevo Chofer
         @break
         @case('destino')
@@ -15,6 +15,9 @@
         @break
         @case('corrida')
         Crear nueva corrida
+        @break
+        @case('servicio')
+        Crear nuevo servicio
         @break
         @case('cupon')
         Crear nuevo cupón
@@ -80,6 +83,7 @@
                     @enderror
                 </div>
                 <div class="mb-3 grid-c5 grid-c3-responsive">
+                    <h5 class="r-1">Servicios</h5>
                     @foreach ($servicios as $servicio)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="servicios[]" value="{{$servicio->id}}">
@@ -133,6 +137,20 @@
                     <label class="form-label" for="">E-mail</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
                     @error('email')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="">Contraseña</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{old('password')}}">
+                    @error('password')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="">Confirmar Contraseña</label>
+                    <input type="password" class="form-control @error('password-confirm') is-invalid @enderror" name="password_confirmation" value="{{old('password_confirmation')}}">
+                    @error('password_confirmation')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -249,11 +267,11 @@
                 @break
             @case('servicio')
                 <div class="mb-5">
+                    <label for="exampleFormControlFile1" class="fsize-1">Imágen del Servicio.</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen">
                     @error('imagen')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
-                    <label for="exampleFormControlFile1" class="fsize-1">Imágen del Servicio.</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen">
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label fsize-1">Nombre del servicio</label>

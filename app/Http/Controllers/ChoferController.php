@@ -42,10 +42,12 @@ class ChoferController extends Controller
         $rules=[
             '*'=>'required',
             'edad'=>'integer',
+            'password'=>'confirmed'
         ];
         $message=[
             'required' => 'El campo es obligatorio',
-            'integer' => 'La edad debe ser numérica'
+            'integer' => 'La edad debe ser numérica',
+            'confirmed'=>'Las contraseñas no son idénticas'
         ];
         $request->validate($rules,$message);
 
@@ -55,7 +57,7 @@ class ChoferController extends Controller
         $newUser->email = $request->email;
         $newUser->phone = $request->celular;
         $newUser->role = 2;
-        $newUser->password = Hash::make($request->nombre);
+        $newUser->password = Hash::make($request->password);
         $newUser->save();
 
         $chofer = new Chofer;

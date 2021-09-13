@@ -176,6 +176,9 @@ h1{
 .d-grid{
     display: grid;
 }
+.r-1{
+    grid-column: span 5;
+}
 .row-gap-30{
     row-gap: 30px;
 }
@@ -243,6 +246,9 @@ h1{
 }
 .d-flex-justify-around{
     justify-content: space-around;
+}
+.image-servicio-crud{
+    width: 40px;
 }
 /* INGRESAR PASAJEROS */
 .grid-c2{
