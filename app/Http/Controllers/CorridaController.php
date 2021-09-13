@@ -112,8 +112,9 @@ class CorridaController extends Controller
     {
         $unidades = Unidad::all();
         $choferes = Chofer::all();
-        $destinos = Destino::all();
-        return view('CRUD.crear',['unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos]);
+        $destinos = Destino::where('destino_origen','destino')->get();
+        $origenes = Destino::where('destino_origen','origen')->get();
+        return view('CRUD.crear',['unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos,'origenes'=>$origenes]);
     }
 
     /**
@@ -189,8 +190,9 @@ class CorridaController extends Controller
     {
         $unidades = Unidad::all();
         $choferes = Chofer::all();
-        $destinos = Destino::all();
-        return view('CRUD.edit',['unidad'=>$corrida,'unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos]);
+        $destinos = Destino::where('destino_origen','destino')->get();
+        $origenes = Destino::where('destino_origen','origen')->get();
+        return view('CRUD.edit',['unidad'=>$corrida,'unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos,'origenes'=>$origenes]);
     }
 
     /**

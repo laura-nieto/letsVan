@@ -166,8 +166,8 @@
                                 <label for="" class="form-label">Origen</label>
                                 <select class="form-control" name="origen">
                                     <option selected disabled hidden>Seleccionar Origen</option>
-                                    @foreach ($destinos as $destino)
-                                    <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                    @foreach ($origenes as $origen)
+                                    <option value="{{$origen->id}}">{{$origen->destino}}</option>
                                     @endforeach
                                 </select>
                             </div>

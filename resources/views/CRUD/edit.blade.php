@@ -138,11 +138,11 @@
                                 <label for="" class="form-label">Origen</label>
                                 <select class="form-control" name="origen">
                                     <option selected disabled hidden>Seleccionar Origen</option>
-                                    @foreach ($destinos as $destino)
-                                        @if ($unidad->origen === $destino->id)
-                                            <option selected value="{{$destino->id}}">{{$destino->destino}}</option> 
+                                    @foreach ($origenes as $origen)
+                                        @if ($unidad->origen === $origen->id)
+                                            <option selected value="{{$origen->id}}">{{$origen->destino}}</option> 
                                         @else
-                                            <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                                            <option value="{{$origen->id}}">{{$origen->destino}}</option>
                                         @endif
                                     @endforeach
                                 </select>
