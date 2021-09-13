@@ -47,6 +47,7 @@ class CuponController extends Controller
 
         $cupon = new Cupon;
         $cupon->nombre = $request->nombre;
+        $cupon->descuento = $request->precio;
         $cupon->save();
 
         return redirect()->route('cupon.index')->with('mensaje.success','El cupón ha sido creado.');
@@ -94,6 +95,7 @@ class CuponController extends Controller
 
         
         $cupon->nombre = $request->nombre;
+        $cupon->descuento = $request->precio;
         $cupon->save();
 
         return redirect()->route('cupon.index')->with('mensaje.success','El cupón ha sido modificado.');

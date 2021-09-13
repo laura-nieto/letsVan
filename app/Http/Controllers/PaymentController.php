@@ -93,11 +93,12 @@ class PaymentController extends Controller
     {
         $cupon = Cupon::where('nombre',$request->cupon)->exists();
         if($cupon){
+            $cupon = Cupon::where('nombre',$request->cupon)->first();
             $total = $request->session()->get('total');
-            $total -= 60;
+            $total -= $cupon->descuento;
             $request->session()->forget('total');
             $request->session()->put('total',$total);
-            $request->session()->put('cupon',true);
+            $request->session()->put('cupon',$cupon->descuento);
             
             return redirect()->route('vista_pagar',$idCorrida)->with('success','Cupón ingresado con éxito');
         }else{

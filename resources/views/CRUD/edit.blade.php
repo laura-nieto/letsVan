@@ -304,6 +304,13 @@
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Descuento</label>
+                    <input type="number" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{$unidad->descuento}}">
+                    @error('precio')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="btn btn-lets mt-3">Crear</button>
                 </div>
                 @break

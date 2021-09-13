@@ -198,12 +198,14 @@
                 <thead>
                     <tr>
                         <th scope="col">Cupon</th>
+                        <th scope="col">Descuento</th>
                         <th scope="col" class="text-center">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($cupones as $cupon)
                         <td>{{$cupon->nombre}}</td>
+                        <td>${{$cupon->descuento}}</td>
                         <td class="d-flex d-flex-justify-around around--btn">
                             <a href="{{Request::segment(1) . '/' . $cupon->id . '/edit'}}"
                                 class="btn btn-lets">Modificar</a>

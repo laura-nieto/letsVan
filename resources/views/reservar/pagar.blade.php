@@ -90,7 +90,7 @@
                         <h5>Adultos: {{$pasajes['adultos']}} x  ${{$corrida->precio->adulto}}</h5>
                     @endif
                     @if (session('cupon'))
-                        <h5>Descuento: $60</h5>
+                        <h5>Descuento: ${{session('cupon')}}</h5>
                     @endif
                     <h4>Total a pagar: ${{$total}}</h4>
                 </div>
