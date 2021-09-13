@@ -49,6 +49,9 @@ h1{
 .nav-white{
     color: #fff!important;
 }
+.height-100px{
+    height: 100px;
+}
 /* QUIENES SOMOS */
 .we-article{
     border: #68c3ed solid 2px;
@@ -60,7 +63,7 @@ h1{
 }
 /* HOME ADMIN */
 .home--title{
-    padding: 100px 0;
+    padding: 50px 0;
 }
 .notification{
     width: 30px;
@@ -200,8 +203,7 @@ h1{
 }
 .servicios-imagen{
     border-radius: 10%;
-    width: 25%;
-    margin-right: 5px;
+    width: 15%;
 }
 .servicios-imagen>img{
     width: 50px;

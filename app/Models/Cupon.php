@@ -10,4 +10,9 @@ class Cupon extends Model
     use HasFactory;
 
     protected $table = 'cupones';
+
+    public function precio()
+    {
+        return $this->hasOne(Precio::class);
+    }
 }

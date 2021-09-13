@@ -101,7 +101,7 @@
                     <a href="https://www.facebook.com/profile.php?id=100072046007486" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
                 </div>
             </div>
-            <div class="d-flex flex-column align-items-center mt-4 w-100">
+            <div class="d-flex flex-column align-items-center mt-3 mt-lg-0 w-100">
                 <a href="/terminos-y-condiciones">Terminos y Condiciones</a>
                 <a href="/avisos-de-privacidad">Avisos de Privacidad</a>
             </div>

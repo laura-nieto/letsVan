@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Unidad;
 use App\Models\Chofer;
 use App\Models\Destino;
+use App\Models\Cupon;
 
 use Carbon\Carbon;
 
@@ -114,7 +115,8 @@ class CorridaController extends Controller
         $choferes = Chofer::all();
         $destinos = Destino::where('destino_origen','destino')->get();
         $origenes = Destino::where('destino_origen','origen')->get();
-        return view('CRUD.crear',['unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos,'origenes'=>$origenes]);
+        $cupones = Cupon::all();
+        return view('CRUD.crear',['unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos,'origenes'=>$origenes,'cupones'=>$cupones]);
     }
 
     /**
@@ -154,15 +156,15 @@ class CorridaController extends Controller
         $corrida->chofer_id = $request->chofer_id;
         $corrida->save();
 
-        if ($request->cupon) {
-            $cupon = true;
+        if ($request->cupon == 0) {
+            $cupon = null;
         }else{
-            $cupon = false;
+            $cupon = $request->cupon;
         }
         $corrida->precio()->create([
             'adulto' => $request->precio_adulto,
             'niño' =>$request->precio_niño,
-            'cupon' =>$cupon,
+            'cupon_id' =>$cupon,
             'corrida_id'=>$corrida->id
         ]);
         
@@ -192,7 +194,8 @@ class CorridaController extends Controller
         $choferes = Chofer::all();
         $destinos = Destino::where('destino_origen','destino')->get();
         $origenes = Destino::where('destino_origen','origen')->get();
-        return view('CRUD.edit',['unidad'=>$corrida,'unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos,'origenes'=>$origenes]);
+        $cupones = Cupon::all();
+        return view('CRUD.edit',['unidad'=>$corrida,'unidades'=>$unidades,'choferes'=>$choferes,'destinos'=>$destinos,'origenes'=>$origenes,'cupones'=>$cupones]);
     }
 
     /**
@@ -228,14 +231,10 @@ class CorridaController extends Controller
         $corrida->unidad_id = $request->unidad_id;
         $corrida->save();
         
-        if ($request->cupon) {
-            $cupon = true;
-        }else{
-            $cupon = false;
-        }
+        
         $corrida->precio->adulto = $request->precio_adulto;
         $corrida->precio->niño = $request->precio_niño;
-        $corrida->precio->cupon = $cupon;
+        $corrida->precio->cupon_id = $request->cupon;
         $corrida->push();
 
         return redirect()->route('corrida.index')->with('mensaje.success','La corrida ha sido modificada.');

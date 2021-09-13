@@ -21,13 +21,13 @@
                 <tbody>
                     @foreach ($payments as $payment)
                         <tr>
-                            <td><a href="/corrida/{{$payment->corrida->id}}">{{$payment->corrida->id}}</a></td>
+                            <td>{{$payment->corrida->id}} - <a href="/corrida/{{$payment->corrida->id}}">Ver detalles</a></td>
                             <td>
                                 @foreach (json_decode($payment->asientos) as $asiento)
                                     {{$asiento . ','}}
                                 @endforeach
                             </td>
-                            <td><a href="{{route('ver_corrida',$payment->id)}}">{{$payment->number_order}}</a></td>
+                            <td>{{$payment->number_order}} - <a href="{{route('ver_corrida',$payment->id)}}">Ver detalles</a></td>
                         </tr>
                     @endforeach  
                 </tbody>

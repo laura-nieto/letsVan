@@ -91,9 +91,8 @@ class PaymentController extends Controller
 
     public function descontar(Request $request,$idCorrida)
     {
-        $cupon = Cupon::where('nombre',$request->cupon)->exists();
-        if($cupon){
-            $cupon = Cupon::where('nombre',$request->cupon)->first();
+        $cupon = Corrida::find($idCorrida)->precio->cupon;
+        if($cupon->nombre == $request->cupon){
             $total = $request->session()->get('total');
             $total -= $cupon->descuento;
             $request->session()->forget('total');

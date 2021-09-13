@@ -21,6 +21,7 @@
                     <h5>Origen: {{$corrida->origen_tabla->destino}} - {{$corrida->origen_tabla->ubicacion}}</h5>
                     <h5>Día: {{$corrida->dia_salida->format('d-m-y')}}</h5>
                     <h5>Hora: {{$corrida->hora_salida}}</h5>
+                    <h5><a href="{{$corrida->origen_tabla->url}}">Ver en Google Maps</a></h5>
                 </div>
             </div>
             <div class="card mb-3">
@@ -31,6 +32,7 @@
                     <h5>Destino: {{$corrida->destino_tabla->destino}} - {{$corrida->destino_tabla->ubicacion}}</h5>
                     <h5>Día: {{$corrida->dia_llegada->format('d-m-y')}}</h5>
                     <h5>Hora: {{$corrida->hora_llegada}}</h5>
+                    <h5><a href="{{$corrida->destino_tabla->url}}">Ver en Google Maps</a></h5>
                 </div>
             </div>
             <div class="d-flex justify-content-center">

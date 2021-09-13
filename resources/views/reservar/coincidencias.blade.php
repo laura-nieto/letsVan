@@ -55,7 +55,7 @@
                             @foreach ($corrida->unidad->servicios as $servicio)
                             <div class="border border-white d-flex flex-column servicios-imagen align-items-center p-3 m-2">
                                 <img src="{{asset('/img/servicios/'.$servicio->imagen)}}" alt="">
-                                <p class="mb-0 mt-2 font-weight-bold">{{$servicio->nombre}}</p>
+                                <p class="mb-0 mt-2 font-weight-bold text-center">{{$servicio->nombre}}</p>
                             </div>
                             @endforeach
                         </div>

@@ -12,11 +12,15 @@ class Precio extends Model
     protected $fillable = [
         'adulto',
         'niño',
-        'cupon',
+        'cupon_id',
     ];
 
     public function corrida()
     {
         return $this->belongsTo(Corrida::class);
+    }
+    public function cupon()
+    {
+        return $this->belongsTo(Cupon::class);
     }
 }

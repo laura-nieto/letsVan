@@ -255,12 +255,13 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="cupon" value="on">
-                            <label class="form-check-label" for="">
-                              Cupón
-                            </label>
-                        </div>
+                        <label class="form-label" for="">Cupón</label>
+                        <select class="form-control w-25-responsive" aria-label="Default select example" name="cupon">
+                            <option selected value="0">Elija un cupón</option>
+                            @foreach ($cupones as $cupon)
+                                <option value="{{$cupon->id}}">{{$cupon->nombre}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </section>
                 <button type="submit" class="btn btn-lets mt-3">Enviar</button>

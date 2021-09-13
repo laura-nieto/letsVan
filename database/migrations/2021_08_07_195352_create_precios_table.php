@@ -17,7 +17,7 @@ class CreatePreciosTable extends Migration
             $table->id();
             $table->integer('adulto');
             $table->integer('niño');
-            $table->boolean('cupon')->default('0');
+            $table->integer('cupon_id')->default(0);
             $table->foreignId('corrida_id')->constrained('corridas')->onDelete('cascade');
             $table->timestamps();
         });
