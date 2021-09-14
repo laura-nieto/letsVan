@@ -94,7 +94,9 @@
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-lets mt-3">Enviar</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Enviar</button>
+                </div>
                 @break
             
             @case('chofer')
@@ -154,7 +156,9 @@
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-lets mt-3">Enviar</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Crear</button>
+                </div>
                 @break
 
                 
@@ -264,7 +268,9 @@
                         </select>
                     </div>
                 </section>
-                <button type="submit" class="btn btn-lets mt-3">Enviar</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Crear</button>
+                </div>
                 @break
             @case('servicio')
                 <div class="mb-5">
@@ -280,7 +286,9 @@
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-lets">Crear</button>
+                    </div>
                 </div>
                 @break
             @case('destino')
@@ -309,7 +317,9 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Referencia</label>
                     <input type="text" class="form-control @error('url') is-invalid @enderror" name="referencia" value="{{old('referencia')}}">
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Crear</button>
                 </div>
                 @break
             @case('cupon')
@@ -326,7 +336,9 @@
                     @error('precio')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-lets">Crear</button>
+                    </div>
                 </div>
                 @break
             @default

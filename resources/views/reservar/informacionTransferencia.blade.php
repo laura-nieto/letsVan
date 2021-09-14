@@ -29,7 +29,7 @@
             </div>
         </section>
         <section>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mb-5">
                 <a href="/" class="btn btn-lets">Inicio</a>
             </div>
         </section>

@@ -88,8 +88,8 @@
                     </div>
                 </div>
             </section>
-            <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary mb-2">Siguiente</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mb-4">Siguiente</button>
             </div>
         </form>
     </div>

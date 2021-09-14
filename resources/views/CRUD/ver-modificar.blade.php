@@ -167,8 +167,6 @@
                     <th scope="col">Ruta</th>
                     <th scope="col">Origen/Destino</th>
                     <th scope="col">Ubicación</th>
-                    <th scope="col">URL</th>
-                    <th scope="col">Referencia</th>
                     <th scope="col" class="text-center">Acciones</th>
                 </tr>
             </thead>
@@ -179,8 +177,6 @@
                     <td>{{$destino->destino}}</td>
                     <td>{{ucfirst($destino->destino_origen)}}</td>
                     <td>{{$destino->ubicacion}}</td>
-                    <td><a href="{{$destino->url}}" target="_blank">Click</a></td>
-                    <td>{{$destino->referencia}}</td>
                     <td class="d-flex d-flex-justify-around around--btn">
                         <a href="{{Request::segment(1) . '/' . $destino->id . '/edit'}}"
                             class="btn btn-lets">Modificar</a>

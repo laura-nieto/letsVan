@@ -84,7 +84,9 @@
                         </div>
                     @endforeach
                 </div>
-                <button type="submit" class="btn btn-lets mt-3">Modificar</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Modificar</button>
+                </div>
                 @break
 
 
@@ -126,7 +128,9 @@
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-lets mt-3">Modificar</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Modificar</button>
+                </div>
                 @break
 
 
@@ -250,7 +254,9 @@
                         </select>
                     </div>
                 </section>
-                <button type="submit" class="btn btn-lets mt-3">Modificar</button>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Modificar</button>
+                </div>
                 @break
             @case('servicio')
                 <div class="mb-5">
@@ -266,7 +272,9 @@
                     @error('nombre')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Modificar</button>
                 </div>
                 @break
             @case('destino')
@@ -295,7 +303,9 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Referencia</label>
                     <input type="text" class="form-control @error('url') is-invalid @enderror" name="referencia" value="{{$unidad->referencia}}">
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Modificar</button>
                 </div>
                 @break
             @case('cupon')
@@ -312,7 +322,9 @@
                     @error('precio')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
-                    <button type="submit" class="btn btn-lets mt-3">Crear</button>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-lets">Modificar</button>
                 </div>
                 @break
         @endswitch

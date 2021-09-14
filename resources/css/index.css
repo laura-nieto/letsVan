@@ -80,7 +80,7 @@ h1{
 .search-form{
     max-width: 95%;
     position: relative;
-    top: -55px;
+    top: -45px;
 }
 .w-100-sm{
     width: 100%;
@@ -279,16 +279,16 @@ h1{
         width: 75%;
     }
     .position-bot{
-        bottom: 65px;
+        bottom: 55px;
         right: 3px;
     }
     .position-middle{
-        bottom: 215px;
+        bottom: 210px;
         right: 35px;
     }
     .position-top{
         right: 0px;
-        bottom: 370px;
+        bottom: 350px;
     }
 }
 @media screen and (max-width:1200px) {
@@ -297,7 +297,7 @@ h1{
         width: 60%;
     }
     .position-bot{
-        bottom: 65px;
+        bottom: 58px;
         right: 3px;
     }
     .position-middle{
@@ -364,7 +364,10 @@ h1{
         width: 50%;
     }
     .position-middle {
-        bottom: 235px;
+        bottom: 215px;
+    }
+    .position-top{
+        bottom: 350px;
     }
 }
 @media screen and (max-width: 768px) { 
@@ -393,7 +396,7 @@ h1{
         width: 80%;
     }
     .position-top{
-        bottom: 400px;
+        bottom: 380px;
     }
     .letter-responsive .h1{
         font-size: 2rem;
@@ -406,6 +409,9 @@ h1{
     }
     .table-padding-0 th,.table-padding-0 td{
         padding: 0.3rem;
+    }
+    .image-icon-width-responsive{
+        width: 35px;
     }
 }
 @media screen and (max-width: 637px){
@@ -426,7 +432,7 @@ h1{
         grid-column: 1;
     }
     .position-top{
-        bottom: 345px;
+        bottom: 335px;
     }
     .position-middle{
         bottom: 205px;
@@ -439,7 +445,7 @@ h1{
         width: 100%!important;
     }
 }
-@media (max-width: 576px) {
+@media screen and (max-width: 576px) {
     .order-list-me{
         width: 100%;
     }
@@ -451,6 +457,23 @@ h1{
     }
     .position-middle {
         bottom: 175px;
+    }
+}
+@media screen and (max-width:500px) {
+    .position-top{
+        bottom: 250px;
+    }
+    .position-middle {
+        bottom: 160px;
+    }
+    .image-caracteristicas-1{
+        margin-top: -17em;
+    }
+    .image-caracteristicas-2{
+        margin-top: -12em;
+    }
+    .image-caracteristicas-3, .image-caracteristicas-4{
+        margin-top: -10em;
     }
 }
 @media (min-width: 576px) {

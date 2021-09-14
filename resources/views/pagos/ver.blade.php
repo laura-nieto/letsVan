@@ -3,7 +3,13 @@
 @section('main')
     <article class="home--title">
         <h2 class="text-center">
-            Pagos {{$fechas[0]}} - {{$fechas[1]}}
+            Pagos
+        </h2>
+        <h2 class="text-center">
+            De: {{$fechas[0]}}
+        </h2>
+        <h2 class="text-center">
+            Hasta: {{$fechas[1]}}
         </h2>
     </article>
     <div class="w-50 crud--new">
