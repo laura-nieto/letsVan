@@ -28,7 +28,7 @@
 <section class="w-50 crud--new">
     <a href="{{url()->previous()}}" class="btn btn-lets mr-3 fsize-1">Regresar</a>
 </section>
-<article class="w-75 mx-auto mb-5 border">
+<article class="w-75 w-95 mx-auto mb-5 border">
     <form action="{{ route(Request::segment(1) . '.store')}}" method="post" class="p-5 form--new" enctype="multipart/form-data">
         @csrf
         @switch(Request::segment(1))
@@ -161,8 +161,8 @@
             @case('corrida')
                 <section class="new--corrida--corrida">
                     <div class="mb-3">    
-                        <div class="d-flex flex-wrap align-items-center">
-                            <div class="mr-sm-3">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-md-start">
+                            <div class="mr-md-3 w-100-sm-responsive">
                                 <label for="" class="form-label">Origen</label>
                                 <select class="form-control" name="origen">
                                     <option selected disabled hidden>Seleccionar Origen</option>
@@ -171,7 +171,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="mt-2 mt-md-0">
+                            <div class="mt-2 mt-md-0 w-100-sm-responsive">
                                 <label for="" class="form-label">Destino</label>
                                 <select class="form-control" name="destino">
                                     <option selected disabled hidden>Seleccionar Destino</option>
@@ -216,7 +216,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Unidad</label>
-                        <select class="form-control w-25-responsive" aria-label="Default select example" name="unidad_id">
+                        <select class="form-control w-25-responsive w-100-sm-responsive" aria-label="Default select example" name="unidad_id">
                             <option selected hidden value="">Elija una unidad</option>
                             @foreach ($unidades as $unidad)
                                 <option value="{{$unidad->id}}">{{$unidad->marca}} - {{$unidad->modelo}}</option>
@@ -228,7 +228,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Chofer</label>
-                        <select class="form-control w-25-responsive" aria-label="Default select example" name="chofer_id">
+                        <select class="form-control w-25-responsive w-100-sm-responsive" aria-label="Default select example" name="chofer_id">
                             <option selected hidden value="">Elija una chofer</option>
                             @foreach ($choferes as $chofer)
                                 <option value="{{$chofer->id}}">{{$chofer->apellido . ' ' . $chofer->nombre}}</option>
@@ -256,7 +256,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Cupón</label>
-                        <select class="form-control w-25-responsive" aria-label="Default select example" name="cupon">
+                        <select class="form-control w-25-responsive w-100-sm-responsive" aria-label="Default select example" name="cupon">
                             <option selected value="0">Elija un cupón</option>
                             @foreach ($cupones as $cupon)
                                 <option value="{{$cupon->id}}">{{$cupon->nombre}}</option>

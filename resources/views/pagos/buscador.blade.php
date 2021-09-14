@@ -14,14 +14,14 @@
         <form action="{{route('pagos.coincidencias')}}" method="get">
             <article class="mb-4">
                 <div class="d-flex justify-content-center">
-                    <div class="w-25 mr-3">
+                    <div class="w-25-responsive mr-3">
                         <label for="">Desde</label>
                         <input type="date" class="form-control" placeholder="Desde" name="desde">
                         @error('desde')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="w-25">
+                    <div class="w-25-responsive">
                         <label for="">Hasta</label>
                         <input type="date" class="form-control" placeholder="Hasta" name="hasta">
                         @error('hasta')

@@ -9,7 +9,7 @@
     <div class="container">
         <form action="{{route('reservar_asientos',$corrida->id)}}" method="post">
             @csrf
-            <section class="card w-50 m-auto">
+            <section class="card w-50 w-100-sm-responsive m-auto">
                 <div class="card-header background-lets">
                     <h4>Comprador</h4>
                 </div>

@@ -15,7 +15,7 @@
                 {{session('success')}}
             </div>
         @endif
-        <section class="px-5">
+        <section class="px-3">
             <table class="table table-hover">
                 <thead>
                     <tr>

@@ -25,36 +25,42 @@
                     <option value="1">Redondo</option>
                 </select>
             </div>
-            <div class="d-flex justify-content-between">
-                <div class="w-25 mr-3">
-                    <select class="form-control @error('origen') border-danger @enderror" aria-label="Origen"
-                        name="origen">
-                        <option selected disabled hidden>Origen</option>
-                        @foreach ($origenes as $origen)
-                        <option value="{{$origen->id}}">{{$origen->destino}}</option>
-                        @endforeach
-                    </select>
-                    @error('origen')
-                    <small class="text-danger">{{$message}}</small>
-                    @enderror
+            <div class="d-flex flex-column flex-md-row justify-content-sm-around">
+                <div class="d-flex w-100">
+                    <div class="mr-3 w-100-sm">
+                        <select class="form-control bg-lets-light @error('origen') border-danger @enderror"
+                            aria-label="Origen" name="origen">
+                            <option selected disabled hidden>Origen</option>
+                            @foreach ($origenes as $origen)
+                            <option value="{{$origen->id}}">{{$origen->destino}}</option>
+                            @endforeach
+                        </select>
+                        @error('origen')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                    <div class="mr-md-3 w-100-sm">
+                        <select class="form-control bg-lets-light @error('destino') border-danger @enderror"
+                            aria-label="Destino" name="destino">
+                            <option selected disabled hidden>Destino</option>
+                            @foreach ($destinos as $destino)
+                            <option value="{{$destino->id}}">{{$destino->destino}}</option>
+                            @endforeach
+                        </select>
+                        @error('destino')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
                 </div>
-                <div class="w-25 mr-3">
-                    <select class="form-control @error('destino') border-danger @enderror" aria-label="Destino"
-                        name="destino">
-                        <option selected disabled hidden>Destino</option>
-                        @foreach ($destinos as $destino)
-                        <option value="{{$destino->id}}">{{$destino->destino}}</option>
-                        @endforeach
-                    </select>
-                    @error('destino')
-                    <small class="text-danger">{{$message}}</small>
-                    @enderror
-                </div>
-                <div class="w-25 mr-3">
-                    <input type="date" class="form-control" placeholder="Fecha de Ida" name="dia_salida">
-                </div>
-                <div class="w-25" style="display:none;" id="input-hidden">
-                    <input type="date" class="form-control" placeholder="Fecha de Vuelta" name="dia_llegada">
+                <div class="d-flex mt-3 mt-md-0 w-100">
+                    <div class="mr-3 w-100-sm w-50">
+                        <input type="date" class="form-control bg-lets-light" placeholder="Fecha de Ida"
+                            name="dia_salida">
+                    </div>
+                    <div class="w-50" style="display:none;" id="input-hidden">
+                        <input type="date" class="form-control bg-lets-light" placeholder="Fecha de Vuelta"
+                            name="dia_llegada">
+                    </div>
                 </div>
             </div>
         </article>

@@ -7,7 +7,7 @@
         </section>
         <section class="d-flex flex-column align-items-center mt-3">
             <div class="images">
-                <img src="{{asset('img/transferencias/'.$payment->imagen)}}" alt="Imágen de transferencia" width="800" height="500">
+                <img src="{{asset('img/transferencias/'.$payment->imagen)}}" alt="Imágen de transferencia">
             </div>
                 
             <div id="image-viewer">

@@ -20,7 +20,7 @@
                 </figure>
             </section>
             <section class="d-flex justify-content-center asientos-reserva-13">
-                <form action="" method="post">
+                <form action="" method="post" class="d-flex flex-column">
                     @csrf
                     <input type="hidden" id="limit" value="{{$cantidad}}">
                     <table class="table">
@@ -95,7 +95,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button type="submit" class="btn btn-primary my-3">Seleccionar</button>
+                    <button type="submit" class="btn btn-primary my-3 mx-auto">Seleccionar</button>
                 </form>
             </section>
             
@@ -108,7 +108,7 @@
             </figure>
         </section>
         <section class="d-flex justify-content-center asientos-reserva-13">
-            <form action="" method="post">
+            <form action="" method="post" class="d-flex flex-column">
                 @csrf
                 <input type="hidden" id="limit" value="{{$cantidad}}">
                 <table class="table">
@@ -211,7 +211,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary mb-2">Seleccionar</button>
+                <button type="submit" class="btn btn-primary mb-2  mx-auto">Seleccionar</button>
             </form>
         </section>
         @endif

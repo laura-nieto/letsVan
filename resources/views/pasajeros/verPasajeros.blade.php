@@ -9,7 +9,7 @@
     <section class="w-50 crud--new">
         <a href="{{route('index')}}" class="btn btn-lets fsize-1">Inicio</a>
     </section>
-    <article class="px-5 d-flex justify-content-between article-pasajeros-responsive">
+    <article class="px-md-5 px-2 d-flex justify-content-between article-pasajeros-responsive">
         <section class=" w-25 mr-4 section--corrida">
             <div class="card text-dark bg-light">
                 <div class="card-header background-lets">
@@ -28,7 +28,7 @@
                 <a href="{{route('pasajeros.descargar',$corrida->id)}}" class="btn btn-lets">Descargar PDF</a>
             </div>
             </section>
-        <section class="w-75 section--pasajeros">
+        <section class="w-75 w-95 section--pasajeros">
             <table class="table table-hover m-auto">
                 <thead>
                     <tr>

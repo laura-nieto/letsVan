@@ -6,7 +6,7 @@
             Ver Pasajeros
         </h2>
     </article>
-    <section class="px-sm-5">
+    <section class="px-sm-2">
         <section class="w-50 crud--new">
             <a href="{{route('index')}}" class="btn btn-lets fsize-1">Inicio</a>
         </section>

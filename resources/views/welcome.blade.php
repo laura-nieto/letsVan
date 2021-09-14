@@ -3,8 +3,8 @@
 @section('main')
 {{-- {{session()->flush();}} --}}
 @guest
-    <section class="background-lets d-flex justify-content-between height-40">
-        <h2 class="align-self-center h1 font-weight-bold font-3 asd mb-4">
+    <section class="background-lets d-flex flex-column flex-md-row justify-content-between height-40">
+        <h2 class="align-self-center h1 font-weight-bold font-3 mb-5 mt-3 pl-md-4">
             Tu mejor opción para viajar cómodo, seguro y a bajo costo.
         </h2>
         <div class="d-flex justify-content-end">
@@ -93,11 +93,12 @@
             </article>
         </form>
     </section>
-    <section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center justify-content-between">
+    <section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center">
         <div class="w-25">
             <img src="{{asset('img/CATEDRAL-MORELIA-BLUE_NGO.png')}}" alt="" class="img-home-catedral">
+            <img src="{{asset('/img/ANGEL-BLUE.png')}}" alt="" class="img-home-columna d-md-none d-sm-block">
         </div>
-        <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive">
+        <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive mx-auto">
             <div>
                 <div class="d-flex align-items-center mb-4 fa-arrow-responsive">
                     <i class="fas fa-arrow-circle-right fa-5x"></i>
@@ -113,13 +114,13 @@
                 <h2 class="text-success text-center font-weight-bold font-3">$360</h2>
             </div>
         </div>
-        <div class="w-10">
+        <div class="w-10 d-none d-sm-none d-md-block">
             <img src="{{asset('/img/ANGEL-BLUE.png')}}" alt="" class="img-home-columna">
         </div>
     </section>
 
     <section class="background-lets text-white mt-5 p-5 descripcion d-flex justify-content-center text-justify">
-        <div class="w-75">
+        <div class="w-75-md">
             <div class="d-flex align-items-center shadow-me">
                 <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas image-caracteristicas-1">
                 <p class="mb-0 ml-3">
@@ -305,8 +306,8 @@
     </div>
 @elseif(Auth::user()->role === 0)
 {{-- <div class="background-image" style="background-image: url({{asset('img/background-user.jpg')}})"></div> --}}
-    <section class="background-lets d-flex justify-content-between height-40">
-        <h2 class="align-self-center h1 font-weight-bold font-3 asd mb-4">
+    <section class="background-lets d-flex flex-column flex-md-row justify-content-between height-40">
+        <h2 class="align-self-center h1 font-weight-bold font-3 mb-5 mt-3 pl-md-4">
             Tu mejor opción para viajar cómodo, seguro y a bajo costo.
         </h2>
         <div class="d-flex justify-content-end">
@@ -394,11 +395,12 @@
             </article>
         </form>
     </section>
-    <section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center justify-content-between">
+    <section class="d-flex p-4 w-95 mb-5 mx-auto align-content-center">
         <div class="w-25">
-            <img src="{{asset('img/CATEDRAL-MORELIA-BLUE2.png')}}" alt="" class="img-home-catedral">
+            <img src="{{asset('img/CATEDRAL-MORELIA-BLUE_NGO.png')}}" alt="" class="img-home-catedral">
+            <img src="{{asset('/img/ANGEL-BLUE.png')}}" alt="" class="img-home-columna d-md-none d-sm-block">
         </div>
-        <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive">
+        <div class="align-self-center d-flex flex-column flex-xl-row align-items-center letter-responsive mx-auto">
             <div>
                 <div class="d-flex align-items-center mb-4 fa-arrow-responsive">
                     <i class="fas fa-arrow-circle-right fa-5x"></i>
@@ -414,13 +416,13 @@
                 <h2 class="text-success text-center font-weight-bold font-3">$360</h2>
             </div>
         </div>
-        <div class="w-10">
+        <div class="w-10 d-none d-sm-none d-md-block">
             <img src="{{asset('/img/ANGEL-BLUE.png')}}" alt="" class="img-home-columna">
         </div>
     </section>
 
     <section class="background-lets text-white mt-5 p-5 descripcion d-flex justify-content-center text-justify">
-        <div class="w-75">
+        <div class="w-75-md">
             <div class="d-flex align-items-center shadow-me">
                 <img src="{{asset('/img/24HRS.png')}}" alt="" class="image-caracteristicas image-caracteristicas-1">
                 <p class="mb-0 ml-3">

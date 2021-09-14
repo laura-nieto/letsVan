@@ -156,15 +156,10 @@ class CorridaController extends Controller
         $corrida->chofer_id = $request->chofer_id;
         $corrida->save();
 
-        if ($request->cupon == 0) {
-            $cupon = null;
-        }else{
-            $cupon = $request->cupon;
-        }
         $corrida->precio()->create([
             'adulto' => $request->precio_adulto,
             'niño' =>$request->precio_niño,
-            'cupon_id' =>$cupon,
+            'cupon_id' =>$request->cupon,
             'corrida_id'=>$corrida->id
         ]);
         

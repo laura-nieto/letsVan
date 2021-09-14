@@ -25,11 +25,14 @@ class PasajeroController extends Controller
         //VALIDACION
         $rules=[
             '*'=>'required',
-            'email' => 'email'
+            'email' => 'email',
+            'telefono'=>'min:10|max:10'
         ];
         $message=[
-            'required' => 'El campo es obligatorio',
-            'email' => 'Ingrese un correo electrónico válido'
+            'required' => 'El campo es obligatorio.',
+            'email' => 'Ingrese un correo electrónico válido.',
+            'min'=> 'El teléfono debe tener 10 números.',
+            'max'=> 'El teléfono debe tener 10 números.'
         ];
         $request->validate($rules,$message);
         

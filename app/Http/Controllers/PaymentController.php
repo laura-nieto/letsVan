@@ -16,6 +16,7 @@ use App\Models\Cupon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\Mail\TransferenciaMailable;
+use App\Mail\NuevaTransferencia;
 
 use PDF;
 
@@ -64,7 +65,10 @@ class PaymentController extends Controller
             $newImg->payment_id = $payment->id;
             $newImg->save();
         }
-   
+        // MAIL
+        $correo=new NuevaTransferencia;
+        Mail::to('laurriscienta@gmail.com')->send($correo);
+
         return view('transferencias.message',['error'=>true]);
     }
     public function vista_subir($idOrder)
