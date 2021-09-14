@@ -137,8 +137,8 @@
             @case('corrida')
                 <section>
                     <div class="mb-3">    
-                        <div class="d-flex flex-wrap align-items-center">
-                            <div class="mr-sm-3">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-md-start">
+                            <div class="mr-md-3 mb-2 mb-md-0 w-100-sm-responsive">
                                 <label for="" class="form-label">Origen</label>
                                 <select class="form-control" name="origen">
                                     <option selected disabled hidden>Seleccionar Origen</option>
@@ -151,7 +151,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="mt-2 mt-md-0">
+                            <div class="w-100-sm-responsive">
                                 <label for="" class="form-label">Destino</label>
                                 <select class="form-control" name="destino">
                                     <option selected disabled hidden>Seleccionar Destino</option>
@@ -200,7 +200,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Unidad</label>
-                        <select class="form-control w-25-responsive" aria-label="Default select example" name="unidad_id">
+                        <select class="form-control w-25-responsive w-100-sm-responsive" aria-label="Default select example" name="unidad_id">
                             @foreach ($unidades as $auto)
                                 @if ($unidad->unidad_id === $auto->id)
                                     <option selected value="{{$auto->id}}">{{$auto->marca}} - {{$auto->modelo}}</option> 
@@ -215,7 +215,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Chofer</label>
-                        <select class="form-control w-25-responsive" aria-label="Default select example" name="chofer_id">
+                        <select class="form-control w-25-responsive w-100-sm-responsive" aria-label="Default select example" name="chofer_id">
                             @foreach ($choferes as $chofer)
                                 @if ($unidad->chofer_id === $chofer->id)
                                     <option selected value="{{$chofer->id}}">{{$chofer->apellido . ' ' . $chofer->nombre}}</option>
@@ -246,7 +246,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Cupón</label>
-                        <select class="form-control w-25-responsive" aria-label="Default select example" name="cupon">
+                        <select class="form-control w-25-responsive w-100-sm-responsive" aria-label="Default select example" name="cupon">
                             <option value="0" {{$unidad->precio->cupon_id == 0 ? 'selected':''}}>Elija un cupón</option>
                             @foreach ($cupones as $cupon)
                                 <option value="{{$cupon->id}}" {{$unidad->precio->cupon_id == $cupon->id ? 'selected':''}}>{{$cupon->nombre}}</option>
@@ -254,7 +254,7 @@
                         </select>
                     </div>
                 </section>
-                <div class="d-flex justify-content-center mt-3">
+                <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-lets">Modificar</button>
                 </div>
                 @break
