@@ -20,6 +20,38 @@ class PasajeroController extends Controller
         return $pdf->download('pasajeros.pdf');
     }
 
+    public function validate_pasajeros_redondo(Request $request,$idCorrida)
+    {
+        //VALIDACION
+        $rules=[
+            '*'=>'required',
+            'email' => 'email',
+            'telefono'=>'min:10|max:10'
+        ];
+        $message=[
+            'required' => 'El campo es obligatorio.',
+            'email' => 'Ingrese un correo electrónico válido.',
+            'min'=> 'El teléfono debe tener 10 números.',
+            'max'=> 'El teléfono debe tener 10 números.'
+        ];
+        $request->validate($rules,$message);
+        
+        $comprador = [
+            'nombre' => $request->comprador_nombre,
+            'apellido' => $request->comprador_apellido,
+            'email' => $request->email,
+            'telefono' => $request->telefono
+        ];
+
+        $pasajerosTotal = $request->except(['_token','comprador_nombre','comprador_apellido','email','telefono']);
+        // dd($pasajerosTotal);
+        $request->session()->put('comprador',$comprador);
+        $request->session()->put('pasajeros_ida',$pasajerosTotal['pasajero']['ida']);
+        $request->session()->put('pasajeros_vuelta',$pasajerosTotal['pasajero']['vuelta']);
+      
+        return redirect()->route('mostrar_asientos_ida',[$idCorrida]);        
+    }
+
     public function validate_pasajeros(Request $request,$idCorrida)
     {
         //VALIDACION
@@ -51,6 +83,16 @@ class PasajeroController extends Controller
         return redirect()->route('mostrar_asientos',[$idCorrida]);
     }
 
+    public function mostrar_ingreso_pasajeros_redondo($idCorrida)
+    {
+        $ida = Corrida::findOrFail(session('corrida_ida'));
+        $vuelta = Corrida::findOrFail($idCorrida);
+        $cantidad_ida = session('cantidad');
+        $cantidad_vuelta = session('cantidad_vuelta');
+
+        return view('reservar.redondo.pasajeros',compact(['ida','vuelta','cantidad_ida','cantidad_vuelta']));
+    }
+
     public function mostrar_ingreso_pasajeros($idCorrida)
     {
         $pasajes = session('pasajes');
@@ -61,9 +103,25 @@ class PasajeroController extends Controller
         return view('reservar.pasajero',['corrida'=>$corrida,'pasajes'=>$pasajes,'cantidad'=>$cantidad,'total'=>$total]);
     }
 
+    public function reserva_pasajeros_vuelta(Request $request)
+    {
+        $corrida = Corrida::findOrFail($request->corrida);
+    
+        // TOTAL
+        $total = $request->session()->get('total');
+        $total += $corrida->precio->adulto * $request->adultos + $corrida->precio->niño * $request->niños;
+        $request->session()->forget('total');
+        $request->session()->put('total',$total);
+        //CANTIDAD VUELTA
+        $cantidad = $request->niños + $request->adultos;
+        $request->session()->put('cantidad_vuelta',$cantidad);
+
+        return redirect()->route('mostrar_ingreso_pasajeros_redondo',[$request->corrida]);
+    }
+
     public function mostrar_pasajeros(Request $request)
     {
-        $request->session()->forget(['cantidad','total','pasajes']);
+        $request->session()->forget(['cantidad','total','pasajes','cupon']);
 
         if (!$request->niños && !$request->adultos) {
             return redirect()->back()->with('error','Debe ingresar la cantidad de pasajeros.');
@@ -86,7 +144,19 @@ class PasajeroController extends Controller
             $request->session()->put('niños',true);
         }
 
-        return redirect()->route('mostrar_ingreso_pasajeros',[$request->corrida]);
+        if ($request->session()->exists('redondo')) {
+            $request->session()->put('corrida_ida',$corrida->id);
+            $request->session()->flash('datos_vuelta',[
+                'destino'=>$corrida->origen_tabla->destino,
+                'origen'=>$corrida->destino_tabla->destino,
+                'dia'=>$request->dia_llegada
+            ]);
+
+            return redirect()->route('corrida.buscar.redondo');
+
+        } else{
+            return redirect()->route('mostrar_ingreso_pasajeros',[$request->corrida]);
+        }
     }
 
     public function verCorridas()

@@ -16,10 +16,11 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('number_order')->nullable();
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->integer('total');
             $table->string('asientos');
             $table->string('tipo_pago');
+            $table->text('descripcion_regreso')->nullable();
             $table->foreignId('corrida_id')->constrained('corridas')->onDelete('cascade');
             $table->foreignId('comprador_id')->constrained('compradores')->onDelete('cascade');
             $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');

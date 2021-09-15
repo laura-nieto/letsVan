@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PaymentsImage;
 use App\Models\Asiento;
+use App\Models\Corrida;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
@@ -95,7 +96,26 @@ class PaymentsImageController extends Controller
                 
                 //MAIL
                 $correo=new SendMailable;
-                $correo->attachData($pdf->output(),'Ticket.pdf',['mime' => 'application/pdf']);
+                $correo->attachData($pdf->output(),'Ticket-ida.pdf',['mime' => 'application/pdf']);
+
+                // PDF REGRESO
+                if ($payment->descripcion_regreso != null) {
+                    $descripcion = json_decode($payment->descripcion_regreso,true);
+                    $corrida = Corrida::findOrFail($descripcion['corrida']);
+                    $pasajeros = $descripcion['pasajeros'];
+                    $asientos = $descripcion['asientos'];
+                    $data = [
+                        'corrida'=> $corrida,
+                        'total' => $payment->total,
+                        'tipo_pago' => $payment->tipo_pago,
+                        'pasajeros' => $pasajeros,
+                        'asientos'=> $asientos,
+                        'image'=>$image
+                    ];
+                    $pdfRegreso = PDF::loadView('pdf.ticket', $data);
+                    $correo->attachData($pdfRegreso->output(),'Ticket-regreso.pdf',['mime' => 'application/pdf']);
+                }
+
                 Mail::to($comprador->email)->send($correo);
 
                 return redirect()->route('ver_transferencias')->with('success','El email fue enviado con éxito');

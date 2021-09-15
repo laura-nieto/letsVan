@@ -27,6 +27,13 @@ use App\Http\Controllers\PrecioController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// use Illuminate\Database\Schema\Blueprint;
+// use Illuminate\Support\Facades\Schema;
+// Route::get('/asd',function(){
+//     Schema::table('payments', function (Blueprint $table) {
+//         $table->string('descripcion_regreso')->nullable();
+//     });
+// });
 
 Route::get('/',[HomeController::class,'index'])->name('index');
 Route::get('/terminos-y-condiciones',[HomeController::class,'terminos']);
@@ -39,6 +46,7 @@ Auth::routes();
 Route::get('/pagar/transferencia/subir/{id}',[PaymentController::class,'vista_subir']);
 Route::post('/pagar/transferencia/subir/{id}',[PaymentController::class,'upload_transferencia']);
 
+//BUSQUEDA SENCILLA
 Route::get('/buscar',[CorridaController::class,'buscar'])->name('corrida.buscar');
 Route::post('/buscar',[PasajeroController::class,'mostrar_pasajeros']);
     
@@ -52,6 +60,24 @@ Route::get('/pagar/{id}',[CorridaController::class,'vista_pagar'])->name('vista_
 Route::post('/descuento/cupon/{id}',[PaymentController::class,'descontar'])->name('descuento_cupon');
 Route::post('/pagar/transferencia/{id}',[PaymentController::class,'pagar_transferencia'])->name('pagar_transferencia');
 Route::get('/reserva/success/{id}',[CorridaController::class,'informacion_viaje'])->name('reserva_informacion');
+
+//BUSQUEDA REDONDA
+Route::get('/buscar/vuelta',[CorridaController::class,'buscar_redondo'])->name('corrida.buscar.redondo');
+Route::post('/buscar/vuelta',[PasajeroController::class,'reserva_pasajeros_vuelta'])->name('corrida.buscar.redondo');
+
+Route::get('/reservar/redondo/{id}',[PasajeroController::class,'mostrar_ingreso_pasajeros_redondo'])->name('mostrar_ingreso_pasajeros_redondo');
+Route::post('/reservar/redondo/{id}',[PasajeroController::class,'validate_pasajeros_redondo'])->name('validate_pasajeros_redondo');
+
+Route::get('/reservar/ida/{id}/asiento',[CorridaController::class,'mostrar_asientos_ida'])->name('mostrar_asientos_ida');
+Route::post('/reservar/ida/{id}/asiento',[CorridaController::class,'mostrar_asientos_ida_validate']);
+Route::get('/reservar/vuelta/{id}/asiento',[CorridaController::class,'mostrar_asientos_vuelta'])->name('mostrar_asientos_vuelta');
+Route::post('/reservar/vuelta/{id}/asiento',[CorridaController::class,'mostrar_asientos_vuelta_validate']);
+
+Route::get('/pagar/redondo/{id}',[CorridaController::class,'vista_pagar_redondo'])->name('vista_pagar_redondo');
+Route::get('/payment/redondo/success/{id}/payment',[PaymentController::class,'vista_success_redondo'])->name('payment.success.redondo');
+Route::get('/reserva/redondo/success/{ida}/{vuelta}',[CorridaController::class,'informacion_viaje_redondo'])->name('reserva_informacion_redondo');
+
+
 
 //MERCADO PAGO
 Route::get('/payment/success/{id}/payment',[PaymentController::class,'vista_success'])->name('payment.success');

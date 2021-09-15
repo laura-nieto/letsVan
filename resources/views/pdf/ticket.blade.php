@@ -25,7 +25,7 @@
                 <h5 style="color:red;margin-top:20px">Uso obligatorio de cubrebocas en el viaje</h5>
             </section>
             <section style="padding:20px 30px 30px">
-                <table>
+                <table style="width:100%">
                     <thead>
                         <td>
                             <div>

@@ -20,9 +20,9 @@
             </div>
         </article>
     @endif
-    @php
+    {{-- @php
         session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon','niños']);
-    @endphp
+    @endphp --}}
     @foreach ($coincidencias as $corrida)
         <article class="mt-2 shadow-sm w-responsive-75">
             <div class="card d-flex flex-md-row align-items-md-center p-2 cristal-color">

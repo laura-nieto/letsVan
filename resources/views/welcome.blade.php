@@ -1,7 +1,11 @@
 @extends('layouts.home')
 @section('title',"Inicio - Let's Van")
 @section('main')
-{{-- {{session()->flush();}} --}}
+@php
+    session()->forget(['cantidad','total','pasajes','comprador','cupon','niños','corrida_ida','redondo','pasajeros_ida','pasajeros_vuelta','asientos_ida','asientos_vuelta','corrida_vuelta','cantidad_vuelta']);
+@endphp 
+ {{-- {{session()->flush();}}   --}}
+{{-- {{dd(session()->all())}} --}}
 @guest
     <section class="background-lets d-flex flex-column flex-md-row justify-content-between height-40">
         <h2 class="align-self-center h1 font-weight-bold font-3 mb-5 mt-3 pl-md-4">
@@ -44,7 +48,7 @@
         <form action="{{route('corrida.buscar')}}" method="get">
             <article class="mb-3">
                 <div class="w-15 mb-3">
-                    <select class="form-control bg-lets-light" aria-label="tipo" id="tipo">
+                    <select class="form-control bg-lets-light" aria-label="tipo" id="tipo" name="tipo">
                         <option value="0" selected>Sencillo</option>
                         <option value="1">Redondo</option>
                     </select>

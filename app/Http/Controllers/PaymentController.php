@@ -79,20 +79,6 @@ class PaymentController extends Controller
         return view('transferencias.subirTransferencia');
     }
 
-    public function generatePDF()
-    {
-        $data = [
-            'nombre' => $comprador['nombre'] . " " . $comprador['apellido'],
-            'telefono' => $comprador['telefono'],
-            'corrida' => $corrida,
-            'total' => session()->get('total'),
-            'descripcion' => $descripcion,
-            'asientos'=> $guardarAsientos
-        ];
-        $pdf = PDF::loadView('pdf.ticket', $data);
-        return $pdf->download('ticket-letsVan.pdf');
-    }
-
     public function descontar(Request $request,$idCorrida)
     {
         $cupon = Corrida::find($idCorrida)->precio->cupon;
@@ -118,28 +104,79 @@ class PaymentController extends Controller
         }
 
         // PASAJEROS
-        $indexAsiento=0;
-        $asientos=session()->get('asientos');
-        foreach (session()->get('pasajeros') as $pasajero) {
-            $newPasajero = new Pasajero;
-            $newPasajero->nombre = $pasajero['nombre'];
-            $newPasajero->apellido = $pasajero['apellido'];
-            $newPasajero->type = $pasajero['type'];
-            $newPasajero->save();
-            $pasajeros[] = [
-                'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
-                'type'=> $newPasajero->type
-            ];
-
-            $newAsiento = new Asiento;
-            $newAsiento->pasajero_id = $newPasajero->id;
-            $newAsiento->corrida_id = $idCorrida;
-            $newAsiento->asiento = $asientos[$indexAsiento];
-            $newAsiento->user_id = $idUser;
-            $newAsiento->save();
-
-            $guardarAsientos[]=$asientos[$indexAsiento];
-            $indexAsiento+=1;
+        if (session()->get('redondo')) {
+                //IDA
+            $indexAsiento=0;
+            $asientos = session()->get('asientos_ida');
+            foreach (session()->get('pasajeros_ida') as $pasajero) {
+                $newPasajero = new Pasajero;
+                $newPasajero->nombre = $pasajero['nombre'];
+                $newPasajero->apellido = $pasajero['apellido'];
+                $newPasajero->type = $pasajero['type'];
+                $newPasajero->save();
+                $pasajeros['ida'][] = [
+                    'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                    'type'=> $newPasajero->type
+                ];
+        
+                $newAsiento = new Asiento;
+                $newAsiento->pasajero_id = $newPasajero->id;
+                $newAsiento->corrida_id = $idCorrida;
+                $newAsiento->asiento = $asientos[$indexAsiento];
+                $newAsiento->user_id = $idUser;
+                $newAsiento->save();
+        
+                $guardarAsientos['ida'][]=$asientos[$indexAsiento];
+                $indexAsiento+=1;
+            }
+                //VUELTA
+            $indexAsiento=0;
+            $asientos = session()->get('asientos_vuelta');
+            foreach (session()->get('pasajeros_vuelta') as $pasajero) {
+                $newPasajero = new Pasajero;
+                $newPasajero->nombre = $pasajero['nombre'];
+                $newPasajero->apellido = $pasajero['apellido'];
+                $newPasajero->type = $pasajero['type'];
+                $newPasajero->save();
+                $pasajeros['vuelta'][] = [
+                    'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                    'type'=> $newPasajero->type
+                ];
+        
+                $newAsiento = new Asiento;
+                $newAsiento->pasajero_id = $newPasajero->id;
+                $newAsiento->corrida_id = $idCorrida;
+                $newAsiento->asiento = $asientos[$indexAsiento];
+                $newAsiento->user_id = $idUser;
+                $newAsiento->save();
+        
+                $guardarAsientos['vuelta'][]=$asientos[$indexAsiento];
+                $indexAsiento+=1;
+            }
+        }else{
+            $indexAsiento=0;
+            $asientos = session()->get('asientos');
+            foreach (session()->get('pasajeros') as $pasajero) {
+                $newPasajero = new Pasajero;
+                $newPasajero->nombre = $pasajero['nombre'];
+                $newPasajero->apellido = $pasajero['apellido'];
+                $newPasajero->type = $pasajero['type'];
+                $newPasajero->save();
+                $pasajeros['ida'][] = [
+                    'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                    'type'=> $newPasajero->type
+                ];
+        
+                $newAsiento = new Asiento;
+                $newAsiento->pasajero_id = $newPasajero->id;
+                $newAsiento->corrida_id = $idCorrida;
+                $newAsiento->asiento = $asientos[$indexAsiento];
+                $newAsiento->user_id = $idUser;
+                $newAsiento->save();
+        
+                $guardarAsientos['ida'][]=$asientos[$indexAsiento];
+                $indexAsiento+=1;
+            }
         }
         
         // COMPRADOR
@@ -159,11 +196,16 @@ class PaymentController extends Controller
         $payment->comprador_id = $newComprador->id;
         $payment->usuario_id = $idUser;
         $payment->number_order = uniqid();
-        $payment->descripcion = json_encode($pasajeros);
+        $payment->descripcion = json_encode($pasajeros['ida']);
         $payment->tipo_pago = 'Transferencia';
-        $payment->asientos = json_encode($guardarAsientos);
+        $payment->asientos = json_encode($guardarAsientos['ida']);
         $payment->total = session()->get('total');
-        $payment->pay = 2;  
+        $payment->pay = 2;
+        
+        if (session()->get('redondo')) {
+            $pasajerosVuelta = $pasajeros['vuelta'];
+            $payment->descripcion_regreso = json_encode( ['corrida'=>Corrida::findOrFail(session('corrida_vuelta'))->id,'pasajeros'=>$pasajerosVuelta,'asientos'=>$guardarAsientos['vuelta']] ) ; 
+        }
         $payment->save();
     
         //MAIL
@@ -172,9 +214,126 @@ class PaymentController extends Controller
         Mail::to($comprador['email'])->send($correo);
 
         //BORRAR DATOS DE SESSION
-        $request->session()->forget(['cantidad', 'total','pasajes','comprador','pasajeros','asientos','cupon','niños']);
+        $request->session()->forget(['cantidad','total','pasajes','comprador','cupon','niños','corrida_ida','redondo','pasajeros_ida','pasajeros_vuelta','asientos_ida','asientos_vuelta','corrida_vuelta','cantidad_vuelta']);
         
         return redirect()->route('reserva_transferencia',$idCorrida);
+    }
+
+    public function vista_success_redondo(Request $request,$idCorrida)
+    {
+        if (Auth::check()) {
+            $idUser = auth()->user()->id;
+        }else{
+            $idUser = 2;
+        }
+
+        // PASAJEROS
+            //IDA
+        $indexAsiento=0;
+        $asientos = session()->get('asientos_ida');
+        foreach (session()->get('pasajeros_ida') as $pasajero) {
+            $newPasajero = new Pasajero;
+            $newPasajero->nombre = $pasajero['nombre'];
+            $newPasajero->apellido = $pasajero['apellido'];
+            $newPasajero->type = $pasajero['type'];
+            $newPasajero->save();
+            $pasajeros['ida'][] = [
+                'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                'type'=> $newPasajero->type
+            ];
+
+            $newAsiento = new Asiento;
+            $newAsiento->pasajero_id = $newPasajero->id;
+            $newAsiento->corrida_id = $idCorrida;
+            $newAsiento->asiento = $asientos[$indexAsiento];
+            $newAsiento->user_id = $idUser;
+            $newAsiento->save();
+
+            $guardarAsientos['ida'][]=$asientos[$indexAsiento];
+            $indexAsiento+=1;
+        }
+            //VUELTA
+        $indexAsiento=0;
+        $asientos = session()->get('asientos_vuelta');
+        foreach (session()->get('pasajeros_vuelta') as $pasajero) {
+            $newPasajero = new Pasajero;
+            $newPasajero->nombre = $pasajero['nombre'];
+            $newPasajero->apellido = $pasajero['apellido'];
+            $newPasajero->type = $pasajero['type'];
+            $newPasajero->save();
+            $pasajeros['vuelta'][] = [
+                'nombre'=>$newPasajero->nombre . ' ' . $newPasajero->apellido,
+                'type'=> $newPasajero->type
+            ];
+
+            $newAsiento = new Asiento;
+            $newAsiento->pasajero_id = $newPasajero->id;
+            $newAsiento->corrida_id = $idCorrida;
+            $newAsiento->asiento = $asientos[$indexAsiento];
+            $newAsiento->user_id = $idUser;
+            $newAsiento->save();
+
+            $guardarAsientos['vuelta'][]=$asientos[$indexAsiento];
+            $indexAsiento+=1;
+        }
+
+        // COMPRADOR
+        $comprador=session()->get('comprador');
+        $newComprador = new Comprador;
+        $newComprador->nombre = $comprador['nombre'];
+        $newComprador->apellido = $comprador['apellido'];
+        $newComprador->email = $comprador['email'];
+        $newComprador->telefono = $comprador['telefono'];
+        $newComprador->save();
+
+        $ida = Corrida::findOrFail(session('corrida_ida'));
+        $vuelta = Corrida::findOrFail($idCorrida);
+
+        // PAYMENT
+        $payment=new Payment;
+        $payment->corrida_id = $idCorrida;
+        $payment->comprador_id = $newComprador->id;
+        $payment->usuario_id = $idUser;
+        $payment->number_order = $request->payment_id;
+        $payment->descripcion = json_encode($pasajeros);
+        $payment->asientos = json_encode($guardarAsientos);
+        $payment->tipo_pago = 'Mercado Pago';
+        $payment->total = session()->get('total');
+        $payment->pay = 1;
+        $payment->save();
+
+        //PDF
+        $image = base64_encode(file_get_contents(public_path('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')));
+        $data_ida = [
+            'corrida' => $ida,
+            'total' => session()->get('total'),
+            'tipo_pago' => $payment->tipo_pago,
+            'asientos'=> session()->get('asientos_ida'),
+            'pasajeros' => session()->get('pasajeros_ida'),
+            'image'=>$image
+        ];
+        $pdf_ida = PDF::loadView('pdf.ticket', $data_ida);
+
+        $data_vuelta = [
+            'corrida' => $vuelta,
+            'total' => session()->get('total'),
+            'tipo_pago' => $payment->tipo_pago,
+            'asientos'=> session()->get('asientos_vuelta'),
+            'pasajeros' => session()->get('pasajeros_vuelta'),
+            'image'=>$image
+        ];
+        $pdf_vuelta = PDF::loadView('pdf.ticket', $data_vuelta);
+
+        //MAIL
+        $correo=new SendMailable;
+        $correo->attachData($pdf_ida->output(),'Ticket_ida.pdf',['mime' => 'application/pdf']);
+        $correo->attachData($pdf_vuelta->output(),'Ticket_vuelta.pdf',['mime' => 'application/pdf']);
+        Mail::to($comprador['email'])->send($correo);
+
+        //BORRAR DATOS DE SESSION
+        $request->session()->forget(['cantidad','total','pasajes','comprador','cupon','niños','corrida_ida','redondo','pasajeros_ida','pasajeros_vuelta','asientos_ida','asientos_vuelta','corrida_vuelta','cantidad_vuelta']);
+                
+        return redirect()->route('reserva_informacion_redondo',[$vuelta->id,$idCorrida])->with('success','asd');
     }
 
     public function vista_success(Request $request,$idCorrida)

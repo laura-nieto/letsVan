@@ -18,10 +18,36 @@ class CorridaController extends Controller
         $corrida = Corrida::findOrFail($idCorrida);
         return view('reservar.informacionTransferencia',['corrida'=>$corrida]);
     }
+
+    public function informacion_viaje_redondo($ida,$vuelta)
+    {
+        $ida = Corrida::findOrFail($ida);
+        $vuelta = Corrida::findOrFail($vuelta);
+        return view('reservar.redondo.informacion',compact(['ida','vuelta']));
+    }
+
     public function informacion_viaje($idCorrida)
     {
         $corrida = Corrida::findOrFail($idCorrida);
         return view('reservar.informacion',['corrida'=>$corrida]);
+    }
+
+    public function vista_pagar_redondo($idCorrida)
+    {
+        $total = session('total');
+        $ida = Corrida::findOrFail(session('corrida_ida'));
+        $vuelta = Corrida::findOrFail($idCorrida);
+        
+        //DAYS
+        $today = Carbon::today();
+        $diferencia = $today->diffInDays($ida->dia_salida);
+        if ($diferencia > 1) {
+            $transferencia = true;
+        } else {
+            $transferencia = false;
+        }
+
+        return view('reservar.redondo.pagar',compact(['total','ida','vuelta','transferencia']));
     }
 
     public function vista_pagar($idCorrida)
@@ -54,12 +80,78 @@ class CorridaController extends Controller
             return redirect()->route('vista_pagar',$idCorrida);
         }
     }
+
+
+    public function mostrar_asientos_vuelta_validate(Request $request,$idCorrida)
+    {
+        if (empty($request->except(['_token']))) {
+            return redirect()->back()->with('error','Debe seleccionar los asientos');
+        }elseif ($request->session()->get('cantidad') != count($request->asiento) ) {
+            return redirect()->back()->with('error','Debe seleccionar la cantidad de asientos adecuada');
+        }else{
+            $request->session()->put('asientos_vuelta',$request->asiento);
+            $request->session()->put('corrida_vuelta',$idCorrida);
+        
+            $idCorrida = $request->session()->get('corrida_ida');
+            return redirect()->route('vista_pagar_redondo',$idCorrida);
+        }
+    }
+
+    public function mostrar_asientos_vuelta($idCorrida)
+    {
+        $ida = Corrida::findOrFail($idCorrida);
+        $cantidad_ida = session('cantidad_vuelta');
+        $title = 1;
+
+        return view('reservar.redondo.asientos',compact(['ida','cantidad_ida','title']));
+    }
+
+    public function mostrar_asientos_ida_validate(Request $request,$idCorrida)
+    {
+        if (empty($request->except(['_token']))) {
+            return redirect()->back()->with('error','Debe seleccionar los asientos');
+        }elseif ($request->session()->get('cantidad') != count($request->asiento) ) {
+            return redirect()->back()->with('error','Debe seleccionar la cantidad de asientos adecuada');
+        }else{
+            $request->session()->put('asientos_ida',$request->asiento);
+            return redirect()->route('mostrar_asientos_vuelta',$idCorrida);
+        }
+    }
+
+    public function mostrar_asientos_ida($idCorrida)
+    {
+        $ida = Corrida::findOrFail(session('corrida_ida'));
+        $cantidad_ida = session('cantidad');
+        $title = 0;
+
+        return view('reservar.redondo.asientos',compact(['ida','cantidad_ida','title']));
+    }
+
     public function mostrar_asientos($idCorrida)
     {
         $corrida = Corrida::findOrFail($idCorrida);
         $cantidad = session('cantidad');
 
         return view('reservar.asientos',['corrida'=>$corrida,'cantidad'=>$cantidad]);
+    }
+
+    public function buscar_redondo()
+    {
+        $origen = Destino::where('destino', session('datos_vuelta')['origen'])->where('destino_origen','origen')->first()->id;
+        $destino = Destino::where('destino', session('datos_vuelta')['destino'])->where('destino_origen','destino')->first()->id;
+
+        // BUSQUEDA
+        $coincidencias = Corrida::where('origen',$origen)->where('destino',$destino);
+        $copy = Corrida::where('origen',$origen)->where('destino',$destino)->get();
+        
+        if ($copy->isNotEmpty()) {
+            if (!is_null(session('datos_vuelta')['dia'])) {
+                $coincidencias = $coincidencias->where('dia_salida',session('datos_vuelta')['dia']);
+            }
+        }
+
+        $coincidencias = $coincidencias->get();
+        return view('reservar.coincidencias',['coincidencias'=>$coincidencias]);
     }
 
     public function buscar(Request $request)
@@ -73,7 +165,10 @@ class CorridaController extends Controller
         ];
         $request->validate($rules,$message);
       
-        
+        if ($request->tipo == 1) {
+            $request->session()->put('redondo',true);
+        }
+
         // BUSQUEDA
         $coincidencias = Corrida::where('origen','like',"%{$request->origen}%")->where('destino','like',"%{$request->destino}%");
         $copy = Corrida::where('origen','like',"%{$request->origen}%")->where('destino','like',"%{$request->destino}%")->get();
@@ -82,9 +177,9 @@ class CorridaController extends Controller
             if (!is_null($request->dia_salida)) {
                 $coincidencias = $coincidencias->where('dia_salida',$request->dia_salida);
             }
-            if (!is_null($request->dia_llegada)) {
-                $coincidencias = $coincidencias->where('dia_llegada',$request->dia_llegada);
-            }
+            // if (!is_null($request->dia_llegada)) {
+            //     $coincidencias = $coincidencias->where('dia_llegada',$request->dia_llegada);
+            // }
             if (isset($request->viaje_redondo)) {
                 $coincidencias = $coincidencias->where('redondo',true);
             }
