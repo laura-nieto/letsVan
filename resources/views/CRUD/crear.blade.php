@@ -28,7 +28,7 @@
 <section class="w-50 crud--new">
     <a href="{{url()->previous()}}" class="btn btn-lets mr-3 fsize-1">Regresar</a>
 </section>
-<article class="w-75 w-95 mx-auto mb-5 border">
+<article class="w-75 w-90-responsive mx-auto mb-5 border">
     <form action="{{ route(Request::segment(1) . '.store')}}" method="post" class="p-5 form--new" enctype="multipart/form-data">
         @csrf
         @switch(Request::segment(1))

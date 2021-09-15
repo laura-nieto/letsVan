@@ -139,6 +139,7 @@ class CorridaController extends Controller
     {
         $origen = Destino::where('destino', session('datos_vuelta')['origen'])->where('destino_origen','origen')->first()->id;
         $destino = Destino::where('destino', session('datos_vuelta')['destino'])->where('destino_origen','destino')->first()->id;
+        session()->flash('vuelta', 'de Vuelta');
 
         // BUSQUEDA
         $coincidencias = Corrida::where('origen',$origen)->where('destino',$destino);
@@ -167,6 +168,7 @@ class CorridaController extends Controller
       
         if ($request->tipo == 1) {
             $request->session()->put('redondo',true);
+            $request->session()->flash('ida', 'de Ida');
         }
 
         // BUSQUEDA

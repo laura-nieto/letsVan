@@ -27,13 +27,6 @@ use App\Http\Controllers\PrecioController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// use Illuminate\Database\Schema\Blueprint;
-// use Illuminate\Support\Facades\Schema;
-// Route::get('/asd',function(){
-//     Schema::table('payments', function (Blueprint $table) {
-//         $table->string('descripcion_regreso')->nullable();
-//     });
-// });
 
 Route::get('/',[HomeController::class,'index'])->name('index');
 Route::get('/terminos-y-condiciones',[HomeController::class,'terminos']);

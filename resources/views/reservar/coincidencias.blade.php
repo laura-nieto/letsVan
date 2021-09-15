@@ -4,7 +4,14 @@
 <div class="background-lets vh-main">
     <article class="home--title">
         <h2 class="text-center h1">
-            Ver Viajes
+            Ver Viajes 
+            @if (session()->exists('redondo'))
+                @if(session()->exists('ida'))
+                    {{session()->get('ida')}}
+                @elseif(session()->exists('vuelta'))
+                    {{session()->get('vuelta')}}
+                @endif
+            @endif
         </h2>
     </article>
     @if (session('error'))

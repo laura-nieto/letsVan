@@ -35,7 +35,7 @@
         {{session('mensaje.success')}}
     </div>
     @endif
-    <section class="px-lg-5 mx-2 mx-lg-0">
+    <section class="px-lg-5 mx-2 mx-lg-5">
         <table class="table table-hover table-padding-0">
             @switch(Request::segment(1))
             @case('unidad')

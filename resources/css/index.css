@@ -413,6 +413,9 @@ h1{
     .image-icon-width-responsive{
         width: 35px;
     }
+    .w-90-responsive{
+        width: 90%!important;
+    }
 }
 @media screen and (max-width: 637px){
     .around--btn{
