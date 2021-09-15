@@ -81,16 +81,16 @@
         @yield('main')
     </main>
     <footer class="bg-black text-white px-3 pt-3 footer-index d-flex flex-column flex-md-row flex-wrap">
-        <div class="d-flex justify-content-center justify-content-md-start align-items-center w-15 m-auto m-md-0">
+        <div class="d-flex justify-content-center justify-content-md-start align-items-center w-15 m-auto m-md-0 w-50-r320">
            <img src="{{asset('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')}}" alt="" class="w-100">
         </div>
         <div class="d-flex flex-column flex-md-row justify-content-around justify-content-md-start mt-3 mt-md-0 flex-grow-1">
-            <div class="mx-auto d-flex align-items-center">
-                <div class="d-flex align-items-center mr-5">
+            <div class="mx-auto d-flex align-items-center flex-column flex-sm-row">
+                <div class="d-flex align-items-center mr-sm-5">
                     <i class="fab fa-whatsapp fa-2x mr-2"></i>
                     <p class="m-0">4434489901</p>
                 </div>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center mt-3 mt-sm-0">
                     <i class="far fa-envelope fa-2x mr-2"></i>
                     <p class="m-0">ventas@letsvan.com.mx</p>
                 </div>

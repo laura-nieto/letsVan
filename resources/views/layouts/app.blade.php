@@ -88,27 +88,24 @@
         @yield('content')
     </main>
     <footer class="bg-black text-white px-3 pt-3 footer-index d-flex flex-column flex-md-row flex-wrap">
-        <div class="d-flex justify-content-center justify-content-md-start align-items-center w-15 m-auto m-md-0">
-            <img src="{{asset('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')}}" alt="" class="w-100">
+        <div class="d-flex justify-content-center justify-content-md-start align-items-center w-15 m-auto m-md-0 w-50-r320">
+           <img src="{{asset('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')}}" alt="" class="w-100">
         </div>
-        <div
-            class="d-flex flex-column flex-md-row justify-content-around justify-content-md-start mt-3 mt-md-0 flex-grow-1">
-            <div class="mx-auto d-flex align-items-center">
-                <div class="d-flex align-items-center mr-5">
+        <div class="d-flex flex-column flex-md-row justify-content-around justify-content-md-start mt-3 mt-md-0 flex-grow-1">
+            <div class="mx-auto d-flex align-items-center flex-column flex-sm-row">
+                <div class="d-flex align-items-center mr-sm-5">
                     <i class="fab fa-whatsapp fa-2x mr-2"></i>
                     <p class="m-0">4434489901</p>
                 </div>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center mt-3 mt-sm-0">
                     <i class="far fa-envelope fa-2x mr-2"></i>
                     <p class="m-0">ventas@letsvan.com.mx</p>
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center mt-4 mt-md-0">
                 <p class="m-0 mr-4">Encuéntranos en:</p>
-                <a href="https://www.instagram.com/letsvanmx/" target="_blank" class="text-white mr-4"><i
-                        class="fab fa-instagram fa-2x"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100072046007486" target="_blank" class="text-white"><i
-                        class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="https://www.instagram.com/letsvanmx/" target="_blank" class="text-white mr-4"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100072046007486" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
             </div>
         </div>
         <div class="d-flex flex-column align-items-center mt-3 mt-lg-0 w-100">
