@@ -161,8 +161,8 @@
                 <img src="{{asset('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')}}" alt="Logo Lets Van" class="img-logo">
             </div>
             <div class="mb-md-5 text-center-r320">
-                <h2>Empresa 100% Mexicana</h2>
-                <h3>Agencia de Viajes Online</h3>
+                <h2 class="color--lets shadow-text">Empresa 100% Mexicana</h2>
+                <h3 class="color--lets shadow-text">Agencia de Viajes Online</h3>
             </div>
             <div class="d-flex align-items-center flex-fill py-4 mt-5 mt-md-0">
                 <div class="mr-3">
@@ -463,8 +463,8 @@
                 <img src="{{asset('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')}}" alt="Logo Lets Van" class="img-logo">
             </div>
             <div class="mb-md-5 text-center-r320">
-                <h2>Empresa 100% Mexicana</h2>
-                <h3>Agencia de Viajes Online</h3>
+                <h2 class="color--lets shadow-text">Empresa 100% Mexicana</h2>
+                <h3 class="color--lets shadow-text">Agencia de Viajes Online</h3>
             </div>
             <div class="d-flex align-items-center flex-fill py-4 mt-5 mt-md-0">
                 <div class="mr-3">
