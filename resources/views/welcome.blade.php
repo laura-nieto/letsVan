@@ -350,7 +350,7 @@
         <form action="{{route('corrida.buscar')}}" method="get">
             <article class="mb-3">
                 <div class="w-15 mb-3 w-100-r320">
-                    <select class="form-control bg-lets-light" aria-label="tipo" id="tipo">
+                    <select class="form-control bg-lets-light" aria-label="tipo" id="tipo" name="tipo">
                         <option value="0" selected>Sencillo</option>
                         <option value="1">Redondo</option>
                     </select>
