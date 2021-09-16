@@ -84,13 +84,14 @@ Route::middleware(['auth'])->group(function(){
     // VER RESERVAS
     Route::get('/reservas/ver/{id}',[UserController::class,'ver_reservas'])->name('ver_reservas');
     Route::get('/pago/{id}',[PaymentController::class,'show'])->name('ver_corrida');
+    Route::get('corrida/{corrida}',[CorridaController::class,'show']);
 
     // PASAJE ADMIN
     Route::get('/buscar/admin',[HomeController::class,'buscador'])->name('corrida.admin_buscar')->middleware('admin');
 
     Route::resource('unidad',UnidadController::class)->middleware('admin');
     Route::resource('chofer',ChoferController::class)->middleware('admin');
-    Route::resource('corrida',CorridaController::class)->middleware('admin');
+    Route::resource('corrida',CorridaController::class)->except(['show'])->middleware('admin');
     Route::resource('servicio',ServicioController::class)->middleware('admin');
     Route::resource('destino',DestinoController::class)->middleware('admin');
     Route::resource('cupon',CuponController::class)->middleware('admin');
