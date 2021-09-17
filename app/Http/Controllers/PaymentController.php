@@ -145,7 +145,7 @@ class PaymentController extends Controller
         
                 $newAsiento = new Asiento;
                 $newAsiento->pasajero_id = $newPasajero->id;
-                $newAsiento->corrida_id = $idCorrida;
+                $newAsiento->corrida_id = session()->get('corrida_vuelta');
                 $newAsiento->asiento = $asientos[$indexAsiento];
                 $newAsiento->user_id = $idUser;
                 $newAsiento->save();
@@ -244,7 +244,7 @@ class PaymentController extends Controller
 
             $newAsiento = new Asiento;
             $newAsiento->pasajero_id = $newPasajero->id;
-            $newAsiento->corrida_id = $idCorrida;
+            $newAsiento->corrida_id = session()->get('corrida_vuelta');
             $newAsiento->asiento = $asientos[$indexAsiento];
             $newAsiento->user_id = $idUser;
             $newAsiento->save();
@@ -287,7 +287,7 @@ class PaymentController extends Controller
         $newComprador->save();
 
         $ida = Corrida::findOrFail(session('corrida_ida'));
-        $vuelta = Corrida::findOrFail($idCorrida);
+        $vuelta = Corrida::findOrFail(session('corrida_vuelta'));
 
         // PAYMENT
         $payment=new Payment;

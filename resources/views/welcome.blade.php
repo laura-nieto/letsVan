@@ -211,9 +211,9 @@
         <h2 class="text-center mb-3 color-black">Sobre nosotros</h2>
         <div class="d-flex flex-md-row flex-column justify-content-center description-as">
             <p class="mr-md-5">
-                LET’S VAN es una empresa 100% mexicana, agencia de viajes on line. Dentro del segmento turistico dedicado a
+                LET’S VAN es una empresa 100% mexicana, agencia de viajes online. Dentro del segmento turistico dedicado a
                 organizar grupos de personas que desean viajar de Morelia a la CDMX y viceversa, en donde buscamos que cada
-                viaje sea facíl, accesible, comodo y seguro. Haciendo uso de las tecnologías para coordinar al grupo de
+                viaje sea fácil, accesible, comodo y seguro. Haciendo uso de las tecnologías para coordinar al grupo de
                 personas que utilicen esta ruta de viaje constante y puedan ahorrar dinero en cada viaje.
             </p>
             <p>
@@ -512,9 +512,9 @@
         <h2 class="text-center mb-3 color-black">Sobre nosotros</h2>
         <div class="d-flex flex-md-row flex-column justify-content-center description-as">
             <p class="mr-md-5">
-                LET’S VAN es una empresa 100% mexicana, agencia de viajes on line. Dentro del segmento turistico dedicado a
+                LET’S VAN es una empresa 100% mexicana, agencia de viajes online. Dentro del segmento turistico dedicado a
                 organizar grupos de personas que desean viajar de Morelia a la CDMX y viceversa, en donde buscamos que cada
-                viaje sea facíl, accesible, comodo y seguro. Haciendo uso de las tecnologías para coordinar al grupo de
+                viaje sea fácil, accesible, comodo y seguro. Haciendo uso de las tecnologías para coordinar al grupo de
                 personas que utilicen esta ruta de viaje constante y puedan ahorrar dinero en cada viaje.
             </p>
             <p>
