@@ -200,6 +200,7 @@
                 </thead>
                 <tbody>
                     @foreach ($cupones as $cupon)
+                    <tr>
                         <td>{{$cupon->nombre}}</td>
                         <td>${{$cupon->descuento}}</td>
                         <td class="d-flex d-flex-justify-around around--btn">
@@ -211,6 +212,7 @@
                                 <input type="submit" class="btn btn-danger" value="Eliminar">
                             </form>
                         </td>
+                    </tr>
                     @endforeach
                 </tbody>
             @endswitch

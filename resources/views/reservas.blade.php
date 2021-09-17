@@ -21,7 +21,7 @@
                 <tbody>
                     @foreach ($payments as $payment)
                         <tr>
-                            <td>{{$payment->corrida->id}} - <a href="/corrida/{{$payment->corrida->id}}">Ver detalles</a></td>
+                            <td>{{$payment->corrida->id}} - <a href="/reserva/success/{{$payment->corrida->id}}">Ver detalles</a></td>
                             <td>
                                 @foreach (json_decode($payment->asientos) as $asiento)
                                     {{$asiento . ','}}
