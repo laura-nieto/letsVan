@@ -15,6 +15,9 @@
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     
+    <!-- ICON -->
+    <link rel="shortcut icon" href="{{asset('img/logo/Logo-32x32.png')}}"/>
+
 </head>
 
 <body>

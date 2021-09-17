@@ -22,6 +22,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="shortcut icon" href="{{asset('img/logo/Logo-32x32.png')}}"/>
 </head>
 
 <body>
