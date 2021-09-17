@@ -90,7 +90,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::resource('unidad',UnidadController::class)->middleware('admin');
     Route::resource('chofer',ChoferController::class)->middleware('admin');
-    Route::resource('corrida',CorridaController::class)->except(['show'])->middleware('admin');
+    Route::resource('corrida',CorridaController::class)->middleware('admin');
     Route::resource('servicio',ServicioController::class)->middleware('admin');
     Route::resource('destino',DestinoController::class)->middleware('admin');
     Route::resource('cupon',CuponController::class)->middleware('admin');
