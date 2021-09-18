@@ -12,16 +12,14 @@ class RejectMailable extends Mailable
     use Queueable, SerializesModels;
     
     public $subject="Let's Van - Su pago ha sido rechazado";
-    public $link;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($link)
+    public function __construct()
     {
-        $this->link = $link;
     }
 
     /**

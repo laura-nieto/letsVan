@@ -125,10 +125,27 @@ class PaymentsImageController extends Controller
                 $paymentsImage->visto = 1;
                 $paymentsImage->save();
 
+                // BORRAR ASIENTO
+                $pago = $paymentsImage->payment;
+                $asientosReserv = json_decode($pago->asientos);
+                foreach ($asientosReserv as $asientoReserv) {
+                    $asiento = Asiento::where('corrida_id',$pago->corrida->id)->where('asiento',$asientoReserv)->first()->delete();
+                }
+
+                // BORRAR ASIENTO VUELTA
+                if ($pago->descripcion_regreso != null) {
+                    $vuelta = json_decode($pago->descripcion_regreso,true);
+                    $asientosVuelta = $vuelta['asientos'];
+                    $corridaVuelta = $vuelta['corrida'];
+                    foreach ($asientosVuelta as $asientoVuelta) {
+                        $asiento = Asiento::where('corrida_id',$corridaVuelta)->where('asiento',$asientoVuelta)->first()->delete();  
+                    }
+                }
+
                 //MAIL
                 $comprador = $paymentsImage->payment->comprador;
-                $link = $request->gethost() . '/pagar/transferencia/subir/' . $paymentsImage->payment->number_order;
-                $correo = new RejectMailable($link);
+                // $link = $request->gethost() . '/pagar/transferencia/subir/' . $paymentsImage->payment->number_order;
+                $correo = new RejectMailable();
                 Mail::to($comprador->email)->send($correo);
 
                 return redirect()->route('ver_transferencias')->with('success','El pago ha sido rechazado');
