@@ -67,7 +67,7 @@ class PaymentController extends Controller
         }
         // MAIL
         $correo=new NuevaTransferencia;
-        Mail::to('laurriscienta@gmail.com')->send($correo);
+        Mail::to('ventas@letsvan.com.mx')->send($correo);
 
         return view('transferencias.message',['error'=>true]);
     }
