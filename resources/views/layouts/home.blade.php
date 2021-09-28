@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     
     <!-- ICON -->
-    <link rel="shortcut icon" href="{{asset('img/logo/Logo-32x32.png')}}"/>
-
+    <link rel="shortcut icon" href="{{asset('img/logo/Logo-32x32.png')}}"/> 
 </head>
 
 <body>
@@ -88,12 +87,30 @@
            <img src="{{asset('/img/logo/LOGO-FONDO-NEGRO-LV-2.jpg')}}" alt="" class="w-100">
         </div>
         <div class="d-flex flex-column flex-md-row justify-content-around justify-content-md-start mt-3 mt-md-0 flex-grow-1">
-            <div class="mx-auto d-flex align-items-center flex-column flex-sm-row">
-                <div class="d-flex align-items-center mr-sm-5">
-                    <i class="fab fa-whatsapp fa-2x mr-2"></i>
-                    <p class="m-0">4434489901</p>
+            <div class="mx-auto d-flex align-items-center flex-column flex-lg-row">
+                <div class="d-flex align-items-center mr-lg-4">
+                    <div class="d-flex align-items-center mr-4 ">
+                        <i class="fab fa-whatsapp fa-2x mr-2"></i>
+                        <p class="m-0">4434489901</p>
+                    </div>
+                    <div>
+                        <div class="d-flex align-items-center mt-3 mt-sm-0">
+                            <i class="fas fa-phone fa-2x mr-2"></i>
+                            <div>
+                                <p class="m-0 text-center">Morelia</p>
+                                <p class="m-0">4432921056</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mt-3 mt-sm-0">
+                            <i class="fas fa-phone fa-2x mr-2"></i>
+                            <div>
+                                <p class="m-0 text-center">CDMX</p>
+                                <p class="m-0">5541616025</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center mt-3 mt-sm-0">
+                <div class="d-flex align-items-center mt-4 mt-lg-0">
                     <i class="far fa-envelope fa-2x mr-2"></i>
                     <p class="m-0">ventas@letsvan.com.mx</p>
                 </div>
@@ -104,7 +121,7 @@
                 <a href="https://www.facebook.com/profile.php?id=100072046007486" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-2x"></i></a>
             </div>
         </div>
-        <div class="d-flex flex-column align-items-center mt-3 mt-lg-0 w-100">
+        <div class="d-flex flex-column align-items-center mt-3 mt-lg-3 w-100">
             <a href="/terminos-y-condiciones">Terminos y Condiciones</a>
             <a href="/avisos-de-privacidad">Avisos de Privacidad</a>
         </div>

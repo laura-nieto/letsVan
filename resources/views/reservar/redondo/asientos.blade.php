@@ -13,10 +13,84 @@
         </div>
     @endif
     <article class="w-75 m-auto reservar--asientos">
+        @if ($ida->unidad->asientos == 11)
+            <section class="d-flex justify-content-center">
+                <figure class="figure">
+                    <img src="{{asset('img/viaje-11.png')}}" alt="Vista de los asientos" class="figure-img img-fluid rounded width-500">
+                    <figcaption class="figure-caption">Imágen estipulativa.</figcaption>
+                </figure>
+            </section>
+            <section class="d-flex justify-content-center asientos-reserva-13">
+                <form action="" method="post" class="d-flex flex-column">
+                    @csrf
+                    <input type="hidden" id="limit" value="{{$cantidad_ida}}">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check"  name="asiento[]" value="1" {{$ida->asientos->where('asiento',1)->isNotEmpty() ? 'disabled':''}} id="1">
+                                    <label for="1" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="6" {{$ida->asientos->where('asiento',6)->isNotEmpty() ? 'disabled':''}} id="6">
+                                    <label for="6" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="9" {{$ida->asientos->where('asiento',9)->isNotEmpty() ? 'disabled':''}} id="9">
+                                    <label for="9" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+
+                                </td>  
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="3" {{$ida->asientos->where('asiento',3)->isNotEmpty() ? 'disabled':''}} id="3">
+                                    <label for="3" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="5" {{$ida->asientos->where('asiento',5)->isNotEmpty() ? 'disabled':''}} id="5">
+                                    <label for="5" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="8" {{$ida->asientos->where('asiento',8)->isNotEmpty() ? 'disabled':''}} id="8">
+                                    <label for="8" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="11" {{$ida->asientos->where('asiento',11)->isNotEmpty() ? 'disabled':''}} id="11">
+                                    <label for="11" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>   
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="2" {{$ida->asientos->where('asiento',2)->isNotEmpty() ? 'disabled':''}} id="2">
+                                    <label for="2" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="4" {{$ida->asientos->where('asiento',4)->isNotEmpty() ? 'disabled':''}} id="4">
+                                    <label for="4" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="7" {{$ida->asientos->where('asiento',7)->isNotEmpty() ? 'disabled':''}} id="7">
+                                    <label for="7" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>
+                                <td>
+                                    <input type="checkbox" class="size-input-check propio-check" name="asiento[]" value="10" {{$ida->asientos->where('asiento',10)->isNotEmpty() ? 'disabled':''}} id="10">
+                                    <label for="10" class="label-propio-check"><img src="{{asset('/img/armchair.png')}}" alt=""></label>
+                                </td>   
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary my-3 mx-auto">Seleccionar</button>
+                </form>
+            </section>
+        @endif
         @if ($ida->unidad->asientos == 13)
             <section class="d-flex justify-content-center">
                 <figure class="figure">
-                    <img src="{{asset('img/viaje-13.PNG')}}" alt="Vista de los asientos" class="figure-img img-fluid rounded width-500">
+                    <img src="{{asset('img/viaje-13.png')}}" alt="Vista de los asientos" class="figure-img img-fluid rounded width-500">
                     <figcaption class="figure-caption">Imágen estipulativa.</figcaption>
                 </figure>
             </section>
@@ -105,7 +179,7 @@
         @if ($ida->unidad->asientos == 20)
         <section class="d-flex justify-content-center">
             <figure class="figure">
-                <img src="{{asset('img/viaje-20.PNG')}}" alt="Vista de los asientos" class="figure-img img-fluid rounded width-500">
+                <img src="{{asset('img/viaje-20.png')}}" alt="Vista de los asientos" class="figure-img img-fluid rounded width-500">
                 <figcaption class="figure-caption">Imágen estipulativa.</figcaption>
             </figure>
         </section>

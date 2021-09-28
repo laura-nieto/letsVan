@@ -48,7 +48,9 @@
                             @elseif($payment->pay == 1)
                             Pagado
                             @elseif($payment->pay == 2)
-                            Pago no realizado
+                            Pago no realizado aún
+                            @elseif($payment->pay == 3)
+                            Nunca pagada
                             @endif
                         </td>
                     </tr>

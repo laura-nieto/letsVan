@@ -132,12 +132,16 @@ class UnidadController extends Controller
         $unidad->propietario = $request->propietario;
         $unidad->asientos = $request->asientos;
         $unidad->costo_renta = $request->costo_renta;
+        //IMAGEN 
+        if($request->hasfile('imagen')){
+            $nameImg= uniqid() . '.'. $request->file('imagen')->getClientOriginalExtension();
+            $request->file('imagen')->move(public_path('img/unidades'), $nameImg);
+            $unidad->image = $nameImg;
+        }
         $unidad->save();
 
-        //SERVICIOS
-        foreach ($request->servicios as $servicio){
-            $unidad->servicios()->attach($servicio);
-        }
+        //SERVICIOS 
+        $unidad->servicios()->sync($request->servicios);
 
         return redirect()->route('unidad.index')->with('mensaje.success','La unidad ha sido actualizada');
     }

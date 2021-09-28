@@ -51,7 +51,6 @@ class LimpiarReservas extends Command
 
         foreach ($payments as $payment) {
             $diff =  $now->diffInRealMinutes($payment->created_at);
-            $msj = $diff;
 
             if ($diff == 420 || $diff == 419) {
                 $link = $request->gethost() . '/pagar/transferencia/subir/' . $payment->number_order;
@@ -65,7 +64,16 @@ class LimpiarReservas extends Command
                 foreach ($asientosReserv as $asientoReserv) {
                     $asiento = Asiento::where('corrida_id',$corrida->id)->where('asiento',$asientoReserv)->first()->delete();
                 }
-                $payment->delete();
+                if ($payment->descripcion_regreso != null) {
+                    $vuelta = json_decode($payment->descripcion_regreso,true);
+                    $asientosVuelta = $vuelta['asientos'];
+                    $corridaVuelta = $vuelta['corrida'];
+                    foreach ($asientosVuelta as $asientoVuelta) {
+                        $asiento = Asiento::where('corrida_id',$corridaVuelta)->where('asiento',$asientoVuelta)->first()->delete();  
+                    }
+                }
+                $payment->pay = 3;
+                $payment->save();
             }
         }
 

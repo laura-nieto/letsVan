@@ -89,7 +89,11 @@ class PaymentController extends Controller
             $request->session()->put('total',$total);
             $request->session()->put('cupon',$cupon->descuento);
             
-            return redirect()->route('vista_pagar',$idCorrida)->with('success','Cupón ingresado con éxito');
+            if ($request->segment(1) == 'redondo') {
+                return redirect()->route('vista_pagar_redondo',$idCorrida)->with('success','Cupón ingresado con éxito');
+            }else{
+                return redirect()->route('vista_pagar',$idCorrida)->with('success','Cupón ingresado con éxito');
+            }
         }else{
             return redirect()->route('vista_pagar',$idCorrida)->with('error','El cupón que ingresó no es correcto');
         }

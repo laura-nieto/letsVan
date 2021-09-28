@@ -33,6 +33,13 @@
         @method('put') 
         @switch(Request::segment(1))
             @case('unidad')
+                <div class="mb-4">
+                    @error('imagen')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                    <label for="exampleFormControlFile1" class="fsize-1">Imágen de la unidad.</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="imagen">
+                </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Marca</label>
                     <input type="text" class="form-control @error('servicios') is-invalid @enderror" aria-describedby="emailHelp" name="marca" value="{{$unidad->marca}}">
@@ -136,14 +143,14 @@
 
             @case('corrida')
                 <section>
-                    <div class="mb-3">    
+                    <div class="mb-3"> 
                         <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-md-start">
                             <div class="mr-md-3 mb-2 mb-md-0 w-100-sm-responsive">
                                 <label for="" class="form-label">Origen</label>
                                 <select class="form-control" name="origen">
                                     <option selected disabled hidden>Seleccionar Origen</option>
                                     @foreach ($origenes as $origen)
-                                        @if ($unidad->origen === $origen->id)
+                                        @if ($unidad->origen == $origen->id)
                                             <option selected value="{{$origen->id}}">{{$origen->destino}}</option> 
                                         @else
                                             <option value="{{$origen->id}}">{{$origen->destino}}</option>
@@ -156,7 +163,7 @@
                                 <select class="form-control" name="destino">
                                     <option selected disabled hidden>Seleccionar Destino</option>
                                     @foreach ($destinos as $destino)
-                                        @if ($unidad->destino === $destino->id)
+                                        @if ($unidad->destino == $destino->id)
                                             <option selected value="{{$destino->id}}">{{$destino->destino}}</option> 
                                         @else
                                             <option value="{{$destino->id}}">{{$destino->destino}}</option>

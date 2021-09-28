@@ -83,7 +83,7 @@
         @if ($ida->precio->cupon)
             <div class="card mb-5">
                 <div class="card-body">
-                    <form action="{{route('descuento_cupon',$ida->id)}}" method="post" class="w-25">
+                    <form action="{{route('descuento_cupon_redondo',$ida->id)}}" method="post" class="w-25">
                         @csrf
                         <div class="mb-3">
                             <h5 class="form-label">Cupón</h5>
@@ -105,10 +105,10 @@
                     @endif
                     @if($pasajes['adultos'])
                         <h5>Adultos: {{$pasajes['adultos']}} x  ${{$corrida->precio->adulto}}</h5>
-                    @endif
+                    @endif --}}
                     @if (session('cupon'))
                         <h5>Descuento: ${{session('cupon')}}</h5>
-                    @endif --}}
+                    @endif 
                     <h4>Total a pagar: ${{$total}}</h4>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">

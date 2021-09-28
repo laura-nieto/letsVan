@@ -67,6 +67,7 @@ Route::get('/reservar/vuelta/{id}/asiento',[CorridaController::class,'mostrar_as
 Route::post('/reservar/vuelta/{id}/asiento',[CorridaController::class,'mostrar_asientos_vuelta_validate']);
 
 Route::get('/pagar/redondo/{id}',[CorridaController::class,'vista_pagar_redondo'])->name('vista_pagar_redondo');
+Route::post('/redondo/descuento/cupon/{id}',[PaymentController::class,'descontar'])->name('descuento_cupon_redondo');
 Route::get('/payment/redondo/success/{id}/payment',[PaymentController::class,'vista_success_redondo'])->name('payment.success.redondo');
 Route::get('/reserva/redondo/success/{ida}/{vuelta}',[CorridaController::class,'informacion_viaje_redondo'])->name('reserva_informacion_redondo');
 
